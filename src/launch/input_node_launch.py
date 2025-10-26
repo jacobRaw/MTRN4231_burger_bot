@@ -13,7 +13,10 @@ def generate_launch_description():
         # DeclareLaunchArgument('dynamic_broadcaster', default_value='shape2', description='Namespace for shape2 marker node'),
         
         Node(
-            package='userInput',
+            package='user_input',
             executable='run_inputNode',
+            name='inputNode',
+            emulate_tty=True,
+            output='screen',
         ),
     ])

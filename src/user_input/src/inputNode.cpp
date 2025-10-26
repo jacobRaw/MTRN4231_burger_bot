@@ -1,4 +1,4 @@
-// UserInput node which reads in the userName and order from std::cin and appropriately 
+// UserInput node which reads in the userName and order from /input topic and appropriately 
 // starts an action server with the brain to create the burger
 
 #include <chrono>
@@ -8,15 +8,17 @@
 #include <iostream>
 
 #include "rclcpp/rclcpp.hpp"
-// #include "std_msgs/msg/string.hpp"
-// #include "std_msgs/msg/int64.hpp"
-// #include "geometry_msgs/msg/pose.hpp"
-// #include "tutorial_interfaces/msg/posestamped.hpp"
+#include "custom_interfaces/msg/command.hpp"
 
 using std::placeholders::_1;
 
-/* This example creates a subclass of Node and uses std::bind() to register a
- * member function as a callback from the timer. */
+enum class Burgers {
+  CheeseBurger,
+  VeggieBurger,
+  ChickenBurger,
+  DoublePattyBurger,
+  LoadedBurger
+};
 
 class InputNode : public rclcpp::Node
 {
@@ -24,28 +26,26 @@ public:
   InputNode()
   : Node("InputNode")
   {
-    // subscription_ = this->create_subscription<>(
-    //   "lab1_topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+    RCLCPP_INFO(this->get_logger(), "InputNode has started.");
+    input_sub = this->create_subscription<custom_interfaces::msg::Command>(
+      "input", 10, std::bind(&InputNode::topic_callback, this, _1));
   }
 
 private:
+  rclcpp::Subscription<custom_interfaces::msg::Command>::SharedPtr input_sub;
+
+  void topic_callback(const custom_interfaces::msg::Command::SharedPtr msg)
+  {
+    RCLCPP_INFO(this->get_logger(), "User Name: '%s'", msg->username.data.c_str());
+    RCLCPP_INFO(this->get_logger(), "Order: '%s'", msg->order.data.c_str());
+  }
 
 };
 
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  
-  std::string userName = "";
-  std::string burger = "";
-  std::cout << "Please enter you user name: ";
-  std::cin >> userName;
-
-  std::cout << "Please enter your burger order: ";
-  std::cin >> burger;
-
-  std::cout << "Initiating action for " << userName << " with burger order: " << burger << std::endl;
-
+  rclcpp::spin(std::make_shared<InputNode>());
   rclcpp::shutdown();
   return 0;
 }
