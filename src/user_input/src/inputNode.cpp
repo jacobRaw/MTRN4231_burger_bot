@@ -2,8 +2,6 @@
 // starts an action server with the brain to create the burger
 
 #include <chrono>
-// #include <functional>
-// #include <memory>
 #include <string>
 #include <iostream>
 
@@ -12,13 +10,13 @@
 
 using std::placeholders::_1;
 
-enum class Burgers {
-  CheeseBurger,
-  VeggieBurger,
-  ChickenBurger,
-  DoublePattyBurger,
-  LoadedBurger
-};
+// enum class Burgers {
+//   CheeseBurger,
+//   VeggieBurger,
+//   ChickenBurger,
+//   DoublePattyBurger,
+//   LoadedBurger
+// };
 
 class InputNode : public rclcpp::Node
 {
