@@ -1,3 +1,5 @@
-src/build
-src/install
-src/log
+*/build
+*/install
+*/log
+.env
+*.db3
