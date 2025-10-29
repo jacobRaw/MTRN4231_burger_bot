@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_interface",
+  "non_idl_tuples": [
+    "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface:srv/MovementRequest.srv"
+  ]
+}

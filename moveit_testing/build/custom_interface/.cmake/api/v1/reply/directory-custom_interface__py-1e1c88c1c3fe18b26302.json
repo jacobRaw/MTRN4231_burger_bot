@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "custom_interface__py",
+		"source" : "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface/custom_interface__py"
+	}
+}

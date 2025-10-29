@@ -1,0 +1,189 @@
+[0.148s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[0.148s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x732d8bb62d10>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x732d8bb62260>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x732d8bb62260>>, mixin_verb=('build',))[0m
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[0.191s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing'
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[0.192s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[0.208s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore_ament_install'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_pkg']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_pkg'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_meta']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_meta'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ros']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ros'
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['cmake', 'python']
+[0.209s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'cmake'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['python_setup_py']
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python_setup_py'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extension 'ignore'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extension 'ignore_ament_install'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extensions ['colcon_pkg']
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extension 'colcon_pkg'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extensions ['colcon_meta']
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extension 'colcon_meta'
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extensions ['ros']
+[0.210s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interface) by extension 'ros'
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/custom_interface' with type 'ros.ament_cmake' and name 'custom_interface'[0m
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extension 'ignore'
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extension 'ignore_ament_install'
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extensions ['colcon_pkg']
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extension 'colcon_pkg'
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extensions ['colcon_meta']
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extension 'colcon_meta'
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extensions ['ros']
+[0.213s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/moveit_path_planner) by extension 'ros'
+[0.214s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/moveit_path_planner' with type 'ros.ament_cmake' and name 'moveit_path_planner'[0m
+[0.214s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[0.214s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[0.214s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[0.214s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[0.214s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[0.231s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[0.231s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[0.234s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 351 installed packages in /opt/ros/humble[0m
+[0.236s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_args' from command line to 'None'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_target' from command line to 'None'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'custom_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface', 'merge_install': False, 'path': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface', 'symlink_install': False, 'test_result_base': None}[0m
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_args' from command line to 'None'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_target' from command line to 'None'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'moveit_path_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'moveit_path_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner', 'merge_install': False, 'path': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/moveit_path_planner', 'symlink_install': False, 'test_result_base': None}[0m
+[0.285s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[0.287s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[0.287s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface' with build type 'ament_cmake'
+[0.287s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface'
+[0.289s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.289s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.289s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.297s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface[0m
+[2.908s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface[0m
+[2.911s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface -- -j8 -l8[0m
+[5.995s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface -- -j8 -l8[0m
+[6.008s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface[0m
+[6.093s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(custom_interface)
+[6.094s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface[0m
+[6.096s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface' for CMake module files
+[6.097s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface' for CMake config files
+[6.097s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interface', 'cmake_prefix_path')
+[6.098s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.ps1'
+[6.098s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.dsv'
+[6.099s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.sh'
+[6.100s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib'
+[6.100s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interface', 'ld_library_path_lib')
+[6.100s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.ps1'
+[6.101s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.dsv'
+[6.101s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.sh'
+[6.102s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/bin'
+[6.102s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/pkgconfig/custom_interface.pc'
+[6.102s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/python3.10/site-packages'
+[6.102s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/bin'
+[6.102s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.ps1'
+[6.103s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.dsv'
+[6.104s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.sh'
+[6.105s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.bash'
+[6.105s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.zsh'
+[6.106s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/colcon-core/packages/custom_interface)
+[6.107s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(custom_interface)
+[6.107s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface' for CMake module files
+[6.108s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface' for CMake config files
+[6.108s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interface', 'cmake_prefix_path')
+[6.108s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.ps1'
+[6.109s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.dsv'
+[6.109s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/cmake_prefix_path.sh'
+[6.109s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib'
+[6.110s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interface', 'ld_library_path_lib')
+[6.110s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.ps1'
+[6.110s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.dsv'
+[6.111s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/hook/ld_library_path_lib.sh'
+[6.111s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/bin'
+[6.111s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/pkgconfig/custom_interface.pc'
+[6.111s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/python3.10/site-packages'
+[6.111s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/bin'
+[6.112s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.ps1'
+[6.112s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.dsv'
+[6.113s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.sh'
+[6.113s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.bash'
+[6.125s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.zsh'
+[6.126s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/colcon-core/packages/custom_interface)
+[6.126s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/moveit_path_planner' with build type 'ament_cmake'
+[6.126s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/moveit_path_planner'
+[6.127s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.127s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[6.140s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/moveit_path_planner -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner[0m
+[8.613s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner' returned '1': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/moveit_path_planner -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner[0m
+[8.628s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(moveit_path_planner)
+[8.628s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner' for CMake module files
+[8.629s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner' for CMake config files
+[8.629s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/bin'
+[8.629s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/lib/pkgconfig/moveit_path_planner.pc'
+[8.629s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/lib/python3.10/site-packages'
+[8.630s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/bin'
+[8.630s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.ps1'
+[8.631s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.dsv'
+[8.631s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.sh'
+[8.631s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.bash'
+[8.632s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.zsh'
+[8.632s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/colcon-core/packages/moveit_path_planner)
+[8.643s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[8.643s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[8.643s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '1'[0m
+[8.643s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[8.649s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[8.649s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[8.649s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[8.665s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[8.665s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/local_setup.ps1'
+[8.667s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/_local_setup_util_ps1.py'
+[8.669s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/setup.ps1'
+[8.670s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/local_setup.sh'
+[8.671s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/_local_setup_util_sh.py'
+[8.671s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/setup.sh'
+[8.673s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/local_setup.bash'
+[8.673s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/setup.bash'
+[8.675s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/local_setup.zsh'
+[8.676s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/setup.zsh'

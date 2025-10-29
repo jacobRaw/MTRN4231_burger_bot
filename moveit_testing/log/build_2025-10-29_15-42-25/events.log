@@ -1,0 +1,469 @@
+[0.000000] (-) TimerEvent: {}
+[0.000340] (custom_interface) JobQueued: {'identifier': 'custom_interface', 'dependencies': OrderedDict()}
+[0.000458] (moveit_path_planner) JobQueued: {'identifier': 'moveit_path_planner', 'dependencies': OrderedDict([('custom_interface', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface')])}
+[0.001152] (custom_interface) JobStarted: {'identifier': 'custom_interface'}
+[0.025527] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'cmake'}
+[0.027964] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'build'}
+[0.029739] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface', '--', '-j8', '-l8'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1076'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1046,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1046'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/d37c6b18_1029_4da4_a630_588cac6aff40'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.2BUFF3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.239'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble')]), 'shell': False}
+[0.098699] (-) TimerEvent: {}
+[0.189833] (custom_interface) StdoutLine: {'line': b'[  3%] Built target custom_interface__cpp\n'}
+[0.200461] (custom_interface) StdoutLine: {'line': b'[ 12%] Built target custom_interface__rosidl_generator_c\n'}
+[0.200844] (-) TimerEvent: {}
+[0.240172] (custom_interface) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_custom_interface\n'}
+[0.295413] (custom_interface) StdoutLine: {'line': b'[ 22%] Built target custom_interface__rosidl_typesupport_introspection_cpp\n'}
+[0.302482] (custom_interface) StdoutLine: {'line': b'[ 32%] Built target custom_interface__rosidl_typesupport_cpp\n'}
+[0.302931] (-) TimerEvent: {}
+[0.306363] (custom_interface) StdoutLine: {'line': b'[ 41%] Built target custom_interface__rosidl_typesupport_fastrtps_cpp\n'}
+[0.316758] (custom_interface) StdoutLine: {'line': b'[ 51%] Built target custom_interface__rosidl_typesupport_introspection_c\n'}
+[0.317196] (custom_interface) StdoutLine: {'line': b'[ 61%] Built target custom_interface__rosidl_typesupport_c\n'}
+[0.319147] (custom_interface) StdoutLine: {'line': b'[ 70%] Built target custom_interface__rosidl_typesupport_fastrtps_c\n'}
+[0.376865] (custom_interface) StdoutLine: {'line': b'[ 70%] Built target custom_interface\n'}
+[0.403095] (-) TimerEvent: {}
+[0.434814] (custom_interface) StdoutLine: {'line': b'[ 74%] Built target custom_interface__py\n'}
+[0.500868] (custom_interface) StdoutLine: {'line': b'[ 80%] Built target custom_interface__rosidl_generator_py\n'}
+[0.503386] (-) TimerEvent: {}
+[0.570167] (custom_interface) StdoutLine: {'line': b'[ 87%] Built target custom_interface__rosidl_typesupport_c__pyext\n'}
+[0.570893] (custom_interface) StdoutLine: {'line': b'[ 93%] Built target custom_interface__rosidl_typesupport_introspection_c__pyext\n'}
+[0.572879] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.603515] (-) TimerEvent: {}
+[0.704309] (-) TimerEvent: {}
+[0.804773] (-) TimerEvent: {}
+[0.905347] (-) TimerEvent: {}
+[1.005937] (-) TimerEvent: {}
+[1.106499] (-) TimerEvent: {}
+[1.110612] (custom_interface) StdoutLine: {'line': b'running egg_info\n'}
+[1.187426] (custom_interface) StdoutLine: {'line': b'writing custom_interface.egg-info/PKG-INFO\n'}
+[1.188719] (custom_interface) StdoutLine: {'line': b'writing dependency_links to custom_interface.egg-info/dependency_links.txt\n'}
+[1.189386] (custom_interface) StdoutLine: {'line': b'writing top-level names to custom_interface.egg-info/top_level.txt\n'}
+[1.206620] (-) TimerEvent: {}
+[1.307170] (-) TimerEvent: {}
+[1.407535] (custom_interface) StdoutLine: {'line': b"reading manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[1.407965] (-) TimerEvent: {}
+[1.410818] (custom_interface) StdoutLine: {'line': b"writing manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[1.499005] (custom_interface) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_custom_interface_egg\n'}
+[1.508271] (-) TimerEvent: {}
+[1.527515] (custom_interface) CommandEnded: {'returncode': 0}
+[1.529956] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'install'}
+[1.555525] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1076'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1046,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1046'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/d37c6b18_1029_4da4_a630_588cac6aff40'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.2BUFF3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.239'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble')]), 'shell': False}
+[1.579710] (custom_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.580322] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/rosidl_interfaces/custom_interface\n'}
+[1.580649] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.581237] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[1.581750] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.582083] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.582358] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.h\n'}
+[1.582658] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.583015] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.h\n'}
+[1.583510] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.h\n'}
+[1.583773] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.c\n'}
+[1.584068] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.h\n'}
+[1.584381] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/library_path.sh\n'}
+[1.584650] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/library_path.dsv\n'}
+[1.585525] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so\n'}
+[1.585896] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.586145] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[1.586382] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.586608] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.587056] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.587644] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_c.h\n'}
+[1.588095] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so\n'}
+[1.588364] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.588633] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[1.588899] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[1.590211] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.591296] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.hpp\n'}
+[1.592573] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.592935] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.hpp\n'}
+[1.593731] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.hpp\n'}
+[1.594514] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__builder.hpp\n'}
+[1.595521] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__traits.hpp\n'}
+[1.595926] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.596248] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[1.597355] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.597699] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.597976] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.598232] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.598487] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/dds_fastrtps\n'}
+[1.598691] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.598909] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.599184] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[1.599457] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.599675] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.599951] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.600232] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_c.h\n'}
+[1.600499] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.c\n'}
+[1.600742] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so\n'}
+[1.601186] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so\n'}
+[1.601433] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface\n'}
+[1.601644] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[1.601889] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[1.602166] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.602372] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.cpp\n'}
+[1.602590] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so\n'}
+[1.602795] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so\n'}
+[1.603063] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/pythonpath.sh\n'}
+[1.603338] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/pythonpath.dsv\n'}
+[1.603559] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info\n'}
+[1.603790] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[1.604087] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[1.604357] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[1.604603] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[1.604825] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface\n'}
+[1.605076] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c\n'}
+[1.605264] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[1.605447] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.605630] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[1.605881] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py\n'}
+[1.606103] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.606334] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/libcustom_interface__rosidl_generator_py.so\n'}
+[1.606531] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.606693] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv\n'}
+[1.606803] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request_s.c\n'}
+[1.606947] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/__init__.py\n'}
+[1.607060] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request.py\n'}
+[1.608353] (-) TimerEvent: {}
+[1.708731] (-) TimerEvent: {}
+[1.713527] (custom_interface) StdoutLine: {'line': b"Listing '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface'...\n"}
+[1.714046] (custom_interface) StdoutLine: {'line': b"Listing '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv'...\n"}
+[1.731442] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.732602] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.733774] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[1.734778] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so\n'}
+[1.735424] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest.idl\n'}
+[1.735737] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest.srv\n'}
+[1.736235] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest_Request.msg\n'}
+[1.736661] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest_Response.msg\n'}
+[1.737110] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/package_run_dependencies/custom_interface\n'}
+[1.737463] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/parent_prefix_path/custom_interface\n'}
+[1.737742] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/ament_prefix_path.sh\n'}
+[1.738599] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/ament_prefix_path.dsv\n'}
+[1.739074] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/path.sh\n'}
+[1.739456] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/path.dsv\n'}
+[1.739797] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.bash\n'}
+[1.740096] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.sh\n'}
+[1.740338] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.zsh\n'}
+[1.740557] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.dsv\n'}
+[1.740785] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.dsv\n'}
+[1.741355] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/packages/custom_interface\n'}
+[1.741605] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport.cmake\n'}
+[1.741833] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.742217] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[1.742483] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[1.743022] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cppExport.cmake\n'}
+[1.743312] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[1.743582] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[1.743861] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.744404] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.744830] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport.cmake\n'}
+[1.745124] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.745390] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.745611] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.745841] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport.cmake\n'}
+[1.746157] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.746402] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport.cmake\n'}
+[1.746651] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[1.746930] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake-extras.cmake\n'}
+[1.747246] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[1.747443] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.747633] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.747865] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[1.748121] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[1.748342] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[1.748574] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig.cmake\n'}
+[1.748840] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig-version.cmake\n'}
+[1.749063] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.xml\n'}
+[1.752249] (custom_interface) CommandEnded: {'returncode': 0}
+[1.809048] (-) TimerEvent: {}
+[1.854711] (custom_interface) JobEnded: {'identifier': 'custom_interface', 'rc': 0}
+[1.859032] (moveit_path_planner) JobStarted: {'identifier': 'moveit_path_planner'}
+[1.895159] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'cmake'}
+[1.898834] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'build'}
+[1.900375] (moveit_path_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner', '--', '-j8', '-l8'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1076'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1046,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1046'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/d37c6b18_1029_4da4_a630_588cac6aff40'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.2BUFF3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.239'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/opt/ros/humble')]), 'shell': False}
+[1.909272] (-) TimerEvent: {}
+[2.010679] (-) TimerEvent: {}
+[2.059449] (moveit_path_planner) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target moveit_path_planning_server\x1b[0m\n'}
+[2.110826] (-) TimerEvent: {}
+[2.152841] (moveit_path_planner) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/moveit_path_planning_server.dir/src/moveit_path_planning_server.cpp.o\x1b[0m\n'}
+[2.210956] (-) TimerEvent: {}
+[2.311464] (-) TimerEvent: {}
+[2.412052] (-) TimerEvent: {}
+[2.512600] (-) TimerEvent: {}
+[2.613018] (-) TimerEvent: {}
+[2.713519] (-) TimerEvent: {}
+[2.814353] (-) TimerEvent: {}
+[2.914931] (-) TimerEvent: {}
+[3.015369] (-) TimerEvent: {}
+[3.115877] (-) TimerEvent: {}
+[3.216440] (-) TimerEvent: {}
+[3.316948] (-) TimerEvent: {}
+[3.417437] (-) TimerEvent: {}
+[3.518103] (-) TimerEvent: {}
+[3.618667] (-) TimerEvent: {}
+[3.719269] (-) TimerEvent: {}
+[3.819639] (-) TimerEvent: {}
+[3.920165] (-) TimerEvent: {}
+[4.020556] (-) TimerEvent: {}
+[4.121029] (-) TimerEvent: {}
+[4.221571] (-) TimerEvent: {}
+[4.322116] (-) TimerEvent: {}
+[4.422690] (-) TimerEvent: {}
+[4.523228] (-) TimerEvent: {}
+[4.623645] (-) TimerEvent: {}
+[4.724326] (-) TimerEvent: {}
+[4.824957] (-) TimerEvent: {}
+[4.925457] (-) TimerEvent: {}
+[5.025967] (-) TimerEvent: {}
+[5.126406] (-) TimerEvent: {}
+[5.226839] (-) TimerEvent: {}
+[5.327296] (-) TimerEvent: {}
+[5.427738] (-) TimerEvent: {}
+[5.528642] (-) TimerEvent: {}
+[5.629329] (-) TimerEvent: {}
+[5.729949] (-) TimerEvent: {}
+[5.834096] (-) TimerEvent: {}
+[5.934983] (-) TimerEvent: {}
+[6.038960] (-) TimerEvent: {}
+[6.139535] (-) TimerEvent: {}
+[6.240095] (-) TimerEvent: {}
+[6.340547] (-) TimerEvent: {}
+[6.441046] (-) TimerEvent: {}
+[6.541505] (-) TimerEvent: {}
+[6.641945] (-) TimerEvent: {}
+[6.742410] (-) TimerEvent: {}
+[6.842966] (-) TimerEvent: {}
+[6.943402] (-) TimerEvent: {}
+[7.044036] (-) TimerEvent: {}
+[7.144631] (-) TimerEvent: {}
+[7.245042] (-) TimerEvent: {}
+[7.345535] (-) TimerEvent: {}
+[7.446209] (-) TimerEvent: {}
+[7.546920] (-) TimerEvent: {}
+[7.647716] (-) TimerEvent: {}
+[7.748378] (-) TimerEvent: {}
+[7.848828] (-) TimerEvent: {}
+[7.949366] (-) TimerEvent: {}
+[8.049779] (-) TimerEvent: {}
+[8.150338] (-) TimerEvent: {}
+[8.250901] (-) TimerEvent: {}
+[8.351543] (-) TimerEvent: {}
+[8.452432] (-) TimerEvent: {}
+[8.552979] (-) TimerEvent: {}
+[8.653773] (-) TimerEvent: {}
+[8.754294] (-) TimerEvent: {}
+[8.854790] (-) TimerEvent: {}
+[8.955301] (-) TimerEvent: {}
+[9.055844] (-) TimerEvent: {}
+[9.156517] (-) TimerEvent: {}
+[9.256905] (-) TimerEvent: {}
+[9.357289] (-) TimerEvent: {}
+[9.457818] (-) TimerEvent: {}
+[9.558352] (-) TimerEvent: {}
+[9.658811] (-) TimerEvent: {}
+[9.759592] (-) TimerEvent: {}
+[9.860722] (-) TimerEvent: {}
+[9.962210] (-) TimerEvent: {}
+[10.063056] (-) TimerEvent: {}
+[10.163483] (-) TimerEvent: {}
+[10.264004] (-) TimerEvent: {}
+[10.364599] (-) TimerEvent: {}
+[10.465142] (-) TimerEvent: {}
+[10.565735] (-) TimerEvent: {}
+[10.666359] (-) TimerEvent: {}
+[10.766786] (-) TimerEvent: {}
+[10.867293] (-) TimerEvent: {}
+[10.967730] (-) TimerEvent: {}
+[11.068549] (-) TimerEvent: {}
+[11.168974] (-) TimerEvent: {}
+[11.269458] (-) TimerEvent: {}
+[11.369944] (-) TimerEvent: {}
+[11.470474] (-) TimerEvent: {}
+[11.570945] (-) TimerEvent: {}
+[11.671403] (-) TimerEvent: {}
+[11.771914] (-) TimerEvent: {}
+[11.872472] (-) TimerEvent: {}
+[11.972819] (-) TimerEvent: {}
+[12.073287] (-) TimerEvent: {}
+[12.173735] (-) TimerEvent: {}
+[12.274271] (-) TimerEvent: {}
+[12.374663] (-) TimerEvent: {}
+[12.475247] (-) TimerEvent: {}
+[12.575877] (-) TimerEvent: {}
+[12.676620] (-) TimerEvent: {}
+[12.777077] (-) TimerEvent: {}
+[12.877699] (-) TimerEvent: {}
+[12.978489] (-) TimerEvent: {}
+[13.078924] (-) TimerEvent: {}
+[13.179405] (-) TimerEvent: {}
+[13.280033] (-) TimerEvent: {}
+[13.380810] (-) TimerEvent: {}
+[13.481262] (-) TimerEvent: {}
+[13.582075] (-) TimerEvent: {}
+[13.682518] (-) TimerEvent: {}
+[13.783017] (-) TimerEvent: {}
+[13.883596] (-) TimerEvent: {}
+[13.984635] (-) TimerEvent: {}
+[14.085210] (-) TimerEvent: {}
+[14.185664] (-) TimerEvent: {}
+[14.286261] (-) TimerEvent: {}
+[14.387967] (-) TimerEvent: {}
+[14.488589] (-) TimerEvent: {}
+[14.589338] (-) TimerEvent: {}
+[14.690309] (-) TimerEvent: {}
+[14.790776] (-) TimerEvent: {}
+[14.891420] (-) TimerEvent: {}
+[14.991932] (-) TimerEvent: {}
+[15.092404] (-) TimerEvent: {}
+[15.192963] (-) TimerEvent: {}
+[15.293707] (-) TimerEvent: {}
+[15.394291] (-) TimerEvent: {}
+[15.494712] (-) TimerEvent: {}
+[15.595160] (-) TimerEvent: {}
+[15.695580] (-) TimerEvent: {}
+[15.796155] (-) TimerEvent: {}
+[15.896715] (-) TimerEvent: {}
+[15.997373] (-) TimerEvent: {}
+[16.097968] (-) TimerEvent: {}
+[16.199343] (-) TimerEvent: {}
+[16.299885] (-) TimerEvent: {}
+[16.400297] (-) TimerEvent: {}
+[16.500660] (-) TimerEvent: {}
+[16.601251] (-) TimerEvent: {}
+[16.702069] (-) TimerEvent: {}
+[16.802499] (-) TimerEvent: {}
+[16.903010] (-) TimerEvent: {}
+[17.003522] (-) TimerEvent: {}
+[17.104077] (-) TimerEvent: {}
+[17.204519] (-) TimerEvent: {}
+[17.304958] (-) TimerEvent: {}
+[17.405504] (-) TimerEvent: {}
+[17.506064] (-) TimerEvent: {}
+[17.606527] (-) TimerEvent: {}
+[17.706973] (-) TimerEvent: {}
+[17.807352] (-) TimerEvent: {}
+[17.907796] (-) TimerEvent: {}
+[18.008390] (-) TimerEvent: {}
+[18.109017] (-) TimerEvent: {}
+[18.209671] (-) TimerEvent: {}
+[18.310295] (-) TimerEvent: {}
+[18.411011] (-) TimerEvent: {}
+[18.511577] (-) TimerEvent: {}
+[18.612164] (-) TimerEvent: {}
+[18.712744] (-) TimerEvent: {}
+[18.813508] (-) TimerEvent: {}
+[18.914340] (-) TimerEvent: {}
+[19.014993] (-) TimerEvent: {}
+[19.115495] (-) TimerEvent: {}
+[19.215964] (-) TimerEvent: {}
+[19.316539] (-) TimerEvent: {}
+[19.417127] (-) TimerEvent: {}
+[19.517790] (-) TimerEvent: {}
+[19.618374] (-) TimerEvent: {}
+[19.718776] (-) TimerEvent: {}
+[19.819209] (-) TimerEvent: {}
+[19.919581] (-) TimerEvent: {}
+[20.020152] (-) TimerEvent: {}
+[20.120631] (-) TimerEvent: {}
+[20.221153] (-) TimerEvent: {}
+[20.321739] (-) TimerEvent: {}
+[20.422387] (-) TimerEvent: {}
+[20.522880] (-) TimerEvent: {}
+[20.623324] (-) TimerEvent: {}
+[20.723808] (-) TimerEvent: {}
+[20.824356] (-) TimerEvent: {}
+[20.924993] (-) TimerEvent: {}
+[21.025490] (-) TimerEvent: {}
+[21.126008] (-) TimerEvent: {}
+[21.226404] (-) TimerEvent: {}
+[21.326818] (-) TimerEvent: {}
+[21.427258] (-) TimerEvent: {}
+[21.527873] (-) TimerEvent: {}
+[21.628825] (-) TimerEvent: {}
+[21.729412] (-) TimerEvent: {}
+[21.830090] (-) TimerEvent: {}
+[21.930688] (-) TimerEvent: {}
+[22.031341] (-) TimerEvent: {}
+[22.131894] (-) TimerEvent: {}
+[22.232704] (-) TimerEvent: {}
+[22.333472] (-) TimerEvent: {}
+[22.433979] (-) TimerEvent: {}
+[22.534472] (-) TimerEvent: {}
+[22.634900] (-) TimerEvent: {}
+[22.735361] (-) TimerEvent: {}
+[22.835911] (-) TimerEvent: {}
+[22.936571] (-) TimerEvent: {}
+[23.037292] (-) TimerEvent: {}
+[23.137799] (-) TimerEvent: {}
+[23.238347] (-) TimerEvent: {}
+[23.338822] (-) TimerEvent: {}
+[23.439329] (-) TimerEvent: {}
+[23.540073] (-) TimerEvent: {}
+[23.640657] (-) TimerEvent: {}
+[23.741294] (-) TimerEvent: {}
+[23.841908] (-) TimerEvent: {}
+[23.942462] (-) TimerEvent: {}
+[24.042825] (-) TimerEvent: {}
+[24.143355] (-) TimerEvent: {}
+[24.243750] (-) TimerEvent: {}
+[24.344369] (-) TimerEvent: {}
+[24.445335] (-) TimerEvent: {}
+[24.550184] (-) TimerEvent: {}
+[24.650691] (-) TimerEvent: {}
+[24.751186] (-) TimerEvent: {}
+[24.851787] (-) TimerEvent: {}
+[24.952352] (-) TimerEvent: {}
+[25.052912] (-) TimerEvent: {}
+[25.153396] (-) TimerEvent: {}
+[25.253879] (-) TimerEvent: {}
+[25.354662] (-) TimerEvent: {}
+[25.455146] (-) TimerEvent: {}
+[25.555644] (-) TimerEvent: {}
+[25.656492] (-) TimerEvent: {}
+[25.756940] (-) TimerEvent: {}
+[25.857462] (-) TimerEvent: {}
+[25.958138] (-) TimerEvent: {}
+[26.058574] (-) TimerEvent: {}
+[26.159004] (-) TimerEvent: {}
+[26.259393] (-) TimerEvent: {}
+[26.360064] (-) TimerEvent: {}
+[26.460900] (-) TimerEvent: {}
+[26.478227] (moveit_path_planner) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable moveit_path_planning_server\x1b[0m\n'}
+[26.561083] (-) TimerEvent: {}
+[26.661861] (-) TimerEvent: {}
+[26.762508] (-) TimerEvent: {}
+[26.863312] (-) TimerEvent: {}
+[26.964277] (-) TimerEvent: {}
+[27.064736] (-) TimerEvent: {}
+[27.165337] (-) TimerEvent: {}
+[27.266016] (-) TimerEvent: {}
+[27.366522] (-) TimerEvent: {}
+[27.467125] (-) TimerEvent: {}
+[27.567845] (-) TimerEvent: {}
+[27.653622] (moveit_path_planner) StdoutLine: {'line': b'[100%] Built target moveit_path_planning_server\n'}
+[27.668081] (-) TimerEvent: {}
+[27.721796] (moveit_path_planner) CommandEnded: {'returncode': 0}
+[27.726022] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'install'}
+[27.727723] (moveit_path_planner) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '1076'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1046,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1046'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/d37c6b18_1029_4da4_a630_588cac6aff40'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.2BUFF3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.239'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/moveit_path_planner'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner:/opt/ros/humble')]), 'shell': False}
+[27.758078] (moveit_path_planner) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.758627] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server\n'}
+[27.761206] (moveit_path_planner) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server" to ""\n'}
+[27.761877] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner//launch\n'}
+[27.762450] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner//launch/planning_server.launch.py\n'}
+[27.762820] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/ament_index/resource_index/package_run_dependencies/moveit_path_planner\n'}
+[27.763322] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/ament_index/resource_index/parent_prefix_path/moveit_path_planner\n'}
+[27.763786] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.sh\n'}
+[27.764388] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.dsv\n'}
+[27.764809] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/environment/path.sh\n'}
+[27.765738] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/environment/path.dsv\n'}
+[27.766260] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/local_setup.bash\n'}
+[27.766632] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/local_setup.sh\n'}
+[27.767017] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/local_setup.zsh\n'}
+[27.767438] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/local_setup.dsv\n'}
+[27.767677] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.dsv\n'}
+[27.768040] (-) TimerEvent: {}
+[27.768805] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/ament_index/resource_index/packages/moveit_path_planner\n'}
+[27.771905] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig.cmake\n'}
+[27.773020] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig-version.cmake\n'}
+[27.773416] (moveit_path_planner) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/moveit_path_planner/share/moveit_path_planner/package.xml\n'}
+[27.773617] (moveit_path_planner) CommandEnded: {'returncode': 0}
+[27.812609] (moveit_path_planner) JobEnded: {'identifier': 'moveit_path_planner', 'rc': 0}
+[27.815448] (-) EventReactorShutdown: {}
