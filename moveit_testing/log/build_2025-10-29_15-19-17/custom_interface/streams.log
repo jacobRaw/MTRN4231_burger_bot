@@ -1,0 +1,234 @@
+[0.010s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface
+[0.178s] -- The C compiler identification is GNU 11.4.0
+[0.300s] -- The CXX compiler identification is GNU 11.4.0
+[0.311s] -- Detecting C compiler ABI info
+[0.399s] -- Detecting C compiler ABI info - done
+[0.408s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.408s] -- Detecting C compile features
+[0.409s] -- Detecting C compile features - done
+[0.414s] -- Detecting CXX compiler ABI info
+[0.518s] -- Detecting CXX compiler ABI info - done
+[0.528s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.528s] -- Detecting CXX compile features
+[0.529s] -- Detecting CXX compile features - done
+[0.535s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.967s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.092s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.156s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.164s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.177s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.199s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.226s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.291s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.643s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.183s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.379s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.407s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.409s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.441s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.441s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.441s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.441s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.468s] -- Found PythonExtra: .so  
+[2.552s] -- Configuring done
+[2.596s] -- Generating done
+[2.610s] -- Build files have been written to: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface
+[2.621s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/src/custom_interface -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface
+[2.623s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface -- -j8 -l8
+[2.671s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.684s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.695s] [  6%] Built target ament_cmake_python_copy_custom_interface
+[3.042s] running egg_info
+[3.086s] creating custom_interface.egg-info
+[3.086s] writing custom_interface.egg-info/PKG-INFO
+[3.086s] writing dependency_links to custom_interface.egg-info/dependency_links.txt
+[3.087s] writing top-level names to custom_interface.egg-info/top_level.txt
+[3.087s] writing manifest file 'custom_interface.egg-info/SOURCES.txt'
+[3.099s] [  6%] Built target custom_interface__cpp
+[3.104s] [  9%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_c.dir/rosidl_generator_c/custom_interface/srv/detail/movement_request__functions.c.o[0m
+[3.115s] [ 12%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[3.117s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.117s] [ 19%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.196s] reading manifest file 'custom_interface.egg-info/SOURCES.txt'
+[3.197s] writing manifest file 'custom_interface.egg-info/SOURCES.txt'
+[3.251s] [ 22%] [32m[1mLinking C shared library libcustom_interface__rosidl_generator_c.so[0m
+[3.251s] [ 22%] Built target ament_cmake_python_build_custom_interface_egg
+[3.306s] [ 22%] Built target custom_interface__rosidl_generator_c
+[3.322s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[3.328s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[3.328s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.560s] [ 35%] [32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interface/srv/movement_request__type_support.cpp.o[0m
+[3.601s] [ 38%] [32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interface/srv/detail/dds_fastrtps/movement_request__type_support.cpp.o[0m
+[3.723s] [ 41%] [32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interface/srv/detail/movement_request__type_support.cpp.o[0m
+[4.000s] [ 45%] [32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interface/srv/movement_request__type_support.cpp.o[0m
+[4.005s] [ 48%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interface/srv/detail/movement_request__type_support.c.o[0m
+[4.062s] [ 51%] [32m[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_c.so[0m
+[4.079s] [ 54%] [32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interface/srv/detail/movement_request__type_support_c.cpp.o[0m
+[4.103s] [ 58%] [32m[1mLinking C shared library libcustom_interface__rosidl_typesupport_introspection_c.so[0m
+[4.122s] [ 61%] [32m[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_cpp.so[0m
+[4.152s] [ 61%] Built target custom_interface__rosidl_typesupport_c
+[4.160s] [ 61%] Built target custom_interface__rosidl_typesupport_introspection_c
+[4.208s] [ 61%] Built target custom_interface__rosidl_typesupport_cpp
+[4.459s] [ 64%] [32m[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_cpp.so[0m
+[4.478s] [ 67%] [32m[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_introspection_cpp.so[0m
+[4.580s] [ 67%] Built target custom_interface__rosidl_typesupport_fastrtps_cpp
+[4.604s] [ 67%] Built target custom_interface__rosidl_typesupport_introspection_cpp
+[4.611s] [ 70%] [32m[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_c.so[0m
+[4.726s] [ 70%] Built target custom_interface__rosidl_typesupport_fastrtps_c
+[4.754s] [ 70%] Built target custom_interface
+[4.782s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[5.232s] [ 74%] Built target custom_interface__py
+[5.258s] [ 77%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_py.dir/rosidl_generator_py/custom_interface/srv/_movement_request_s.c.o[0m
+[5.433s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/custom_interface/libcustom_interface__rosidl_generator_py.so[0m
+[5.485s] [ 80%] Built target custom_interface__rosidl_generator_py
+[5.509s] [ 90%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[5.509s] [ 90%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[5.509s] [ 90%] [32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c.o[0m
+[5.638s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.638s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.638s] [100%] [32m[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[5.692s] [100%] Built target custom_interface__rosidl_typesupport_c__pyext
+[5.694s] [100%] Built target custom_interface__rosidl_typesupport_fastrtps_c__pyext
+[5.694s] [100%] Built target custom_interface__rosidl_typesupport_introspection_c__pyext
+[5.708s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface -- -j8 -l8
+[5.720s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface
+[5.730s] -- Install configuration: ""
+[5.730s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/rosidl_interfaces/custom_interface
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_c__visibility_control.h
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.h
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.h
+[5.731s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.h
+[5.732s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.c
+[5.732s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.h
+[5.732s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/library_path.sh
+[5.732s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/library_path.dsv
+[5.733s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so
+[5.733s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so" to ""
+[5.733s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.734s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg
+[5.734s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.734s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.734s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.734s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_c.h
+[5.734s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so
+[5.734s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so" to ""
+[5.734s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.735s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_cpp__visibility_control.hpp
+[5.735s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.hpp
+[5.735s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.hpp
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.hpp
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__builder.hpp
+[5.735s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__traits.hpp
+[5.735s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.736s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg
+[5.736s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.736s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.736s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.736s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_cpp.hpp
+[5.736s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/dds_fastrtps
+[5.736s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so
+[5.737s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so" to ""
+[5.737s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.737s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg
+[5.737s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.737s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.737s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.737s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_c.h
+[5.737s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.c
+[5.737s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so
+[5.738s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so" to ""
+[5.738s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so
+[5.738s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so" to ""
+[5.739s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface
+[5.739s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv
+[5.739s] -- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail
+[5.739s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_cpp.hpp
+[5.739s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.cpp
+[5.739s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so
+[5.740s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so" to ""
+[5.740s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so
+[5.740s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so" to ""
+[5.740s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/pythonpath.sh
+[5.740s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/pythonpath.dsv
+[5.741s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info
+[5.741s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/SOURCES.txt
+[5.741s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/dependency_links.txt
+[5.741s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/top_level.txt
+[5.741s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/PKG-INFO
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+[5.742s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/libcustom_interface__rosidl_generator_py.so
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request_s.c
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/__init__.py
+[5.743s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request.py
+[5.789s] Listing '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface'...
+[5.789s] Compiling '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py'...
+[5.789s] Listing '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv'...
+[5.789s] Compiling '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/__init__.py'...
+[5.789s] Compiling '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request.py'...
+[5.794s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[5.795s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.795s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[5.796s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.796s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[5.796s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[5.796s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so
+[5.797s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so" to ""
+[5.797s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest.idl
+[5.797s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest.srv
+[5.797s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest_Request.msg
+[5.797s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/srv/MovementRequest_Response.msg
+[5.798s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/package_run_dependencies/custom_interface
+[5.798s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/parent_prefix_path/custom_interface
+[5.798s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/ament_prefix_path.sh
+[5.798s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/ament_prefix_path.dsv
+[5.798s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/path.sh
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/environment/path.dsv
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.bash
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.sh
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.zsh
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/local_setup.dsv
+[5.799s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.dsv
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/ament_index/resource_index/packages/custom_interface
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport.cmake
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport-noconfig.cmake
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport.cmake
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[5.800s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cppExport.cmake
+[5.801s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+[5.801s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[5.801s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport.cmake
+[5.801s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.801s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport-noconfig.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport-noconfig.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport.cmake
+[5.802s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport-noconfig.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_targets-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.803s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.804s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig.cmake
+[5.804s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig-version.cmake
+[5.804s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install/custom_interface/share/custom_interface/package.xml
+[5.807s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/moveit_testing/build/custom_interface
