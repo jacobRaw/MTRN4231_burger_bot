@@ -21,5 +21,4 @@
     >
       <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:robot_cell>
-
 </robot>

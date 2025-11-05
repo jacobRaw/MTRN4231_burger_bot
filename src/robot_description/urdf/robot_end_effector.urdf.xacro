@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot name="robot with end effector" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find robot_description)/urdf/robot.urdf.xacro"/>
+  <xacro:arg name="ur_type" default="ur5e"/>
+
+    <xacro:robot></xacro:robot>
+
+    <!-- End effector link -->
+    <link name="end_effector_link">
+
+        <!-- Defines what the link looks like. -->
+        <visual>
+        <!-- Origin of the visual element. xyz is in metres. rpy stands for roll pitch yaw in radians.
+            Note that origin is global. -->
+        <!-- <origin xyz="-0.124 0 0.04" rpy="0 3.1416 0"/> -->
+
+        <geometry>
+            <mesh filename="package://robot_description/meshes/Gripper_fixed.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <!-- Coupler between arm and end effector -->
+    <joint name="end_effector_coupler_joint" type="fixed">
+        <parent link="wrist_3_link"/>
+        <child link="end_effector_link"/>
+    </joint>
+
+</robot>
