@@ -85,6 +85,10 @@ private:
     homeState()
     {
         // TO DO:
+        // move arm to home position
+        // capture image from camera and process image to find available ingredients and their positions
+        // 
+
     }
 
     /**
