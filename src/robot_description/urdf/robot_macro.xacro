@@ -103,6 +103,11 @@
             </geometry>
             <origin xyz="-0.124 0 0.04" rpy="0 3.1416 0"/>
         </visual>
+        <collision>
+            <geometry>
+                <box size="0.248 0.30 0.30"/>
+            </geometry>
+        </collision>
     </link>
 
     <!-- Coupler between arm and end effector -->
