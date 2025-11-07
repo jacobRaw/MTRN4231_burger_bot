@@ -6,8 +6,8 @@ moveit_setup_assistant_config:
     relative_path: config/robot.srdf
   package_settings:
     author_name: Jacob Rawung
-    author_email: "jacobrawung1@hotmail.com"
-    generated_timestamp: 1762362527
+    author_email: jacobrawung1@hotmail.com
+    generated_timestamp: 1762390081
   control_xacro:
     command:
       - position

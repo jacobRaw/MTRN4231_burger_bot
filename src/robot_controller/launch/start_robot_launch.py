@@ -14,11 +14,15 @@ from launch.substitutions import (
     TextSubstitution,
 )
 
+simulated_ip = '127.0.0.1'
+real_ip = '192.168.0.100'
+ur_ip = '192.168.56.101'
+
 
 def generate_launch_description():
     ur_type = LaunchConfiguration("ur_type")
     robot_ip = LaunchConfiguration("robot_ip")
-    user_fake_hardware = LaunchConfiguration("use_fake_hardware", default=TextSubstitution(text="false"))
+    # user_fake_hardware = LaunchConfiguration("use_fake_hardware", default=TextSubstitution(text="false"))
     declared_arguments = []
     declared_arguments.append(
         DeclareLaunchArgument(
@@ -41,12 +45,12 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "robot_ip",
-            default_value="192.168.0.100",  # put your robot's IP address here
+            default_value= ur_ip,  # put your robot's IP address here
             description="IP address by which the robot can be reached.",
         )
     )
     declared_arguments.append(
-        DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
+        DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RVIZ?")
     )
 
     return LaunchDescription(
@@ -67,7 +71,7 @@ def generate_launch_description():
                 launch_arguments={
                     "ur_type": ur_type,
                     "robot_ip": robot_ip,
-                    "use_fake_hardware": user_fake_hardware,
+                    # "use_fake_hardware": user_fake_hardware,
                     "tf_prefix": [LaunchConfiguration("ur_type"), "_"],
                     "rviz_config_file": PathJoinSubstitution(
                         [

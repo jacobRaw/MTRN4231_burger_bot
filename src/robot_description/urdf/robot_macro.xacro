@@ -105,8 +105,9 @@
         </visual>
         <collision>
             <geometry>
-                <box size="0.248 0.30 0.30"/>
+                <box size="0.2 0.075 0.20"/>
             </geometry>
+            <origin xyz="0 0 0.1" rpy="0 3.1416 0"/>
         </collision>
     </link>
 
