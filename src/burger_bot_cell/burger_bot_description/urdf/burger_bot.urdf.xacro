@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="burger_bot_cell" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find robot_description)/urdf/robot_macro.xacro"/>
+  <xacro:include filename="$(find burger_bot_description)/urdf/burger_bot_macro.xacro"/>
 
   <xacro:arg name="ur_type" default="ur5e"/>
   <xacro:arg name="joint_limits_parameters_file" default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
@@ -11,7 +11,7 @@
 
   <link name="world"/>
   <!--This will create the scene where the robot is located in-->
-  <xacro:robot_cell
+  <xacro:burger_bot_cell
     parent="world"
     ur_type="$(arg ur_type)"
     joint_limits_parameters_file="$(arg joint_limits_parameters_file)"
@@ -19,6 +19,7 @@
     physical_parameters_file="$(arg physical_parameters_file)"
     visual_parameters_file="$(arg visual_parameters_file)"
     >
-      <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:robot_cell>
+      <origin xyz="0 0 1" rpy="0 0 0" />
+  </xacro:burger_bot_cell>
+
 </robot>
