@@ -67,57 +67,57 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        ur20_base:
+        ur5e_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        ur20_base_link:
+        ur5e_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        ur20_base_link_inertia:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ur20_flange:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        ur20_forearm_link:
+        ur5e_base_link_inertia:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ur20_ft_frame:
+        ur5e_flange:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        ur20_shoulder_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ur20_tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        ur20_upper_arm_link:
+        ur5e_forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ur20_wrist_1_link:
+        ur5e_ft_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur5e_shoulder_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ur20_wrist_2_link:
+        ur5e_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur5e_upper_arm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        ur20_wrist_3_link:
+        ur5e_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur5e_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur5e_wrist_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -150,29 +150,29 @@ Visualization Manager:
           Value: true
         table:
           Value: true
-        ur20_base:
+        ur5e_base:
           Value: true
-        ur20_base_link:
+        ur5e_base_link:
           Value: true
-        ur20_base_link_inertia:
+        ur5e_base_link_inertia:
           Value: true
-        ur20_flange:
+        ur5e_flange:
           Value: true
-        ur20_forearm_link:
+        ur5e_forearm_link:
           Value: true
-        ur20_ft_frame:
+        ur5e_ft_frame:
           Value: true
-        ur20_shoulder_link:
+        ur5e_shoulder_link:
           Value: true
-        ur20_tool0:
+        ur5e_tool0:
           Value: true
-        ur20_upper_arm_link:
+        ur5e_upper_arm_link:
           Value: true
-        ur20_wrist_1_link:
+        ur5e_wrist_1_link:
           Value: true
-        ur20_wrist_2_link:
+        ur5e_wrist_2_link:
           Value: true
-        ur20_wrist_3_link:
+        ur5e_wrist_3_link:
           Value: true
         wall:
           Value: true
@@ -189,20 +189,20 @@ Visualization Manager:
             monitor:
               {}
             robot_mount:
-              ur20_base_link:
-                ur20_base:
+              ur5e_base_link:
+                ur5e_base:
                   {}
-                ur20_base_link_inertia:
-                  ur20_shoulder_link:
-                    ur20_upper_arm_link:
-                      ur20_forearm_link:
-                        ur20_wrist_1_link:
-                          ur20_wrist_2_link:
-                            ur20_wrist_3_link:
-                              ur20_flange:
-                                ur20_tool0:
+                ur5e_base_link_inertia:
+                  ur5e_shoulder_link:
+                    ur5e_upper_arm_link:
+                      ur5e_forearm_link:
+                        ur5e_wrist_1_link:
+                          ur5e_wrist_2_link:
+                            ur5e_wrist_3_link:
+                              ur5e_flange:
+                                ur5e_tool0:
                                   {}
-                              ur20_ft_frame:
+                              ur5e_ft_frame:
                                 {}
             wall:
               {}

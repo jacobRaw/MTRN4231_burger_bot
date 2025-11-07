@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find burger_bot_description)/urdf/burger_bot_macro.xacro"/>
 
-  <xacro:arg name="ur_type" default="ur5e"/>
+  <xacro:arg name="ur_type" default="ur20"/>
   <xacro:arg name="joint_limits_parameters_file" default="$(find ur_description)/config/$(arg ur_type)/joint_limits.yaml"/>
   <xacro:arg name="kinematics_parameters_file" default="$(find ur_description)/config/$(arg ur_type)/default_kinematics.yaml"/>
   <xacro:arg name="physical_parameters_file" default="$(find ur_description)/config/$(arg ur_type)/physical_parameters.yaml"/>

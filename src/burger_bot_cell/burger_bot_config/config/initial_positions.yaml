@@ -1,0 +1,9 @@
+# Default initial positions for burger_bot_cell's ros2_control fake system
+
+initial_positions:
+  ur5e_elbow_joint: -0.9425
+  ur5e_shoulder_lift_joint: -0.576
+  ur5e_shoulder_pan_joint: 1.31
+  ur5e_wrist_1_joint: 1.52
+  ur5e_wrist_2_joint: 1.31
+  ur5e_wrist_3_joint: 0.0
