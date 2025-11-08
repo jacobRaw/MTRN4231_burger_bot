@@ -1,64 +1,3 @@
-from launch import LaunchDescription
-from launch_ros.actions import Node
-from launch.substitutions import Command, PathJoinSubstitution, TextSubstitution
-from launch_ros.substitutions import FindPackageShare
-
-def generate_launch_description():
-
-    # Packages
-    ur_description = FindPackageShare("ur_description")
-    ur_moveit_config = FindPackageShare("ur_moveit_config")
-
-    # URDF xacro path for UR5e
-    urdf_xacro_path = PathJoinSubstitution([
-        ur_description,
-        "urdf",
-        "ur5e.urdf.xacro"
-    ])
-
-    # SRDF path for UR5e MoveIt config
-    srdf_path = PathJoinSubstitution([
-        ur_moveit_config,
-        "config",
-        "ur5e.srdf"
-    ])
-
-    # Build robot_description (URDF) at launch using xacro
-    robot_description = {
-        "robot_description": Command([
-            TextSubstitution(text="xacro "),
-            urdf_xacro_path,
-            TextSubstitution(text=" "),
-            TextSubstitution(text="ur_type:=ur5e "),
-            TextSubstitution(text="prefix:= "),
-            TextSubstitution(text="use_fake_hardware:=true "),
-            TextSubstitution(text="initial_joint_controller:=joint_trajectory_controller "),
-        ])
-    }
-
-    # Load SRDF file contents into robot_description_semantic
-    robot_description_semantic = {
-        "robot_description_semantic": Command([
-            TextSubstitution(text="cat "),
-            srdf_path
-        ])
-    }
-
-    planning_server = Node(
-        package="moveit_path_planner",
-        executable="moveit_path_planning_server",
-        name="moveit_path_planning_server",
-        output="screen",
-        parameters=[
-            robot_description,
-            robot_description_semantic,
-        ],
-    )
-
-    return LaunchDescription([
-        planning_server
-    ])
-
 import launch
 import os
 import sys
@@ -69,16 +8,16 @@ from launch_ros.substitutions import FindPackageShare
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur5e", "joint_limits.yaml"]
+        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "joint_limits.yaml"]
     )
     kinematics_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur5e", "default_kinematics.yaml"]
+        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "default_kinematics.yaml"]
     )
     physical_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur5e", "physical_parameters.yaml"]
+        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "physical_parameters.yaml"]
     )
     visual_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur5e", "visual_parameters.yaml"]
+        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "visual_parameters.yaml"]
     )
     robot_description_content = Command(
         [
@@ -164,7 +103,3 @@ def generate_launch_description():
     )
 
     return launch.LaunchDescription([planning_server])
-
-
-# Calibrate the URDF from the real robot using which generates a calibration.yaml file
-# Then run the ur_robot_driver to load the calibration to the robot
