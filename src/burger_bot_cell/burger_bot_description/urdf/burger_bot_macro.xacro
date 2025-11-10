@@ -99,13 +99,13 @@
         <geometry>
           <mesh filename="package://burger_bot_description/meshes/Gripper_fixed.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <origin xyz="-0.124 0 0.04" rpy="0 3.1416 0"/>
+        <origin xyz="-0.124 0 0.078" rpy="0 3.1416 0"/>
       </visual>
       <collision>
         <geometry>
           <box size="0.2, 0.075, 0.2"/>
         </geometry>
-        <origin xyz="-0.124 0 0.04" rpy="0 3.1416 0"/>
+        <origin xyz="-0.124 0 0.078" rpy="0 3.1416 0"/>
       </collision>
     </link>
 
@@ -116,3 +116,6 @@
   </xacro:macro>
 
 </robot>
+
+<!-- bracket link = 38mm -->
+<!-- previously 0.04 -->
