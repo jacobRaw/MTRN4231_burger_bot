@@ -5,3 +5,6 @@
 *.db3
 yolo_testing
 MTRN4231_lab04.pdf
+.vscode/*
+build
+lab5_workspace/*
