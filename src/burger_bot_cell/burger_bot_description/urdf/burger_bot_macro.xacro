@@ -21,35 +21,17 @@
     <link name="table">
       <visual>
         <geometry>
-          <mesh filename="package://burger_bot_description/meshes/fzi_table.dae"/>
+          <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0.75 0.5 -1"/>
+        <origin rpy="0 0 0" xyz="1 0.2 0"/> 
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://burger_bot_description/meshes/fzi_table.dae"/>
+          <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0.75 0.5 -1"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
       </collision>
     </link>
-
-    <link name="monitor">
-      <visual>
-        <geometry>
-          <mesh filename="package://burger_bot_description/meshes/171005_Motek_Monitor_L.dae"/>
-        </geometry>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://burger_bot_description/meshes/171005_Motek_Monitor_L.dae"/>
-        </geometry>
-      </collision>
-    </link>
-    <joint name="base_to_monitor" type="fixed">
-      <parent link="table"/>
-      <child link="monitor"/>
-      <origin xyz="0.2 0.6 0"/>
-    </joint>
 
     <material name="white">
       <color rgba="1 1 1 1"/>
@@ -119,3 +101,4 @@
 
 <!-- bracket link = 38mm -->
 <!-- previously 0.04 -->
+<!-- 0.135 -0.660 0" -->
