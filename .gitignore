@@ -8,4 +8,5 @@ MTRN4231_lab04.pdf
 .vscode/*
 build
 lab5_workspace/*
-arduino_ws/*
+moveit_testing/*
+arduino_ws

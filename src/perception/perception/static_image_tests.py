@@ -18,13 +18,14 @@ class perception_example(Node):
     def image_callback(self, msg):
         cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
         results = self.model(cv_image, verbose=False)
+        annotated_image = results[0].plot()
 
         for result in results:
             boxes = result.boxes
             if boxes is not None:
                 for i, box in enumerate(boxes):
                     if box.conf[0] > 0.9:
-                        annotated_image = cv_image
+                        # annotated_image = cv_image
                         centroid_x, centroid_y, w, h = box.xywh.numpy()[0]
                         centroid_x = int(centroid_x)
                         centroid_y = int(centroid_y)

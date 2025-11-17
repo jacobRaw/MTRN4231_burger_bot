@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: burger_bot_description
+    relative_path: urdf/burger_bot.urdf.xacro
+  srdf:
+    relative_path: config/burger_bot_cell.srdf
+  package_settings:
+    author_name: Jacob Rawung
+    author_email: jacobrawung1@hotmail.com
+    generated_timestamp: 1762754995
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
