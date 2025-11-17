@@ -1,0 +1,747 @@
+[0.000000] (-) TimerEvent: {}
+[0.000590] (custom_interface) JobQueued: {'identifier': 'custom_interface', 'dependencies': OrderedDict()}
+[0.000668] (moveit_path_planner) JobQueued: {'identifier': 'moveit_path_planner', 'dependencies': OrderedDict([('custom_interface', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface')])}
+[0.000712] (custom_interface) JobStarted: {'identifier': 'custom_interface'}
+[0.014380] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'cmake'}
+[0.015393] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/src/custom_interface', '-DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[0.097615] (-) TimerEvent: {}
+[0.142840] (custom_interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.197791] (-) TimerEvent: {}
+[0.268305] (custom_interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.287609] (custom_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.297963] (-) TimerEvent: {}
+[0.398392] (-) TimerEvent: {}
+[0.431491] (custom_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.451277] (custom_interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.451842] (custom_interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.452786] (custom_interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.457991] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.498568] (-) TimerEvent: {}
+[0.599026] (-) TimerEvent: {}
+[0.629752] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.650718] (custom_interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.651321] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.652525] (custom_interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.658376] (custom_interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.699163] (-) TimerEvent: {}
+[0.799729] (-) TimerEvent: {}
+[0.900256] (-) TimerEvent: {}
+[1.000604] (-) TimerEvent: {}
+[1.100941] (-) TimerEvent: {}
+[1.201360] (-) TimerEvent: {}
+[1.301695] (-) TimerEvent: {}
+[1.402225] (-) TimerEvent: {}
+[1.443653] (custom_interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[1.502337] (-) TimerEvent: {}
+[1.602774] (-) TimerEvent: {}
+[1.638662] (custom_interface) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[1.702976] (-) TimerEvent: {}
+[1.722690] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.734917] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.758091] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.784949] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.803093] (-) TimerEvent: {}
+[1.821344] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.903270] (-) TimerEvent: {}
+[1.921397] (custom_interface) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[2.003383] (-) TimerEvent: {}
+[2.103923] (-) TimerEvent: {}
+[2.204443] (-) TimerEvent: {}
+[2.304906] (-) TimerEvent: {}
+[2.405283] (-) TimerEvent: {}
+[2.505665] (-) TimerEvent: {}
+[2.546452] (custom_interface) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[2.605827] (-) TimerEvent: {}
+[2.706307] (-) TimerEvent: {}
+[2.806770] (-) TimerEvent: {}
+[2.907419] (-) TimerEvent: {}
+[3.007847] (-) TimerEvent: {}
+[3.108261] (-) TimerEvent: {}
+[3.208598] (-) TimerEvent: {}
+[3.308959] (-) TimerEvent: {}
+[3.409320] (-) TimerEvent: {}
+[3.467757] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.509652] (-) TimerEvent: {}
+[3.610493] (-) TimerEvent: {}
+[3.710964] (-) TimerEvent: {}
+[3.811290] (-) TimerEvent: {}
+[3.842314] (custom_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.889396] (custom_interface) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[3.894112] (custom_interface) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[3.911447] (-) TimerEvent: {}
+[3.949791] (custom_interface) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[3.950242] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.950397] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[3.950515] (custom_interface) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[4.000432] (custom_interface) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.011613] (-) TimerEvent: {}
+[4.112056] (-) TimerEvent: {}
+[4.138563] (custom_interface) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.210614] (custom_interface) StdoutLine: {'line': b'-- Generating done\n'}
+[4.212143] (-) TimerEvent: {}
+[4.235033] (custom_interface) StdoutLine: {'line': b'-- Build files have been written to: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface\n'}
+[4.257892] (custom_interface) CommandEnded: {'returncode': 0}
+[4.259615] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'build'}
+[4.262248] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface', '--', '-j8', '-l8'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[4.312311] (-) TimerEvent: {}
+[4.336582] (custom_interface) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[4.360121] (custom_interface) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[4.380089] (custom_interface) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_copy_custom_interface\n'}
+[4.412488] (-) TimerEvent: {}
+[4.513028] (-) TimerEvent: {}
+[4.613467] (-) TimerEvent: {}
+[4.713924] (-) TimerEvent: {}
+[4.814368] (-) TimerEvent: {}
+[4.914805] (-) TimerEvent: {}
+[5.015185] (-) TimerEvent: {}
+[5.035528] (custom_interface) StdoutLine: {'line': b'running egg_info\n'}
+[5.055146] (custom_interface) StdoutLine: {'line': b'[  6%] Built target custom_interface__cpp\n'}
+[5.058315] (custom_interface) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_c.dir/rosidl_generator_c/custom_interface/srv/detail/movement_request__functions.c.o\x1b[0m\n'}
+[5.080890] (custom_interface) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.084022] (custom_interface) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[5.085713] (custom_interface) StdoutLine: {'line': b'[ 19%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.108343] (custom_interface) StdoutLine: {'line': b'creating custom_interface.egg-info\n'}
+[5.108795] (custom_interface) StdoutLine: {'line': b'writing custom_interface.egg-info/PKG-INFO\n'}
+[5.109791] (custom_interface) StdoutLine: {'line': b'writing dependency_links to custom_interface.egg-info/dependency_links.txt\n'}
+[5.110638] (custom_interface) StdoutLine: {'line': b'writing top-level names to custom_interface.egg-info/top_level.txt\n'}
+[5.111019] (custom_interface) StdoutLine: {'line': b"writing manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[5.115308] (-) TimerEvent: {}
+[5.215798] (-) TimerEvent: {}
+[5.245298] (custom_interface) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libcustom_interface__rosidl_generator_c.so\x1b[0m\n'}
+[5.315978] (-) TimerEvent: {}
+[5.338747] (custom_interface) StdoutLine: {'line': b"reading manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[5.341844] (custom_interface) StdoutLine: {'line': b"writing manifest file 'custom_interface.egg-info/SOURCES.txt'\n"}
+[5.366853] (custom_interface) StdoutLine: {'line': b'[ 22%] Built target custom_interface__rosidl_generator_c\n'}
+[5.395094] (custom_interface) StdoutLine: {'line': b'[ 25%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.396772] (custom_interface) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.398255] (custom_interface) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[5.416776] (-) TimerEvent: {}
+[5.442670] (custom_interface) StdoutLine: {'line': b'[ 32%] Built target ament_cmake_python_build_custom_interface_egg\n'}
+[5.516897] (-) TimerEvent: {}
+[5.617376] (-) TimerEvent: {}
+[5.718001] (-) TimerEvent: {}
+[5.818995] (-) TimerEvent: {}
+[5.906026] (custom_interface) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interface/srv/movement_request__type_support.cpp.o\x1b[0m\n'}
+[5.919170] (-) TimerEvent: {}
+[6.019640] (-) TimerEvent: {}
+[6.047953] (custom_interface) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interface/srv/detail/movement_request__type_support.cpp.o\x1b[0m\n'}
+[6.072400] (custom_interface) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interface/srv/detail/dds_fastrtps/movement_request__type_support.cpp.o\x1b[0m\n'}
+[6.119772] (-) TimerEvent: {}
+[6.220276] (-) TimerEvent: {}
+[6.263827] (custom_interface) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interface/srv/movement_request__type_support.cpp.o\x1b[0m\n'}
+[6.320403] (-) TimerEvent: {}
+[6.337082] (custom_interface) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interface/srv/detail/movement_request__type_support_c.cpp.o\x1b[0m\n'}
+[6.357995] (custom_interface) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_c.so\x1b[0m\n'}
+[6.420533] (-) TimerEvent: {}
+[6.507523] (custom_interface) StdoutLine: {'line': b'[ 51%] Built target custom_interface__rosidl_typesupport_c\n'}
+[6.511358] (custom_interface) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interface/srv/detail/movement_request__type_support.c.o\x1b[0m\n'}
+[6.520746] (-) TimerEvent: {}
+[6.618310] (custom_interface) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libcustom_interface__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[6.620980] (-) TimerEvent: {}
+[6.706078] (custom_interface) StdoutLine: {'line': b'[ 58%] Built target custom_interface__rosidl_typesupport_introspection_c\n'}
+[6.721101] (-) TimerEvent: {}
+[6.750529] (custom_interface) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[6.821270] (-) TimerEvent: {}
+[6.848738] (custom_interface) StdoutLine: {'line': b'[ 61%] Built target custom_interface__rosidl_typesupport_cpp\n'}
+[6.921411] (-) TimerEvent: {}
+[7.021843] (-) TimerEvent: {}
+[7.122373] (-) TimerEvent: {}
+[7.172025] (custom_interface) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[7.222511] (-) TimerEvent: {}
+[7.323013] (-) TimerEvent: {}
+[7.346606] (custom_interface) StdoutLine: {'line': b'[ 64%] Built target custom_interface__rosidl_typesupport_introspection_cpp\n'}
+[7.372833] (custom_interface) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[7.423176] (-) TimerEvent: {}
+[7.466961] (custom_interface) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libcustom_interface__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[7.523330] (-) TimerEvent: {}
+[7.557745] (custom_interface) StdoutLine: {'line': b'[ 70%] Built target custom_interface__rosidl_typesupport_fastrtps_c\n'}
+[7.623476] (-) TimerEvent: {}
+[7.642244] (custom_interface) StdoutLine: {'line': b'[ 70%] Built target custom_interface__rosidl_typesupport_fastrtps_cpp\n'}
+[7.689127] (custom_interface) StdoutLine: {'line': b'[ 70%] Built target custom_interface\n'}
+[7.723637] (-) TimerEvent: {}
+[7.738651] (custom_interface) StdoutLine: {'line': b'[ 74%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[7.823792] (-) TimerEvent: {}
+[7.924206] (-) TimerEvent: {}
+[8.024775] (-) TimerEvent: {}
+[8.125363] (-) TimerEvent: {}
+[8.225755] (-) TimerEvent: {}
+[8.326242] (-) TimerEvent: {}
+[8.426591] (-) TimerEvent: {}
+[8.526944] (-) TimerEvent: {}
+[8.574701] (custom_interface) StdoutLine: {'line': b'[ 74%] Built target custom_interface__py\n'}
+[8.614940] (custom_interface) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_generator_py.dir/rosidl_generator_py/custom_interface/srv/_movement_request_s.c.o\x1b[0m\n'}
+[8.627086] (-) TimerEvent: {}
+[8.727610] (-) TimerEvent: {}
+[8.828292] (-) TimerEvent: {}
+[8.888177] (custom_interface) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/libcustom_interface__rosidl_generator_py.so\x1b[0m\n'}
+[8.928399] (-) TimerEvent: {}
+[8.977361] (custom_interface) StdoutLine: {'line': b'[ 80%] Built target custom_interface__rosidl_generator_py\n'}
+[9.022069] (custom_interface) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[9.022463] (custom_interface) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[9.022681] (custom_interface) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/custom_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[9.028552] (-) TimerEvent: {}
+[9.129023] (-) TimerEvent: {}
+[9.229447] (-) TimerEvent: {}
+[9.265245] (custom_interface) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.266940] (custom_interface) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.277034] (custom_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[9.329585] (-) TimerEvent: {}
+[9.363240] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[9.364868] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_introspection_c__pyext\n'}
+[9.377459] (custom_interface) StdoutLine: {'line': b'[100%] Built target custom_interface__rosidl_typesupport_c__pyext\n'}
+[9.402557] (custom_interface) CommandEnded: {'returncode': 0}
+[9.404368] (custom_interface) JobProgress: {'identifier': 'custom_interface', 'progress': 'install'}
+[9.423509] (custom_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/custom_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[9.429722] (-) TimerEvent: {}
+[9.442122] (custom_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.442738] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/ament_index/resource_index/rosidl_interfaces/custom_interface\n'}
+[9.443238] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.443743] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[9.444126] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[9.444547] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.444959] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.h\n'}
+[9.445284] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.445590] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.h\n'}
+[9.446064] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.h\n'}
+[9.446356] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__functions.c\n'}
+[9.446653] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.h\n'}
+[9.447094] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/library_path.sh\n'}
+[9.447456] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/library_path.dsv\n'}
+[9.447897] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so\n'}
+[9.448966] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_generator_c.so" to ""\n'}
+[9.449442] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.449664] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[9.450041] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[9.450188] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.450311] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.450449] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_c.h\n'}
+[9.450752] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so\n'}
+[9.451436] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[9.451906] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.452281] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[9.452595] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[9.453027] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.453373] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/movement_request.hpp\n'}
+[9.453681] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.454006] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.hpp\n'}
+[9.454308] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__struct.hpp\n'}
+[9.454748] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__builder.hpp\n'}
+[9.455119] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__traits.hpp\n'}
+[9.455437] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.455785] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[9.456229] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[9.456488] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.456701] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.456937] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[9.457319] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/dds_fastrtps\n'}
+[9.457685] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[9.458141] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[9.458856] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.459332] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg\n'}
+[9.459600] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[9.459952] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.460406] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.460674] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_c.h\n'}
+[9.460996] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.c\n'}
+[9.461486] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so\n'}
+[9.461698] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_c.so" to ""\n'}
+[9.462032] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so\n'}
+[9.462313] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_c.so" to ""\n'}
+[9.462515] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface\n'}
+[9.462724] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv\n'}
+[9.462952] (custom_interface) StdoutLine: {'line': b'-- Up-to-date: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail\n'}
+[9.463168] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__rosidl_typesupport_introspection_cpp.hpp\n'}
+[9.463459] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/include/custom_interface/custom_interface/srv/detail/movement_request__type_support.cpp\n'}
+[9.463657] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so\n'}
+[9.463892] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[9.464197] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so\n'}
+[9.464414] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_typesupport_cpp.so" to ""\n'}
+[9.464712] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/pythonpath.sh\n'}
+[9.465068] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/pythonpath.dsv\n'}
+[9.465352] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info\n'}
+[9.465792] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[9.466412] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[9.466784] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[9.467391] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[9.467762] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface\n'}
+[9.468297] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_c.c\n'}
+[9.468779] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[9.469190] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.469663] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/_custom_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[9.470251] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py\n'}
+[9.471016] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.471593] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/libcustom_interface__rosidl_generator_py.so\n'}
+[9.472066] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.472517] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv\n'}
+[9.472793] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request_s.c\n'}
+[9.473103] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/__init__.py\n'}
+[9.473374] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request.py\n'}
+[9.529985] (-) TimerEvent: {}
+[9.561731] (custom_interface) StdoutLine: {'line': b"Listing '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface'...\n"}
+[9.562444] (custom_interface) StdoutLine: {'line': b"Compiling '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/__init__.py'...\n"}
+[9.562893] (custom_interface) StdoutLine: {'line': b"Listing '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv'...\n"}
+[9.563151] (custom_interface) StdoutLine: {'line': b"Compiling '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/__init__.py'...\n"}
+[9.563346] (custom_interface) StdoutLine: {'line': b"Compiling '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/srv/_movement_request.py'...\n"}
+[9.573828] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.574653] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.575124] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.575733] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.576251] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[9.576862] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages/custom_interface/custom_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[9.577132] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so\n'}
+[9.577712] (custom_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib/libcustom_interface__rosidl_generator_py.so" to ""\n'}
+[9.578125] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/srv/MovementRequest.idl\n'}
+[9.578411] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/srv/MovementRequest.srv\n'}
+[9.578709] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/srv/MovementRequest_Request.msg\n'}
+[9.578942] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/srv/MovementRequest_Response.msg\n'}
+[9.579334] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/ament_index/resource_index/package_run_dependencies/custom_interface\n'}
+[9.579608] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/ament_index/resource_index/parent_prefix_path/custom_interface\n'}
+[9.579948] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/ament_prefix_path.sh\n'}
+[9.580268] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/ament_prefix_path.dsv\n'}
+[9.580505] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/path.sh\n'}
+[9.580775] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/environment/path.dsv\n'}
+[9.581096] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/local_setup.bash\n'}
+[9.581552] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/local_setup.sh\n'}
+[9.582090] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/local_setup.zsh\n'}
+[9.582797] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/local_setup.dsv\n'}
+[9.583430] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/package.dsv\n'}
+[9.583937] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/ament_index/resource_index/packages/custom_interface\n'}
+[9.584834] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport.cmake\n'}
+[9.585296] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[9.585650] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[9.586058] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[9.586546] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_cppExport.cmake\n'}
+[9.586809] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[9.587237] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[9.587541] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[9.587864] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[9.588290] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport.cmake\n'}
+[9.588587] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[9.588928] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[9.589284] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[9.589561] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport.cmake\n'}
+[9.589987] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[9.590473] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport.cmake\n'}
+[9.590911] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/export_custom_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[9.591341] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/rosidl_cmake-extras.cmake\n'}
+[9.591808] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[9.592361] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[9.592698] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[9.593106] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[9.593516] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[9.593989] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[9.594525] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig.cmake\n'}
+[9.595027] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake/custom_interfaceConfig-version.cmake\n'}
+[9.595441] (custom_interface) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/package.xml\n'}
+[9.600210] (custom_interface) CommandEnded: {'returncode': 0}
+[9.630708] (-) TimerEvent: {}
+[9.658159] (custom_interface) JobEnded: {'identifier': 'custom_interface', 'rc': 0}
+[9.662201] (moveit_path_planner) JobStarted: {'identifier': 'moveit_path_planner'}
+[9.677329] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'cmake'}
+[9.678690] (moveit_path_planner) Command: {'cmd': ['/usr/bin/cmake', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/src/moveit_path_planner', '-DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[9.730914] (-) TimerEvent: {}
+[9.802493] (moveit_path_planner) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[9.831028] (-) TimerEvent: {}
+[9.931520] (-) TimerEvent: {}
+[9.959568] (moveit_path_planner) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[9.975862] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[10.031695] (-) TimerEvent: {}
+[10.132333] (-) TimerEvent: {}
+[10.214104] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[10.232505] (-) TimerEvent: {}
+[10.241433] (moveit_path_planner) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[10.242400] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[10.243741] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[10.253129] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[10.332673] (-) TimerEvent: {}
+[10.433176] (-) TimerEvent: {}
+[10.446029] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[10.464492] (moveit_path_planner) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[10.465291] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[10.466874] (moveit_path_planner) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[10.472973] (moveit_path_planner) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[10.533302] (-) TimerEvent: {}
+[10.633658] (-) TimerEvent: {}
+[10.734174] (-) TimerEvent: {}
+[10.834554] (-) TimerEvent: {}
+[10.935032] (-) TimerEvent: {}
+[11.035595] (-) TimerEvent: {}
+[11.136005] (-) TimerEvent: {}
+[11.235849] (moveit_path_planner) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[11.236089] (-) TimerEvent: {}
+[11.336373] (-) TimerEvent: {}
+[11.432997] (moveit_path_planner) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[11.436489] (-) TimerEvent: {}
+[11.525741] (moveit_path_planner) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[11.535005] (moveit_path_planner) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[11.536646] (-) TimerEvent: {}
+[11.557895] (moveit_path_planner) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[11.586569] (moveit_path_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.623222] (moveit_path_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[11.636802] (-) TimerEvent: {}
+[11.723036] (moveit_path_planner) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[11.727522] (moveit_path_planner) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[11.737006] (-) TimerEvent: {}
+[11.837455] (-) TimerEvent: {}
+[11.934184] (moveit_path_planner) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[11.937587] (-) TimerEvent: {}
+[11.990746] (moveit_path_planner) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[12.037766] (-) TimerEvent: {}
+[12.069160] (moveit_path_planner) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[12.088168] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[12.137914] (-) TimerEvent: {}
+[12.235804] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[12.236738] (moveit_path_planner) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[12.237985] (-) TimerEvent: {}
+[12.338271] (-) TimerEvent: {}
+[12.390615] (moveit_path_planner) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[12.392633] (moveit_path_planner) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[12.438576] (-) TimerEvent: {}
+[12.509494] (moveit_path_planner) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[12.538726] (-) TimerEvent: {}
+[12.579137] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[12.638928] (-) TimerEvent: {}
+[12.739320] (-) TimerEvent: {}
+[12.839743] (-) TimerEvent: {}
+[12.940235] (-) TimerEvent: {}
+[13.031193] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[13.040391] (-) TimerEvent: {}
+[13.140358] (moveit_path_planner) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[13.140639] (-) TimerEvent: {}
+[13.174622] (moveit_path_planner) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[13.240873] (-) TimerEvent: {}
+[13.252866] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[13.341018] (-) TimerEvent: {}
+[13.441534] (-) TimerEvent: {}
+[13.485198] (moveit_path_planner) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[13.541663] (-) TimerEvent: {}
+[13.568536] (moveit_path_planner) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[13.568946] (moveit_path_planner) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[13.641848] (-) TimerEvent: {}
+[13.742270] (-) TimerEvent: {}
+[13.842674] (-) TimerEvent: {}
+[13.917320] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[13.942856] (-) TimerEvent: {}
+[13.993275] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[14.042985] (-) TimerEvent: {}
+[14.045684] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[14.123485] (moveit_path_planner) StdoutLine: {'line': b'-- Found moveit_visual_tools: 4.1.2 (/opt/ros/humble/share/moveit_visual_tools/cmake)\n'}
+[14.143127] (-) TimerEvent: {}
+[14.243662] (-) TimerEvent: {}
+[14.288448] (moveit_path_planner) StdoutLine: {'line': b"-- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'\n"}
+[14.310688] (moveit_path_planner) StdoutLine: {'line': b"-- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'\n"}
+[14.314743] (moveit_path_planner) StdoutLine: {'line': b'-- Found OGRE\n'}
+[14.314974] (moveit_path_planner) StdoutLine: {'line': b'--   static     : OFF\n'}
+[14.315079] (moveit_path_planner) StdoutLine: {'line': b'--   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume\n'}
+[14.315239] (moveit_path_planner) StdoutLine: {'line': b'--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[14.315443] (moveit_path_planner) StdoutLine: {'line': b'--   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media\n'}
+[14.315670] (moveit_path_planner) StdoutLine: {'line': b'-- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain\n'}
+[14.315982] (moveit_path_planner) StdoutLine: {'line': b'-- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib\n'}
+[14.316369] (moveit_path_planner) StdoutLine: {'line': b'-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[14.316507] (moveit_path_planner) StdoutLine: {'line': b'-- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE\n'}
+[14.316636] (moveit_path_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[14.316764] (moveit_path_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[14.316992] (moveit_path_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[14.317122] (moveit_path_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[14.317950] (moveit_path_planner) StdoutLine: {'line': b'-- Could not find freeimage library\n'}
+[14.343844] (-) TimerEvent: {}
+[14.361740] (moveit_path_planner) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") \n'}
+[14.372426] (moveit_path_planner) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   \n'}
+[14.443994] (-) TimerEvent: {}
+[14.544422] (-) TimerEvent: {}
+[14.577621] (moveit_path_planner) StdoutLine: {'line': b'-- Found X11: /usr/include   \n'}
+[14.579705] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[14.644563] (-) TimerEvent: {}
+[14.732199] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[14.732494] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[14.744710] (-) TimerEvent: {}
+[14.845215] (-) TimerEvent: {}
+[14.889362] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[14.889795] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for connect\n'}
+[14.945406] (-) TimerEvent: {}
+[15.035030] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[15.035578] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for remove\n'}
+[15.045536] (-) TimerEvent: {}
+[15.145922] (-) TimerEvent: {}
+[15.181610] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[15.182081] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[15.246028] (-) TimerEvent: {}
+[15.328752] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[15.329147] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[15.346131] (-) TimerEvent: {}
+[15.446599] (-) TimerEvent: {}
+[15.484307] (moveit_path_planner) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[15.546759] (-) TimerEvent: {}
+[15.647248] (-) TimerEvent: {}
+[15.724306] (moveit_path_planner) StdoutLine: {'line': b'-- Found custom_interface: 0.0.0 (/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake)\n'}
+[15.747398] (-) TimerEvent: {}
+[15.769091] (moveit_path_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: serialization filesystem system \n'}
+[15.779428] (moveit_path_planner) StdoutLine: {'line': b'-- Found ompl: /opt/ros/humble/include/ompl-1.7;/usr/include;/usr/include/eigen3  \n'}
+[15.847560] (-) TimerEvent: {}
+[15.941305] (moveit_path_planner) StdoutLine: {'line': b'-- Configuring done\n'}
+[15.947706] (-) TimerEvent: {}
+[16.047020] (moveit_path_planner) StdoutLine: {'line': b'-- Generating done\n'}
+[16.047829] (-) TimerEvent: {}
+[16.068319] (moveit_path_planner) StdoutLine: {'line': b'-- Build files have been written to: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner\n'}
+[16.104379] (moveit_path_planner) CommandEnded: {'returncode': 0}
+[16.105882] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'build'}
+[16.106922] (moveit_path_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner', '--', '-j8', '-l8'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[16.147953] (-) TimerEvent: {}
+[16.226953] (moveit_path_planner) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/moveit_path_planning_server.dir/src/moveit_path_planning_server.cpp.o\x1b[0m\n'}
+[16.248153] (-) TimerEvent: {}
+[16.348650] (-) TimerEvent: {}
+[16.449229] (-) TimerEvent: {}
+[16.549659] (-) TimerEvent: {}
+[16.650187] (-) TimerEvent: {}
+[16.750556] (-) TimerEvent: {}
+[16.851026] (-) TimerEvent: {}
+[16.951467] (-) TimerEvent: {}
+[17.052033] (-) TimerEvent: {}
+[17.152542] (-) TimerEvent: {}
+[17.252930] (-) TimerEvent: {}
+[17.353319] (-) TimerEvent: {}
+[17.453728] (-) TimerEvent: {}
+[17.554288] (-) TimerEvent: {}
+[17.655057] (-) TimerEvent: {}
+[17.755859] (-) TimerEvent: {}
+[17.856293] (-) TimerEvent: {}
+[17.956670] (-) TimerEvent: {}
+[18.057039] (-) TimerEvent: {}
+[18.157478] (-) TimerEvent: {}
+[18.257919] (-) TimerEvent: {}
+[18.358488] (-) TimerEvent: {}
+[18.459437] (-) TimerEvent: {}
+[18.560129] (-) TimerEvent: {}
+[18.660565] (-) TimerEvent: {}
+[18.761089] (-) TimerEvent: {}
+[18.861464] (-) TimerEvent: {}
+[18.961895] (-) TimerEvent: {}
+[19.062302] (-) TimerEvent: {}
+[19.162746] (-) TimerEvent: {}
+[19.263230] (-) TimerEvent: {}
+[19.363587] (-) TimerEvent: {}
+[19.464007] (-) TimerEvent: {}
+[19.564387] (-) TimerEvent: {}
+[19.664755] (-) TimerEvent: {}
+[19.765211] (-) TimerEvent: {}
+[19.865642] (-) TimerEvent: {}
+[19.966212] (-) TimerEvent: {}
+[20.066644] (-) TimerEvent: {}
+[20.167020] (-) TimerEvent: {}
+[20.267369] (-) TimerEvent: {}
+[20.367835] (-) TimerEvent: {}
+[20.468272] (-) TimerEvent: {}
+[20.568685] (-) TimerEvent: {}
+[20.669217] (-) TimerEvent: {}
+[20.769650] (-) TimerEvent: {}
+[20.870120] (-) TimerEvent: {}
+[20.970517] (-) TimerEvent: {}
+[21.070893] (-) TimerEvent: {}
+[21.171246] (-) TimerEvent: {}
+[21.271646] (-) TimerEvent: {}
+[21.372220] (-) TimerEvent: {}
+[21.472686] (-) TimerEvent: {}
+[21.573151] (-) TimerEvent: {}
+[21.673496] (-) TimerEvent: {}
+[21.773892] (-) TimerEvent: {}
+[21.874293] (-) TimerEvent: {}
+[21.974673] (-) TimerEvent: {}
+[22.075108] (-) TimerEvent: {}
+[22.175584] (-) TimerEvent: {}
+[22.276043] (-) TimerEvent: {}
+[22.376442] (-) TimerEvent: {}
+[22.476822] (-) TimerEvent: {}
+[22.577262] (-) TimerEvent: {}
+[22.677718] (-) TimerEvent: {}
+[22.778292] (-) TimerEvent: {}
+[22.878774] (-) TimerEvent: {}
+[22.979307] (-) TimerEvent: {}
+[23.079826] (-) TimerEvent: {}
+[23.180445] (-) TimerEvent: {}
+[23.281372] (-) TimerEvent: {}
+[23.382041] (-) TimerEvent: {}
+[23.482697] (-) TimerEvent: {}
+[23.583175] (-) TimerEvent: {}
+[23.683622] (-) TimerEvent: {}
+[23.784096] (-) TimerEvent: {}
+[23.884474] (-) TimerEvent: {}
+[23.984907] (-) TimerEvent: {}
+[24.085471] (-) TimerEvent: {}
+[24.186206] (-) TimerEvent: {}
+[24.286777] (-) TimerEvent: {}
+[24.387263] (-) TimerEvent: {}
+[24.487648] (-) TimerEvent: {}
+[24.588207] (-) TimerEvent: {}
+[24.688621] (-) TimerEvent: {}
+[24.789477] (-) TimerEvent: {}
+[24.890235] (-) TimerEvent: {}
+[24.990861] (-) TimerEvent: {}
+[25.091384] (-) TimerEvent: {}
+[25.191760] (-) TimerEvent: {}
+[25.292290] (-) TimerEvent: {}
+[25.392698] (-) TimerEvent: {}
+[25.493244] (-) TimerEvent: {}
+[25.593762] (-) TimerEvent: {}
+[25.694360] (-) TimerEvent: {}
+[25.794858] (-) TimerEvent: {}
+[25.895272] (-) TimerEvent: {}
+[25.995769] (-) TimerEvent: {}
+[26.096441] (-) TimerEvent: {}
+[26.197158] (-) TimerEvent: {}
+[26.297670] (-) TimerEvent: {}
+[26.398426] (-) TimerEvent: {}
+[26.498969] (-) TimerEvent: {}
+[26.599414] (-) TimerEvent: {}
+[26.699922] (-) TimerEvent: {}
+[26.800436] (-) TimerEvent: {}
+[26.900910] (-) TimerEvent: {}
+[27.001555] (-) TimerEvent: {}
+[27.102562] (-) TimerEvent: {}
+[27.203193] (-) TimerEvent: {}
+[27.303801] (-) TimerEvent: {}
+[27.404212] (-) TimerEvent: {}
+[27.504613] (-) TimerEvent: {}
+[27.605143] (-) TimerEvent: {}
+[27.706090] (-) TimerEvent: {}
+[27.807420] (-) TimerEvent: {}
+[27.907841] (-) TimerEvent: {}
+[28.008252] (-) TimerEvent: {}
+[28.108633] (-) TimerEvent: {}
+[28.209050] (-) TimerEvent: {}
+[28.309632] (-) TimerEvent: {}
+[28.410358] (-) TimerEvent: {}
+[28.510790] (-) TimerEvent: {}
+[28.611293] (-) TimerEvent: {}
+[28.711736] (-) TimerEvent: {}
+[28.812172] (-) TimerEvent: {}
+[28.912510] (-) TimerEvent: {}
+[29.012942] (-) TimerEvent: {}
+[29.113360] (-) TimerEvent: {}
+[29.213805] (-) TimerEvent: {}
+[29.314401] (-) TimerEvent: {}
+[29.414784] (-) TimerEvent: {}
+[29.515234] (-) TimerEvent: {}
+[29.615751] (-) TimerEvent: {}
+[29.716571] (-) TimerEvent: {}
+[29.817009] (-) TimerEvent: {}
+[29.917751] (-) TimerEvent: {}
+[30.018399] (-) TimerEvent: {}
+[30.118894] (-) TimerEvent: {}
+[30.219357] (-) TimerEvent: {}
+[30.319901] (-) TimerEvent: {}
+[30.420358] (-) TimerEvent: {}
+[30.520902] (-) TimerEvent: {}
+[30.621420] (-) TimerEvent: {}
+[30.721949] (-) TimerEvent: {}
+[30.822405] (-) TimerEvent: {}
+[30.922779] (-) TimerEvent: {}
+[31.023130] (-) TimerEvent: {}
+[31.123501] (-) TimerEvent: {}
+[31.223980] (-) TimerEvent: {}
+[31.324594] (-) TimerEvent: {}
+[31.425062] (-) TimerEvent: {}
+[31.525659] (-) TimerEvent: {}
+[31.626145] (-) TimerEvent: {}
+[31.726594] (-) TimerEvent: {}
+[31.827138] (-) TimerEvent: {}
+[31.927799] (-) TimerEvent: {}
+[32.028401] (-) TimerEvent: {}
+[32.128913] (-) TimerEvent: {}
+[32.229420] (-) TimerEvent: {}
+[32.332069] (-) TimerEvent: {}
+[32.433429] (-) TimerEvent: {}
+[32.534273] (-) TimerEvent: {}
+[32.634773] (-) TimerEvent: {}
+[32.735689] (-) TimerEvent: {}
+[32.836390] (-) TimerEvent: {}
+[32.936883] (-) TimerEvent: {}
+[33.037330] (-) TimerEvent: {}
+[33.137956] (-) TimerEvent: {}
+[33.238745] (-) TimerEvent: {}
+[33.339301] (-) TimerEvent: {}
+[33.439964] (-) TimerEvent: {}
+[33.540458] (-) TimerEvent: {}
+[33.640894] (-) TimerEvent: {}
+[33.741466] (-) TimerEvent: {}
+[33.841987] (-) TimerEvent: {}
+[33.946285] (-) TimerEvent: {}
+[34.046929] (-) TimerEvent: {}
+[34.147633] (-) TimerEvent: {}
+[34.248381] (-) TimerEvent: {}
+[34.349115] (-) TimerEvent: {}
+[34.450150] (-) TimerEvent: {}
+[34.550715] (-) TimerEvent: {}
+[34.651254] (-) TimerEvent: {}
+[34.754071] (-) TimerEvent: {}
+[34.854752] (-) TimerEvent: {}
+[34.955494] (-) TimerEvent: {}
+[35.056018] (-) TimerEvent: {}
+[35.156570] (-) TimerEvent: {}
+[35.257414] (-) TimerEvent: {}
+[35.358135] (-) TimerEvent: {}
+[35.459266] (-) TimerEvent: {}
+[35.560439] (-) TimerEvent: {}
+[35.660864] (-) TimerEvent: {}
+[35.761427] (-) TimerEvent: {}
+[35.861898] (-) TimerEvent: {}
+[35.962444] (-) TimerEvent: {}
+[36.063071] (-) TimerEvent: {}
+[36.163997] (-) TimerEvent: {}
+[36.264714] (-) TimerEvent: {}
+[36.365530] (-) TimerEvent: {}
+[36.466261] (-) TimerEvent: {}
+[36.566936] (-) TimerEvent: {}
+[36.667621] (-) TimerEvent: {}
+[36.769106] (-) TimerEvent: {}
+[36.870013] (-) TimerEvent: {}
+[36.970632] (-) TimerEvent: {}
+[37.071269] (-) TimerEvent: {}
+[37.171670] (-) TimerEvent: {}
+[37.272251] (-) TimerEvent: {}
+[37.372908] (-) TimerEvent: {}
+[37.473585] (-) TimerEvent: {}
+[37.476260] (moveit_path_planner) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable moveit_path_planning_server\x1b[0m\n'}
+[37.573757] (-) TimerEvent: {}
+[37.674383] (-) TimerEvent: {}
+[37.775000] (-) TimerEvent: {}
+[37.875574] (-) TimerEvent: {}
+[37.976117] (-) TimerEvent: {}
+[38.076575] (-) TimerEvent: {}
+[38.177220] (-) TimerEvent: {}
+[38.277975] (-) TimerEvent: {}
+[38.378624] (-) TimerEvent: {}
+[38.479110] (-) TimerEvent: {}
+[38.579618] (-) TimerEvent: {}
+[38.680087] (-) TimerEvent: {}
+[38.780631] (-) TimerEvent: {}
+[38.881389] (-) TimerEvent: {}
+[38.982098] (-) TimerEvent: {}
+[39.082470] (-) TimerEvent: {}
+[39.164966] (moveit_path_planner) StdoutLine: {'line': b'[100%] Built target moveit_path_planning_server\n'}
+[39.182619] (-) TimerEvent: {}
+[39.189427] (moveit_path_planner) CommandEnded: {'returncode': 0}
+[39.191701] (moveit_path_planner) JobProgress: {'identifier': 'moveit_path_planner', 'progress': 'install'}
+[39.192858] (moveit_path_planner) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner'], 'cwd': '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_AU:en'), ('USER', 'jacob'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:/opt/ros/humble/opt/zenoh_cpp_vendor/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/jacob'), ('OLDPWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '8451'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/moveit_testing/install:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'jacob'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'jacob'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/jacob/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/jacob-Inspiron-5379:@/tmp/.ICE-unix/1073,unix/jacob-Inspiron-5379:/tmp/.ICE-unix/1073'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/7788e09e_be0f_4c44_ad91_f85febec25c1'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_AU.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.UMD4F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.172'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble')]), 'shell': False}
+[39.213680] (moveit_path_planner) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[39.214230] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server\n'}
+[39.217220] (moveit_path_planner) StdoutLine: {'line': b'-- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server" to ""\n'}
+[39.217775] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner//launch\n'}
+[39.219507] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner//launch/planning_server.launch.py\n'}
+[39.220035] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/package_run_dependencies/moveit_path_planner\n'}
+[39.220375] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/parent_prefix_path/moveit_path_planner\n'}
+[39.220650] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.sh\n'}
+[39.221154] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.dsv\n'}
+[39.221398] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/path.sh\n'}
+[39.221642] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/path.dsv\n'}
+[39.222160] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.bash\n'}
+[39.222575] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.sh\n'}
+[39.222980] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.zsh\n'}
+[39.223269] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.dsv\n'}
+[39.223587] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/package.dsv\n'}
+[39.223904] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/packages/moveit_path_planner\n'}
+[39.224397] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig.cmake\n'}
+[39.224790] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig-version.cmake\n'}
+[39.225137] (moveit_path_planner) StdoutLine: {'line': b'-- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/package.xml\n'}
+[39.232915] (moveit_path_planner) CommandEnded: {'returncode': 0}
+[39.277016] (moveit_path_planner) JobEnded: {'identifier': 'moveit_path_planner', 'rc': 0}
+[39.278532] (-) EventReactorShutdown: {}

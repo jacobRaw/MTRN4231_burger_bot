@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from custom_interface/srv/MovementRequest.srv
+// generated code does not contain a copyright notice
+
+
+module custom_interface {
+  module srv {
+    @verbatim (language="comment", text=
+      "constraints_identifier" "\n"
+      "0 <- no constraints" "\n"
+      "1 <- orientation constraint")
+    struct MovementRequest_Request {
+      string command;
+
+      sequence<double> positions;
+
+      string constraints_identifier;
+    };
+    struct MovementRequest_Response {
+      boolean success;
+    };
+  };
+};

@@ -1,12 +1,31 @@
 from launch_ros.substitutions import FindPackageShare
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
     LaunchConfiguration,
     PathJoinSubstitution,
 )
 
+# def get_moveit_launch():
+#     """Configure MoveIt launch with a delay to ensure UR control is initialized."""
+#     moveit_launch_args = {
+#         'ur_type': 'ur5e',
+#         'launch_rviz': 'true',
+#         'use_fake_hardware': 'false',
+#     }
+
+#     return TimerAction(
+#         period=4.0,  # Delay to prevent conflicts in RViz
+#         actions=[
+#             IncludeLaunchDescription(
+#                 PythonLaunchDescriptionSource(
+#                     PathJoinSubstitution([FindPackageShare('ur_moveit_config'), 'launch', 'ur_moveit.launch.py'])
+#                 ),
+#                 launch_arguments=moveit_launch_args.items(),
+#             )
+#         ]
+#     )
 
 def generate_launch_description():
     # declare arguments
@@ -137,12 +156,12 @@ def generate_launch_description():
             "launch_rviz": launch_rviz,
             "use_fake_hardware": use_fake_hardware,
             "fake_sensor_commands": fake_sensor_commands,
-            "description_package": description_package,
-            "description_file": description_file,
+            # "description_package": description_package,
+            # "description_file": description_file,
             "kinematics_params_file": kinematics_params_file,
             "initial_joint_controller": initial_joint_controller,
             "activate_joint_controller": activate_joint_controller,
-            "headless_mode": headless_mode,
+            # "headless_mode": headless_mode,
         }.items(),
     )
 

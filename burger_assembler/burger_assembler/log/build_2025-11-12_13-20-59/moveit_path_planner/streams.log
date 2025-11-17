@@ -1,0 +1,109 @@
+[0.018s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/src/moveit_path_planner -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner
+[0.140s] -- The C compiler identification is GNU 11.4.0
+[0.298s] -- The CXX compiler identification is GNU 11.4.0
+[0.314s] -- Detecting C compiler ABI info
+[0.552s] -- Detecting C compiler ABI info - done
+[0.580s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.580s] -- Detecting C compile features
+[0.582s] -- Detecting C compile features - done
+[0.591s] -- Detecting CXX compiler ABI info
+[0.784s] -- Detecting CXX compiler ABI info - done
+[0.802s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.803s] -- Detecting CXX compile features
+[0.805s] -- Detecting CXX compile features - done
+[0.811s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.574s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.771s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[1.864s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.873s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.896s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.925s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.961s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.061s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[2.065s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.272s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.329s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.407s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.426s] -- Looking for pthread.h
+[2.574s] -- Looking for pthread.h - found
+[2.575s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.729s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.731s] -- Found Threads: TRUE  
+[2.847s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[2.917s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[3.369s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[3.478s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[3.513s] -- Found rclcpp_lifecycle: 16.0.15 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[3.591s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[3.823s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[3.907s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[3.907s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[4.255s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[4.331s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[4.384s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[4.461s] -- Found moveit_visual_tools: 4.1.2 (/opt/ros/humble/share/moveit_visual_tools/cmake)
+[4.626s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[4.649s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[4.653s] -- Found OGRE
+[4.653s] --   static     : OFF
+[4.653s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[4.653s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[4.653s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[4.654s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[4.654s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[4.654s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[4.654s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[4.654s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[4.655s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[4.655s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[4.655s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[4.656s] -- Could not find freeimage library
+[4.700s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[4.710s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[4.916s] -- Found X11: /usr/include   
+[4.918s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[5.070s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[5.070s] -- Looking for gethostbyname
+[5.227s] -- Looking for gethostbyname - found
+[5.228s] -- Looking for connect
+[5.373s] -- Looking for connect - found
+[5.374s] -- Looking for remove
+[5.520s] -- Looking for remove - found
+[5.520s] -- Looking for shmat
+[5.667s] -- Looking for shmat - found
+[5.667s] -- Looking for IceConnectionNumber in ICE
+[5.822s] -- Looking for IceConnectionNumber in ICE - found
+[6.062s] -- Found custom_interface: 0.0.0 (/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/share/custom_interface/cmake)
+[6.107s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: serialization filesystem system 
+[6.117s] -- Found ompl: /opt/ros/humble/include/ompl-1.7;/usr/include;/usr/include/eigen3  
+[6.279s] -- Configuring done
+[6.385s] -- Generating done
+[6.406s] -- Build files have been written to: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner
+[6.443s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner' returned '0': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/src/moveit_path_planner -DCMAKE_INSTALL_PREFIX=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner
+[6.445s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner -- -j8 -l8
+[6.565s] [ 50%] [32mBuilding CXX object CMakeFiles/moveit_path_planning_server.dir/src/moveit_path_planning_server.cpp.o[0m
+[27.814s] [100%] [32m[1mLinking CXX executable moveit_path_planning_server[0m
+[29.503s] [100%] Built target moveit_path_planning_server
+[29.528s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner' returned '0': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner -- -j8 -l8
+[29.534s] Invoking command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner
+[29.552s] -- Install configuration: ""
+[29.552s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server
+[29.555s] -- Set runtime path of "/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/lib/moveit_path_planner/moveit_path_planning_server" to ""
+[29.556s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner//launch
+[29.558s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner//launch/planning_server.launch.py
+[29.558s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/package_run_dependencies/moveit_path_planner
+[29.558s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/parent_prefix_path/moveit_path_planner
+[29.559s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.sh
+[29.559s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/ament_prefix_path.dsv
+[29.559s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/path.sh
+[29.560s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/environment/path.dsv
+[29.560s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.bash
+[29.560s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.sh
+[29.561s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.zsh
+[29.561s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/local_setup.dsv
+[29.561s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/package.dsv
+[29.562s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/ament_index/resource_index/packages/moveit_path_planner
+[29.562s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig.cmake
+[29.563s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/cmake/moveit_path_plannerConfig-version.cmake
+[29.563s] -- Installing: /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/moveit_path_planner/share/moveit_path_planner/package.xml
+[29.571s] Invoked command in '/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner' returned '0': AMENT_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/ur_with_pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/pizza_cutter_description:/home/jacob/MTRN4231_sandwich_assembler/lab5_workspace/install/claw_description:/opt/ros/humble LD_LIBRARY_PATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/install/custom_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/jacob/MTRN4231_sandwich_assembler/burger_assembler/burger_assembler/build/moveit_path_planner

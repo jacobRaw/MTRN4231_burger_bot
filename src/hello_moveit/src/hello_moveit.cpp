@@ -17,7 +17,7 @@ int main(int argc, char * argv[])
 
   // Create the MoveIt MoveGroup Interface
   using moveit::planning_interface::MoveGroupInterface;
-  auto move_group_interface = MoveGroupInterface(node, "ur_arm");
+  auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
 
   // Set a target Pose
   auto const target_pose = []{
@@ -26,9 +26,9 @@ int main(int argc, char * argv[])
     // msg.orientation.x = 0.000000;
     // msg.orientation.y = -1.5700000;
     // msg.orientation.z = 0.000000;
-    msg.position.x = 0.100000;
-    msg.position.y = -0.100000;
-    msg.position.z = 0.100000;
+    msg.position.x = 0.400000;
+    msg.position.y = 0.200000;
+    msg.position.z = 0.500000;
     return msg;
   }();
   move_group_interface.setPoseTarget(target_pose);

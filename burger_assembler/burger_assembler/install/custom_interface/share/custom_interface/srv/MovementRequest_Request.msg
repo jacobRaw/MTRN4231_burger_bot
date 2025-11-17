@@ -1,0 +1,7 @@
+# constraints_identifier
+# 0 <- no constraints
+# 1 <- orientation constraint
+
+string command
+float64[] positions
+string constraints_identifier
