@@ -5,6 +5,9 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 from ultralytics import YOLO
 import numpy as np
+from realsense2_camera_msgs.msg import RGBD
+
+lab_depth_topic = '/camera/camera/rgbd'
 
 class perception_example(Node):
     def __init__(self):
@@ -12,11 +15,16 @@ class perception_example(Node):
         self.bridge = CvBridge()
         self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/burger_model.pt')
         self.model.verbose = False
-        self.subscription = self.create_subscription(Image, 'camera/camera/color/image_raw', self.image_callback, 10)
+        # self.subscription = self.create_subscription(Image, 'camera/camera/color/image_raw', self.image_callback, 10)
+        self.subscription = self.create_subscription(RGBD, lab_depth_topic, self.image_callback, 10)
         self.subscription  # prevent unused variable warning
 
     def image_callback(self, msg):
-        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
+        # self.get_logger().info('Image received')
+        # self.get_logger().info(msg)
+        image_raw = msg.rgb #colour image
+        depth_data = msg.depth #depth data associated with the colour image
+        cv_image = self.bridge.imgmsg_to_cv2(image_raw, 'bgr8')
         results = self.model(cv_image, verbose=False)
         annotated_image = results[0].plot()
 
@@ -32,7 +40,8 @@ class perception_example(Node):
                         w = int(w)
                         h = int(h)
                         cv2.circle(annotated_image, (centroid_x, centroid_y), 5, (255, 0, 0), -1)
-                        text = f"({centroid_x}, {centroid_y})"
+                        # text = f"({centroid_x}, {centroid_y})"
+                        text = f"({centroid_x}, {centroid_y}, {depth_data.data[centroid_y * depth_data.width + centroid_x]:.2f}m)"
                         text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
                         text_x = centroid_x - text_size[0] // 2
                         text_y = centroid_y + 20

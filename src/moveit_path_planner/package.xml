@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>moveit_path_planner</name>
+  <version>0.0.1</version>
+  <description>MoveIt path planning action using MoveGroupInterface</description>
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Core ROS 2 -->
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+
+  <!-- Messages -->
+  <depend>geometry_msgs</depend>
+  <depend>moveit_msgs</depend>
+
+
+  <!-- MoveIt2 -->
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_visual_tools</depend>
+
+  <!-- TF2 -->
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_eigen</depend>
+
+  <build_depend>custom_interfaces</build_depend>
+  <exec_depend>custom_interfaces</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <depend>tm_msgs</depend>
+
+   <!-- Math / planning -->
+  <depend>Eigen3</depend>
+  <depend>ompl</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

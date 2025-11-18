@@ -10,3 +10,4 @@ build
 lab5_workspace/*
 moveit_testing/*
 arduino_ws
+perception_bag
