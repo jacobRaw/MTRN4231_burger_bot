@@ -11,14 +11,20 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(custom_interfaces REQUIRED)
 
 add_executable(run_inputNode src/inputNode.cpp)
-ament_target_dependencies(run_inputNode rclcpp custom_interfaces)
+ament_target_dependencies(run_inputNode
+  "custom_interfaces"
+  "rclcpp"
+  "rclcpp_action"
+)
 
 install (TARGETS
-        run_inputNode
-        DESTINATION lib/${PROJECT_NAME})
+  run_inputNode
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 install(DIRECTORY ../launch
   DESTINATION share/${PROJECT_NAME}/

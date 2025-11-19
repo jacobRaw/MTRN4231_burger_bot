@@ -1,12 +1,13 @@
 // UserInput node which reads in the userName and order from /input topic and appropriately 
 // starts an action server with the brain to create the burger
 
-#include <chrono>
-#include <string>
-#include <iostream>
+#include <functional>
+#include <memory>
+#include <thread>
 
+#include "custom_interfaces/action/order_request.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "custom_interfaces/msg/command.hpp"
+#include "rclcpp_action/rclcpp_action.hpp"
 
 using std::placeholders::_1;
 
@@ -18,7 +19,7 @@ enum class State {
 
 enum class Ingredients {
   topBun,
-  bottomBun
+  bottomBun,
   lettuce,
   tomato,
   cheese,
@@ -26,46 +27,48 @@ enum class Ingredients {
   pickles
 };
 
-struct pos {
+struct Pos {
     double x;
     double y;
-}
+};
 
-struct itemPos {
+struct ItemPos {
     std::string name;
-    pos position;
+    Pos position;
 };
 
 
 class BrainNode : public rclcpp::Node
 {
 public:
-  InputNode()
-  : Node("InputNode")
+  BrainNode()
+  : Node("brainNode")
   {
     RCLCPP_INFO(this->get_logger(), "BrainNode has started.");
+    // Initialize the state machine
+    // State currentState = State::homeState;
+    // create a server to receiver oders from the input node
   }
 
   void run()
     {
-        // Initialize the state machine
-        currentState = State::homeState;
+        
         
         // Main loop to handle state transitions
-        while (rclcpp::ok()) {
-            switch (currentState) {
-                case State::homeState:
-                    homeState();
-                    break;
-                case State::verificationState:
-                    verifyState(availableIngredients[0].position);
-                    break;
-                case State::pickPlaceState:
-                    pickPlaceState(availableIngredients[0].position, currentState);
-                    break;
-            }
-            rclcpp::spin_some(shared_from_this());
-        }
+        // while (rclcpp::ok()) {
+        //     switch (currentState) {
+        //         case State::homeState:
+        //             homeState();
+        //             break;
+        //         case State::verificationState:
+        //             // verifyState(availableIngredients[0].position);
+        //             break;
+        //         case State::pickPlaceState:
+        //             // pickPlaceState(availableIngredients[0].position, currentState);
+        //             break;
+        //     }
+        //     rclcpp::spin_some(shared_from_this());
+        // }
     }
 
 private:
@@ -82,7 +85,7 @@ private:
      * @brief home state where entire workspace is visible by camera
      * @returns updates x, y position of camera (pos struct)
      */
-    homeState()
+    void homeState()
     {
         // TO DO:
         // move arm to home position
@@ -97,7 +100,7 @@ private:
      * @returns x, y position of ingredient if ingredient correct and high quality
      * @returns 
      */
-    verifyState(pos ingredientPos)
+    void verifyState(Pos /*ingredientPos*/)
     {
         // TO DO:
     }
@@ -108,7 +111,7 @@ private:
      * @param currentState (enum class)
      * @returns updated position of ingredient (pos struct)
      */
-    pickPlaceState()
+    void pickPlaceState()
     {
         // TO DO:
     }
@@ -118,7 +121,7 @@ private:
      * @param orderIngredients (std::vector<Ingredients>)
      * @param availableIngredients (std::vector<itemPos>)
      */
-    compareIngredients()
+    void compareIngredients()
     {
         // TO DO:
     }
@@ -127,7 +130,7 @@ private:
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<InputNode>());
+  rclcpp::spin(std::make_shared<BrainNode>());
   rclcpp::shutdown();
   return 0;
 }

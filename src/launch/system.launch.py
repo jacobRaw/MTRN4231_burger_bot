@@ -9,9 +9,12 @@ from launch.substitutions import ThisLaunchFileDir
 
 def generate_launch_description():
     return LaunchDescription([
+        # DeclareLaunchArgument('static_broadcaster', default_value='shape1', description='Namespace for shape1 marker node'),
+        # DeclareLaunchArgument('dynamic_broadcaster', default_value='shape2', description='Namespace for shape2 marker node'),
+        
         Node(
-            package='user_input',
-            executable='run_inputNode',
+            package='brain',
+            executable='run_brain',
             name='inputNode',
             emulate_tty=True,
             output='screen',

@@ -1,0 +1,8 @@
+# Request
+string username
+bool take_orders
+string order
+---
+# Response
+bool success
+string message

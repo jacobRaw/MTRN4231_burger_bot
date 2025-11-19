@@ -10,6 +10,21 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(custom_interfaces REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+
+add_executable(run_brainNode src/brainNode.cpp)
+ament_target_dependencies(run_brainNode
+  "custom_interfaces"
+  "rclcpp"
+  "rclcpp_action"
+)
+
+install(TARGETS
+  run_brainNode
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

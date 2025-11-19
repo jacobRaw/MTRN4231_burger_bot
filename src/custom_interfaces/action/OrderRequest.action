@@ -1,0 +1,9 @@
+
+# Request
+string[] ingredients
+---
+# Result
+bool success
+---
+# Feedback
+string status

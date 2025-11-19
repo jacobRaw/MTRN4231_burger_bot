@@ -15,10 +15,11 @@ find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Command.msg"
   "srv/MovementRequest.srv"
+  "srv/InputServer.srv"
   "action/Movement.action"
-  DEPENDENCIES std_msgs geometry_msgs
+  "action/OrderRequest.action"
+  DEPENDENCIES geometry_msgs
 )
 ament_export_dependencies(rosidl_default_runtime)
 
