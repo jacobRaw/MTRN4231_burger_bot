@@ -3,6 +3,14 @@
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [System Architecture](#system-architecture)
+- [Technical Components](#technical-components)
+- [Installation and Setup](#installation-and-setup)
+- [Running the System](#running-the-system)
+- [Results and Demonstration](#results-and-demonstration)
+- [Discussion and Future Work](#discussion-and-future-work)
+- [Contributors and Roles](#contributors-and-roles)
+- [Repository Structure](#repository-structure)
+- [References and Acknowledgements](#references-and-acknowledgements)
 
 ## Project Overview
 
