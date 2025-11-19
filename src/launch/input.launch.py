@@ -13,7 +13,12 @@ def generate_launch_description():
             package='user_input',
             executable='run_inputNode',
             name='inputNode',
-            emulate_tty=True,
             output='screen',
         ),
+        Node(
+            package='brain',
+            executable='run_brainNode',
+            name='brainNode',
+            output='screen',
+        )
     ])

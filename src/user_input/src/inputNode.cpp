@@ -4,7 +4,8 @@
  *        and this node will setup an action client to communicate with the brain node action server
  *        to process the order and receive feedback for the user.
  * 
- * @usage ros2 service call /input_server custom_interfaces/srv/InputServer "{username: "jacob", take_orders: true, order: "hamburger"}"
+ * @launch ros2 launch user_input input.launch.py
+ * @usage ros2 service call /input_server custom_interfaces/srv/InputServer "{username: "jacob", take_orders: true, order: "cheeseburger"}"
  * 
  * @author Jacob Rawung
 */ 
@@ -110,7 +111,7 @@ private:
     }
 
     bool result = send_order_request(ingredients);
-    if (!result) {
+    if (!result) {  
       response->success = false;
       response->message = "Failed to send order request to brain node. Action server may be unavailable.";
       return;
@@ -182,16 +183,16 @@ private:
     std::vector<std::string> ingredients = std::vector<std::string>();
     switch (order) {
       case BurgerType::CheeseBurger:
-        ingredients = {"bottomBun", "lettuce", "tomato", "cheese", "patty", "topBun"};
+        ingredients = {"bottombun", "lettuce", "tomato", "cheese", "patty", "topbun"};
         break;
       case BurgerType::VeggieBurger:
-        ingredients = {"bottomBun", "lettuce", "tomato", "pickles", "topBun"};
+        ingredients = {"bottombun", "lettuce", "tomato", "pickles", "topbun"};
         break;
       case BurgerType::DoublePattyBurger:
-        ingredients = {"bottomBun", "lettuce", "tomato", "patty", "patty", "cheese", "topBun"};
+        ingredients = {"bottombun", "lettuce", "tomato", "patty", "patty", "cheese", "topbun"};
         break;
       case BurgerType::LoadedBurger:
-        ingredients = {"bottomBun", "lettuce", "lettuce", "tomato", "patty", "patty", "cheese", "pickles", "topBun"};
+        ingredients = {"bottombun", "lettuce", "lettuce", "tomato", "patty", "patty", "cheese", "pickles", "topbun"};
         break;
       case BurgerType::LettuceBurger:
         ingredients = {"lettuce", "patty", "cheese", "lettuce"};
