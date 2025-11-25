@@ -18,12 +18,13 @@ def generate_launch_description():
     realsense_activate = IncludeLaunchDescription(
         realsense_launch,
         launch_arguments={
-            'align_depth': 'true',
+            'align_depth.enable': 'true',
             'enable_depth': 'true',
             'enable_color': 'true',
-            'pointcloud.enabled': 'true',
+            'pointcloud.enable': 'true',
             'enable_sync': 'true',
-            'enable_rgbd': 'rgbd'
+            'enable_rgbd': 'true',
+            'pointcloud.ordered_pc': 'true',
         }.items()
     )
 
@@ -48,5 +49,4 @@ def generate_launch_description():
                 'base_link', 'camera_link'
             ]
         )
-        
     ])

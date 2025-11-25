@@ -6,8 +6,17 @@ from cv_bridge import CvBridge
 from ultralytics import YOLO
 import numpy as np
 from realsense2_camera_msgs.msg import RGBD
+from sensor_msgs.msg import PointCloud2
+from sensor_msgs_py import point_cloud2
+import struct
 
 lab_depth_topic = '/camera/camera/rgbd'
+
+# values are unique to bench 2 camera
+fx = 607.67999
+fy = 607.63007
+cx = 324.4732
+cy = 249.25323
 
 class perception_example(Node):
     def __init__(self):
@@ -16,15 +25,11 @@ class perception_example(Node):
         # self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/burger_model.pt')
         self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
         self.model.verbose = False
-        # self.subscription = self.create_subscription(Image, 'camera/camera/color/image_raw', self.image_callback, 10)
-        self.subscription = self.create_subscription(RGBD, lab_depth_topic, self.image_callback, 10)
-        self.subscription  # prevent unused variable warning
+        self.cam_sub = self.create_subscription(RGBD, lab_depth_topic, self.image_callback, 10)
+        self.cam_sub  # prevent unused variable warning
 
     def image_callback(self, msg):
-        # self.get_logger().info('Image received')
-        # self.get_logger().info(msg)
         image_raw = msg.rgb #colour image
-        #depth_data = msg.depth #depth data associated with the colour image
         depth_image = np.frombuffer(msg.depth.data, dtype=np.uint16)
         depth_image = depth_image.reshape(msg.depth.height, msg.depth.width)
         cv_image = self.bridge.imgmsg_to_cv2(image_raw, 'bgr8')
@@ -44,7 +49,12 @@ class perception_example(Node):
                         h = int(h)
                         cv2.circle(annotated_image, (centroid_x, centroid_y), 5, (255, 0, 0), -1)
                         # text = f"({centroid_x}, {centroid_y})"
-                        text = f"({centroid_x}, {centroid_y}, {depth_image[centroid_y, centroid_x]:.2f}m)"
+                        # text = f"({centroid_x}, {centroid_y}, {depth_image[centroid_y, centroid_x]:.2f}m)"
+                        depth = depth_image[centroid_y, centroid_x] / 1000.0  # Convert mm to meters
+                        X = (centroid_x - cx) * depth / fx
+                        Y = (centroid_y - cy) * depth / fy
+                        Z = depth
+                        text = f"(X:{X* 1000:.2f}, Y:{Y * 1000:.2f}, Z:{Z * 1000:.2f})"
                         text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
                         text_x = centroid_x - text_size[0] // 2
                         text_y = centroid_y + 20
