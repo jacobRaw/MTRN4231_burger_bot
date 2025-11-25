@@ -38,5 +38,15 @@ def generate_launch_description():
             emulate_tty=True,
             output='screen',
         ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_tf_pub',
+            arguments=[
+                '0.61', '0.2305', '0.915',           # x y z
+                '1.57', '1.57', '0',           # roll pitch yaw
+                'base_link', 'camera_link'
+            ]
+        )
         
     ])

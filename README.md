@@ -46,6 +46,7 @@ demonstrates.
 - Any environment variables, configuration files, or calibration procedures required to run
 the system. (You can take as assumed that there is some sort of hand-eye calibration
 already present in the system.)
+- Troubleshooting (common errors/mistakes)
 
 ## Running the System
 - Clear instructions for launching and running the complete system.
@@ -58,6 +59,9 @@ or Docker image), without manual sequencing.
 ## Results and Demonstration
 - Describe how your system performs against its design goals.
 - Include quantitative results where possible (e.g. accuracy, repeatability).
+    - confidence of the YOLO
+    - Record total number of attempts for a full cycle against successful attempts for repeatability
+    - record of the speed to complete task
 - Provide photos, figures, or videos showing the system in operation. (See Project
 Overview, above.)
 - Highlight robustness, adaptability, and innovation.
@@ -66,6 +70,7 @@ Overview, above.)
 - Briefly discuss major engineering challenges faced and how they were addressed.
 - Outline opportunities for improvement or extensions – what would you do better for
 “Version 2.0”.
+    - Can talk about adding the mould to the fake food
 - Summarise what makes your approach novel, creative, or particularly effective
 
 ## Contributors and Roles
