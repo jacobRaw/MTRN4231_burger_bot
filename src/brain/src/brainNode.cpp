@@ -18,9 +18,9 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 
 enum class State {
+  startState,
   homeState,
-  verificationState,
-  pickPlaceState,
+  stackState,
 };
 
 enum class Ingredients {
@@ -68,11 +68,14 @@ public:
       std::bind(&BrainNode::handle_goal_request, this, _1, _2),
       std::bind(&BrainNode::handle_cancel, this, _1),
       std::bind(&BrainNode::handle_accepted, this, _1));
+
+    // Initialize class attributes
+    currentState = State::startState;
   }
 
 private:
   rclcpp_action::Server<action_interface>::SharedPtr action_server_;
-  //currentState (enum class)
+  State currentState;
   //arm pose read from the robot arm topic
   // order ingredients (std::vector<Ingredients)
   // available ingredients (std::vector<itemPos>)
@@ -96,58 +99,58 @@ private:
     rclcpp::Rate loop_rate(5);
     feedback->status = "Starting order...";
     goal_handle->publish_feedback(feedback);
-
-    loop_rate.sleep();
-
-    feedback->status = "Halfway complete...";
-    goal_handle->publish_feedback(feedback);
-
-    loop_rate.sleep();
-    feedback->status = "Order complete!";
-    goal_handle->publish_feedback(feedback);
-
-    result->success = true;
-    goal_handle->succeed(result);
     // Main loop to handle state transitions
-    // while (rclcpp::ok()) {
-    //     switch (currentState) {
-    //         case State::homeState:
-    //             homeState();
-    //             break;
-    //         case State::verificationState:
-    //             // verifyState(availableIngredients[0].position);
-    //             break;
-    //         case State::pickPlaceState:
-    //             // pickPlaceState(availableIngredients[0].position, currentState);
-    //             break;
-    //     }
-    //     rclcpp::spin_some(shared_from_this());
-    // }
+    while (rclcpp::ok()) {
+        switch (currentState) {
+            case State::startState:
+                startState();
+                break;
+            case State::homeState:
+                homeState();
+                break;
+            case State::verificationState:
+                // verifyState(availableIngredients[0].position);
+                break;
+            case State::pickPlaceState:
+                // pickPlaceState(availableIngredients[0].position, currentState);
+                break;
+        }
+        rclcpp::spin_some(shared_from_this());
+    }
+
+    // loop_rate.sleep();
+
+    // feedback->status = "Halfway complete...";
+    // goal_handle->publish_feedback(feedback);
+
+    // loop_rate.sleep();
+    // feedback->status = "Order complete!";
+    // goal_handle->publish_feedback(feedback);
+
+    // result->success = true;
+    // goal_handle->succeed(result);
   }
 
   /********************STATE FUNCTIONS********************/
   /**
-   * @brief home state where entire workspace is visible by camera
+   * @brief home state where entire workspace is visible by camera assumes arm is in home position
    * @returns updates x, y position of camera (pos struct)
    */
   void homeState()
   {
     // TO DO:
-    // move arm to home position
     // capture image from camera and process image to find available ingredients and their positions
     // 
 
   }
-
   /**
-   * @brief Get close to ingredient to verify type of ingredient
-   * @param pos x, y position of ingredient (pos struct)
-   * @returns x, y position of ingredient if ingredient correct and high quality
-   * @returns 
+   * @brief Only runs at start, moves arm to home position and determines all available ingredients
    */
-  void verifyState(Pos /*ingredientPos*/)
-  {
+  void startState() {
     // TO DO:
+    // move arm to home position
+    // get information from perception to determine all available ingredients and their positions
+    // if not all ingredients are available, send feedback to user input node
   }
 
   /**
@@ -159,8 +162,11 @@ private:
   void pickPlaceState()
   {
     // TO DO:
+    // get information from perception to determine all available ingredients and their positions
+    // if not all ingredients are available, send feedback to user input node
   }
 
+  /************************HELPER FUNCTIONS********************/
   /**
    * @brief Compare available ingredients with order ingredients
    * @param orderIngredients (std::vector<Ingredients>)

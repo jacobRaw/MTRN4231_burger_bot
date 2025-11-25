@@ -20,6 +20,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/InputServer.srv"
   "action/Movement.action"
   "action/OrderRequest.action"
+  "msg/IngredientPos.msg"
+  "msg/Ingredients.msg"
   DEPENDENCIES geometry_msgs
 )
 ament_export_dependencies(rosidl_default_runtime)

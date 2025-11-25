@@ -27,7 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'static_image_tests = perception.static_image_tests:main',
+            'yolo_vision = perception.yolo_vision:main',
         ],
     },
 )

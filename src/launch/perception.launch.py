@@ -34,7 +34,7 @@ def generate_launch_description():
         realsense_activate,
         Node(
             package='perception',
-            executable='static_image_tests',
+            executable='yolo_vision',
             name='perceptionNode',
             emulate_tty=True,
             output='screen',
