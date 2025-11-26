@@ -4,6 +4,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
 from launch.substitutions import LaunchConfiguration
+import os
 
 def generate_launch_description():
     # launch arguments
@@ -29,6 +30,11 @@ def generate_launch_description():
             'robot_ip': robot_ip,
             'use_fake_hardware': use_fake_hardware,
             'launch_rviz': 'false',
+            "description_file": PathJoinSubstitution([
+                FindPackageShare("robot_description"),
+                "urdf",
+                "burger_bot.xacro"
+            ])
         }.items()
     )
 

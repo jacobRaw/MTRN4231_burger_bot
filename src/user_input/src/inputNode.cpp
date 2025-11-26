@@ -17,7 +17,6 @@
 #include <vector>
 
 #include "custom_interfaces/action/order_request.hpp"
-#include "custom_interfaces/msg/command.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "custom_interfaces/srv/input_server.hpp"

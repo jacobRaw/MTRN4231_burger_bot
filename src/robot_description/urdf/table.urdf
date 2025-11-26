@@ -1,0 +1,14 @@
+<link name="table">
+    <visual>
+    <geometry>
+        <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <origin rpy="0 0 0" xyz="1 0.2 0"/> 
+    </visual>
+    <collision>
+    <geometry>
+        <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+</link>

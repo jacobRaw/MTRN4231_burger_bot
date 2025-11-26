@@ -1,3 +1,8 @@
+"""
+usage  ros2 launch moveit_path_planner arm_server_launch.py robot_ip:=192.168.0.100 use_fake_hardware:='false' 
+
+"""
+
 import launch
 import os
 
@@ -10,16 +15,16 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "joint_limits.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur5e", "joint_limits.yaml"]
     )
     kinematics_params = PathJoinSubstitution(
-        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "default_kinematics.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur5e", "default_kinematics.yaml"]
     )
     physical_params = PathJoinSubstitution(
-        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "physical_parameters.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur5e", "physical_parameters.yaml"]
     )
     visual_params = PathJoinSubstitution(
-        [FindPackageShare("burger_bot_controller"), "config", "ur5e", "visual_parameters.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur5e", "visual_parameters.yaml"]
     )
     robot_description_content = Command(
         [
@@ -97,6 +102,7 @@ def generate_launch_description():
 
     # Declare them so user can override
     declared_args = [
+        # 192.168.0.100 real ip
         DeclareLaunchArgument("robot_ip", default_value="yyy.yyy.yyy.yyy"),
         DeclareLaunchArgument("use_fake_hardware", default_value="true"),
     ]
