@@ -1,4 +1,0 @@
-srv/MovementRequest.idl
-srv/MovementRequest.srv
-srv/MovementRequest_Request.msg
-srv/MovementRequest_Response.msg
