@@ -108,10 +108,7 @@ private:
             case State::homeState:
                 homeState();
                 break;
-            case State::verificationState:
-                // verifyState(availableIngredients[0].position);
-                break;
-            case State::pickPlaceState:
+            case State::stackState:
                 // pickPlaceState(availableIngredients[0].position, currentState);
                 break;
         }
@@ -159,7 +156,7 @@ private:
    * @param currentState (enum class)
    * @returns updated position of ingredient (pos struct)
    */
-  void pickPlaceState()
+  void stackState()
   {
     // TO DO:
     // get information from perception to determine all available ingredients and their positions

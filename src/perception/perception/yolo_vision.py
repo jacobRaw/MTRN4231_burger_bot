@@ -16,6 +16,9 @@ import numpy as np
 from realsense2_camera_msgs.msg import RGBD
 from sensor_msgs.msg import CameraInfo
 from custom_interfaces.msg import Ingredients, IngredientPos
+from geometry_msgs.msg import PointStamped
+import tf2_ros
+import tf2_geometry_msgs
 
 class perception_example(Node):
     def __init__(self):
@@ -39,6 +42,10 @@ class perception_example(Node):
         # class attributes
         self.fx = self.fy = self.cx = self.cy = None
         self.cam_setup = False
+
+        # static transformation listener
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
     def image_callback(self, msg):
         if not self.cam_setup:
@@ -84,14 +91,36 @@ class perception_example(Node):
         X = (centroid_x - self.cx) * depth / self.fx
         Y = (centroid_y - self.cy) * depth / self.fy
         Z = depth
-        text = f"(X:{X* 1000:.2f}, Y:{Y * 1000:.2f}, Z:{Z * 1000:.2f})"
+
+        # convert from camera_pos to base_pos
+        point_cam = PointStamped()
+        point_cam.header.frame_id = 'camera_link'
+        point_cam.header.stamp = rclpy.time.Time().to_msg()
+        point_cam.point.x = float(X)
+        point_cam.point.y = float(Y)
+        point_cam.point.z = float(Z)
+
+        try:
+            point_base = self.tf_buffer.transform(
+                point_cam,
+                'base_link',
+                timeout=rclpy.duration.Duration(seconds=0.3)
+            )
+
+        except Exception as e:
+            self.get_logger().error(f"TF transform failed: {e}")
+
+
+        # text = f"(X:{X* 1000:.2f}, Y:{Y * 1000:.2f}, Z:{Z * 1000:.2f})"
+        text = f"(X:{point_base.point.x * 1000:.1f}, Y:{point_base.point.y * 1000:.1f}, Z:{point_base.point.z * 1000:.1f})"
         text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
         text_x = centroid_x - text_size[0] // 2
         text_y = centroid_y + 20
         cv2.rectangle(rgb_image, (text_x, text_y - text_size[1] - 2), (text_x + text_size[0], text_y + 2), (0, 0, 0), -1)
         cv2.putText(rgb_image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-        return {X, Y, Z}
+        # self.get_logger().info(f'Detected object at X: {X:.3f} m, Y: {Y:.3f} m, Z: {Z:.3f} m')
+        return X, Y, Z
 
     def cam_info_callback(self, msg):
         self.get_logger().info('Camera info received.')

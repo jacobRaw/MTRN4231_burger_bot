@@ -44,9 +44,8 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='static_tf_pub',
             arguments=[
-                '0.61', '0.2305', '0.915',           # x y z
-                '1.57', '1.57', '0',           # roll pitch yaw
-                'base_link', 'camera_link'
-            ]
+                '--x', '0.61', '--y', '0.2305', '--z', '0.915',
+                '--yaw', '0', '--pitch', '0', '--roll', #roll = axis, pitch = y, yaw = z
+                '3.14', '--frame-id', 'base_link', '--child-frame-id', 'camera_link']
         )
     ])

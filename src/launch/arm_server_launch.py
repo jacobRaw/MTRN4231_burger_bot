@@ -1,10 +1,12 @@
 import launch
 import os
-import sys
 
 from launch_ros.actions import Node
 from launch.substitutions import PathJoinSubstitution, Command, FindExecutable
 from launch_ros.substitutions import FindPackageShare
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
@@ -89,12 +91,35 @@ def get_robot_description_semantic():
     
 def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
+      # Arguments for UR launch
+    robot_ip = LaunchConfiguration("robot_ip")
+    use_fake = LaunchConfiguration("use_fake_hardware")
+
+    # Declare them so user can override
+    declared_args = [
+        DeclareLaunchArgument("robot_ip", default_value="yyy.yyy.yyy.yyy"),
+        DeclareLaunchArgument("use_fake_hardware", default_value="true"),
+    ]
+
+    # Include the UR startup launch file (driver + MoveIt)
+    this_dir = os.path.dirname(__file__)
+    ur_startup_path = os.path.join(this_dir, "ur_startup.launch.py")
+
+    ur_startup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(ur_startup_path),
+        launch_arguments={
+            "robot_ip": robot_ip,
+            "use_fake_hardware": use_fake,
+        }.items()
+    )
+
+
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
     planning_server = Node(
         package="moveit_path_planner",
-        executable="moveit_path_planning_server",
-        name="moveit_path_planning_server",
+        executable="moveit_path_planning_action",
+        name="moveit_path_planning_action",
         output="screen",
         parameters=[
             robot_description,
@@ -102,4 +127,11 @@ def generate_launch_description():
         ],
     )
 
-    return launch.LaunchDescription([planning_server])
+    return launch.LaunchDescription(
+        declared_args +
+        [
+            ur_startup,
+            planning_server
+        ]
+        
+    )

@@ -367,3 +367,6 @@ int main(int argc, char** argv)
  
 // (to pickup pose down)
 // ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.4, 0.1, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
+
+// this command will send arm with end effector attached to the bolt "3"
+// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.23, 0.519, 0.194, 3.1415926536, 0.0, -1.7507963268], constraints_identifier: 'FULL'}"
