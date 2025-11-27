@@ -38,13 +38,16 @@ custom schematic).
 control overview and integration details.
 
 List of technical images and drawings for end effector:
+
 CAD:
 <img width="1229" height="959" alt="image" src="https://github.com/user-attachments/assets/3d45d045-4e3d-4c83-b05e-1836b60c4578" />
 
-Render:
+Renders:
 <img width="1191" height="839" alt="image" src="https://github.com/user-attachments/assets/76359ad7-43cc-491c-8dfb-574db24e3302" />
 <img width="1317" height="761" alt="image" src="https://github.com/user-attachments/assets/d00f4ed7-9ddd-49fa-b6d7-1e94fd16da4d" />
 <img width="1123" height="815" alt="image" src="https://github.com/user-attachments/assets/9abb99a5-1c40-49eb-b46d-8253dd56e5e4" />
+<img width="1061" height="1018" alt="image" src="https://github.com/user-attachments/assets/c7eae45d-c591-483d-873c-556fe3ee5537" />
+
 
 Engineering Drawings:
 <img width="1596" height="1125" alt="image" src="https://github.com/user-attachments/assets/9e936828-e793-4619-a5e1-f73c662aab24" />
