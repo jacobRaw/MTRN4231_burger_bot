@@ -49,6 +49,10 @@ Render:
 Engineering Drawings:
 <img width="1596" height="1125" alt="image" src="https://github.com/user-attachments/assets/9e936828-e793-4619-a5e1-f73c662aab24" />
 
+Circuit Diagram:
+<img width="1217" height="924" alt="image" src="https://github.com/user-attachments/assets/07222e7e-da9f-46ed-8312-8f5fafd0dfda" />
+
+
 
 
 - System Visualisation: explain how your system is visualised (e.g. RViz) and what it
@@ -91,7 +95,7 @@ Overview, above.)
 ## Contributors and Roles
 Jacob Rawung (zID) - Jacobs primary areas of responsibility include computer vision using YOLO and developing overarching closed loop system control, with slight contribution to system visualisation.
 Reynold Chu (zID) - Reynold is responsible for developing the moveit path planner as well as being the primary developer for system visualisation.
-Riley Hackett (z5417561) - Riley is responsible for hardware development as well as developing the software to control hardware with ROS, with slight contribution to system visualisation.
+Riley Hackett (z5417561) - Riley is responsible for CAD + hardware development as well as developing the software to control hardware with ROS, with slight contribution to system visualisation.
 
 - Briefly list team members and describe their primary areas of responsibility (e.g. vision,
 planning, hardware).
