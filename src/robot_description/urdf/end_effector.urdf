@@ -2,14 +2,13 @@
     <link name="end_effector_link">
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/Gripper_fixed.stl"
-                    scale="0.001 0.001 0.001" />
+                <mesh filename="package://robot_description/meshes/EndEffector.obj"/>
             </geometry>
-            <origin xyz="-0.125 0 0.078" rpy="0 3.141 0" />
+            <origin xyz="0 0 0" rpy="0 3.141 0" /> <!--"0.125 0 0.078" rpy="0 3.141 0"-->
         </visual>
         <collision>
             <geometry>
-                <box size="0.342 0.087 0.124" />
+                <box size="0.342 0.087 0.130" /> <!--0.342 0.087 0.124-->
             </geometry>
             <origin xyz="0.011 0 0.1" rpy="0 3.141 0" />
         </collision>

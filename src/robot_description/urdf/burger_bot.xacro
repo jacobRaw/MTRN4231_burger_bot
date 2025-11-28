@@ -6,6 +6,11 @@
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
 
   <!---Table-->
+  <xacro:include filename="table.urdf"/>
+  <joint name="table_link_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="table_link"/>
+  </joint>
 
   <!--End Effector-->
   <xacro:include filename="end_effector.urdf"/>

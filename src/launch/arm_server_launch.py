@@ -1,5 +1,5 @@
 """
-usage  ros2 launch moveit_path_planner arm_server_launch.py robot_ip:=192.168.0.100 use_fake_hardware:='false' 
+usage ros2 launch moveit_path_planner arm_server_launch.py robot_ip:=192.168.0.100 use_fake_hardware:='false' 
 
 """
 

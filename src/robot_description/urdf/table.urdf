@@ -1,14 +1,16 @@
-<link name="table">
-    <visual>
-    <geometry>
-        <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <origin rpy="0 0 0" xyz="1 0.2 0"/> 
-    </visual>
-    <collision>
-    <geometry>
-        <mesh filename="package://burger_bot_description/meshes/Tablev2_v13.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    </collision>
-</link>
+<robot name="table.urdf">
+    <link name="table_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://robot_description/meshes/Table.obj"/>
+            </geometry>
+        <origin rpy="0 0 3.1416" xyz="0.778 0.252 -0.4665"/> 
+        </visual>
+        <collision>
+            <geometry>
+                <box size="1.820 0.930 0.820" /> <!--0.342 0.087 0.124-->
+            </geometry>
+        <origin rpy="1.5708 0 0" xyz="0.778 0.252 -0.4665"/>
+        </collision>
+    </link>
+</robot>
