@@ -184,30 +184,38 @@ private:
    */
   void homeState()
   {
-    // TO DO:
+    // TO DO
     // capture image from camera and process image to find available ingredients and their positions
     // 
-
   }
   /**
    * @brief Only runs at start, moves arm to home position and determines all available ingredients
    */
   void startState() {
-    // TO DO:
     // move arm to home position
-    // send_arm_dest(HOME_POS);
+    send_arm_dest(HOME_POS);
+  
     // get information from perception to determine all available ingredients and their positions
-    this->set_accept_cv(true);
-    //wait until perception is complete
-    RCLCPP_INFO(this->get_logger(), "Waiting for perception data...");
-    while (rclcpp::ok() && this->get_accept_cv()) {
-      std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
-    }
+    // this->set_accept_cv(true);
+    // //wait until perception is complete
+    // RCLCPP_INFO(this->get_logger(), "Waiting for perception data...");
+    // while (rclcpp::ok() && this->get_accept_cv()) {
+    //   std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
+    // }
     
-    for (const auto & ingredient : this->get_available_ingredients()) {
-      RCLCPP_INFO(this->get_logger(), "Available ingredient: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
-    }
-    this->currentState = State::homeState;
+    // for (const auto & ingredient : this->get_available_ingredients()) {
+    //   RCLCPP_INFO(this->get_logger(), "Available ingredients: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
+    // }
+    // this->currentState = State::homeState;
+  }
+
+  void pickPlaceState()
+  {
+    // TO DO:
+    // pick ingredient at pos
+    // close gripper
+    // move to stack position
+    // open gripper
   }
 
   /**
@@ -427,7 +435,6 @@ private:
     } else if(ingredient_str == "pickles") {
       return Ingredients::pickles;
     } else {
-      RCLCPP_INFO(this->get_logger(), "hello");
       RCLCPP_INFO(this->get_logger(), "Unknown ingredient string: %s", ingredient_str.c_str());
       return Ingredients::unknown;
     }
@@ -522,6 +529,7 @@ private:
     order_ingredients.clear();
     const auto goal = goal_handle->get_goal();
     for (const auto & ingredient : goal->ingredients) {
+      RCLCPP_INFO(this->get_logger(), "Order ingredient: %s", ingredient.c_str());
       order_ingredients.push_back(string_to_ingredient(ingredient));
     }
   }

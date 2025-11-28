@@ -182,6 +182,9 @@ private:
   {
     std::vector<std::string> ingredients = std::vector<std::string>();
     switch (order) {
+      case BurgerType::CheeseBurger:
+        ingredients = {"bun_bottom", "patty", "cheese", "bun_top"};
+        break;
       case BurgerType::ClassicBurger:
         ingredients = {"bun_bottom", "lettuce", "tomato", "cheese", "patty", "bun_top"};
         break;
@@ -232,8 +235,10 @@ private:
    * @returns Corresponding BurgerType enum value
    */
   BurgerType string_to_burger_type(const std::string & burger_str)
-  {
-    if (burger_str == "cheeseburger") {
+  { 
+    if (burger_str == "classicburger") {
+      return BurgerType::ClassicBurger;
+    } else if (burger_str == "cheeseburger") {
       return BurgerType::CheeseBurger;
     } else if (burger_str == "veggieburger") {
       return BurgerType::VeggieBurger;

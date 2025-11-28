@@ -55,8 +55,8 @@ class perception_example(Node):
         depth_image = depth_image.reshape(msg.depth.height, msg.depth.width)
         cv_image = self.bridge.imgmsg_to_cv2(image_raw, 'bgr8')
         results = self.model(cv_image, verbose=False)
-        # annotated_image = results[0].plot()
-        annotated_image = cv_image
+        annotated_image = results[0].plot()
+        # annotated_image = cv_image
         ingredients_msg = Ingredients()
         for result in results:
             boxes = result.boxes
