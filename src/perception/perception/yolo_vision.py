@@ -27,7 +27,9 @@ class perception_example(Node):
         #CV setup
         self.bridge = CvBridge()
         # self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/burger_model.pt')
-        self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
+        self.model = YOLO('/home/reynold/4231SuppliedCode/MTRN4231_burger_bot/src/perception/perception/black_seed.pt')
+        #self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
+
         self.model.verbose = False
 
         # Subscribers

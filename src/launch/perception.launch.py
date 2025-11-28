@@ -1,4 +1,6 @@
 import launch
+from launch.substitutions import PathJoinSubstitution
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
@@ -8,11 +10,10 @@ from launch.launch_description_sources import AnyLaunchDescriptionSource
 from launch.substitutions import ThisLaunchFileDir
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
-
 def generate_launch_description():
     realsense_pkg = FindPackageShare('realsense2_camera').find('realsense2_camera')
-    realsense_launch = PythonLaunchDescriptionSource(
-        [realsense_pkg, '/launch/rs_launch.py']
+    realsense_launch = PathJoinSubstitution(
+        [realsense_pkg, 'launch', 'rs_launch.py']
     )
 
     realsense_activate = IncludeLaunchDescription(
@@ -49,3 +50,5 @@ def generate_launch_description():
                 '3.14', '--frame-id', 'base_link', '--child-frame-id', 'camera_link']
         )
     ])
+
+## Installing Package https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md
