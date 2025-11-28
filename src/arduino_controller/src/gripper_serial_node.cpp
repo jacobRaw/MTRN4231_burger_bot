@@ -7,6 +7,7 @@
 #include "custom_interfaces/srv/gripper_server.hpp"
 
 /**
+ * @launch ros2 run gripper_serial gripper_serial_node --ros-args -p serial_port:=/dev/ttyACM0
  * @usage ros2 service call /gripper_server custom_interfaces/srv/GripperServer "{command: 'o'}"
  */
 

@@ -2,10 +2,13 @@
 # 0 <- no constraints
 # 1 <- orientation constraint
 
+#request
 string command
 float64[] positions
 string constraints_identifier
 ---
+# result
 bool success
 ---
+# feedback
 string status

@@ -69,9 +69,7 @@ class perception_example(Node):
                         X, Y, Z = self.annotate_image(annotated_image, depth_image, box)
                         ingredient_pos = IngredientPos()
                         ingredient_pos.ingredient = ingredient
-                        ingredient_pos.x = float(X)
-                        ingredient_pos.y = float(Y)
-                        ingredient_pos.z = float(Z)
+                        ingredient_pos.pos = [X, Y, Z]
                         ingredients_msg.ingredients.append(ingredient_pos)
 
         self.ingredient_pub.publish(ingredients_msg)

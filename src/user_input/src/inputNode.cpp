@@ -30,6 +30,7 @@ enum class BurgerType {
   DoublePattyBurger,
   LoadedBurger,
   LettuceBurger,
+  ClassicBurger,
   Unknown
 };
 
@@ -58,7 +59,7 @@ public:
     // Setup the goal options for the action client
     send_goal_options = rclcpp_action::Client<action_interface>::SendGoalOptions();
     send_goal_options.goal_response_callback =
-      std::bind(&InputNode::goal_request_callback, this, _1);
+      std::bind(&InputNode::goal_response_callback, this, _1);
 
     send_goal_options.feedback_callback =
       std::bind(&InputNode::feedback_callback, this, _1, _2);
@@ -126,7 +127,7 @@ private:
    * @brief Callback function when goal request is sent to action server
    * @param goal_handle The goal handle to determine if the goal was accepted or rejected
    */
-  void goal_request_callback(const GoalHandleOrderRequest::SharedPtr & goal_handle)
+  void goal_response_callback(const GoalHandleOrderRequest::SharedPtr & goal_handle)
   {
     if (!goal_handle) {
       RCLCPP_ERROR(this->get_logger(), "Goal was rejected by server");
@@ -181,17 +182,17 @@ private:
   {
     std::vector<std::string> ingredients = std::vector<std::string>();
     switch (order) {
-      case BurgerType::CheeseBurger:
-        ingredients = {"bottombun", "lettuce", "tomato", "cheese", "patty", "topbun"};
+      case BurgerType::ClassicBurger:
+        ingredients = {"bun_bottom", "lettuce", "tomato", "cheese", "patty", "bun_top"};
         break;
       case BurgerType::VeggieBurger:
-        ingredients = {"bottombun", "lettuce", "tomato", "pickles", "topbun"};
+        ingredients = {"bun_bottom", "lettuce", "tomato", "pickles", "bun_top"};
         break;
       case BurgerType::DoublePattyBurger:
-        ingredients = {"bottombun", "lettuce", "tomato", "patty", "patty", "cheese", "topbun"};
+        ingredients = {"bun_bottom", "lettuce", "tomato", "patty", "patty", "cheese", "bun_top"};
         break;
       case BurgerType::LoadedBurger:
-        ingredients = {"bottombun", "lettuce", "lettuce", "tomato", "patty", "patty", "cheese", "pickles", "topbun"};
+        ingredients = {"bun_bottom", "lettuce", "lettuce", "tomato", "patty", "patty", "cheese", "pickles", "bun_top"};
         break;
       case BurgerType::LettuceBurger:
         ingredients = {"lettuce", "patty", "cheese", "lettuce"};
@@ -220,15 +221,6 @@ private:
     goal_msg.ingredients = ingredients;
 
     RCLCPP_INFO(this->get_logger(), "Sending order request to brain node...");
-
-    using namespace std::placeholders;
-    auto send_goal_options = rclcpp_action::Client<action_interface>::SendGoalOptions();
-    send_goal_options.goal_response_callback =
-      std::bind(&InputNode::goal_request_callback, this, _1);
-    send_goal_options.feedback_callback =
-      std::bind(&InputNode::feedback_callback, this, _1, _2);
-    send_goal_options.result_callback =
-      std::bind(&InputNode::result_callback, this, _1);
 
     this->action_client_ptr_->async_send_goal(goal_msg, send_goal_options);
     return true;
