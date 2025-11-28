@@ -19,6 +19,8 @@ from custom_interfaces.msg import Ingredients, IngredientPos
 from geometry_msgs.msg import PointStamped
 import tf2_ros
 import tf2_geometry_msgs
+from ament_index_python.packages import get_package_share_directory
+import os
 
 class perception_example(Node):
     def __init__(self):
@@ -26,9 +28,11 @@ class perception_example(Node):
 
         #CV setup
         self.bridge = CvBridge()
+        
         # self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/burger_model.pt')
-        # self.model = YOLO('/home/reynold/4231SuppliedCode/MTRN4231_burger_bot/src/perception/perception/black_seed.pt')
-        self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
+        share_dir = get_package_share_directory('perception')
+        self.model = YOLO(os.path.join(share_dir, 'black_seed.pt'))
+        #self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
 
         self.model.verbose = False
 
