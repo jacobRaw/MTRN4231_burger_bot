@@ -19,13 +19,13 @@
 #include "custom_interfaces/action/order_request.hpp"
 #include "custom_interfaces/msg/ingredients.hpp"
 #include "custom_interfaces/action/movement.hpp"
+#include "custom_interfaces/srv/gripper_server.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 
 enum class State {
   startState,
-  homeState,
-  stackState,
+  pickPlaceState
 };
 
 enum class Ingredients {
@@ -96,6 +96,13 @@ public:
       std::bind(&BrainNode::perception_callback, this, _1)
     );
 
+    // service call the arduino to control the gripper
+    this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_control");
+    while (!gripper_client_->wait_for_service(std::chrono::seconds(1)))
+    {
+      RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
+    }
+
     // Initialize class attributes
     currentState = State::startState;
   }
@@ -112,13 +119,18 @@ private:
 
   // subscription to perception node
   rclcpp::Subscription<custom_interfaces::msg::Ingredients>::SharedPtr perception_subscriber_;
-  
+
+  // service client to control gripper
+  rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedPtr gripper_client_;
+
   //logic variables
   State currentState;
   std::vector<Ingredients> order_ingredients;
+  int ing_index = 0;
 
   // shared variables
   bool accept_cv = false;
+  bool arm_moving = false;
   std::vector<IngredientPos> available_ingredients;
 
   // threading variables
@@ -126,7 +138,14 @@ private:
 
   // constants
   static constexpr double PI = 3.14159265358979323846;
-  const std::vector<double> HOME_POS = {0.23, 0.519, 0.194, PI, 0.0, -PI/2.0};
+  static constexpr double x_offset = -0.01700;
+  static constexpr double y_offset = -0.01425;
+  static constexpr double HOVER_HEIGHT = 0.3;
+  const std::vector<double> HOME_POS = {0.08, 0.35, HOVER_HEIGHT, PI, 0.0, -PI/2.0};
+  static constexpr double PICK_HEIGHT = 0.194;
+  static constexpr int GRIPPER_WAIT_TIME = 3000;
+  const std::string GRIPPER_CLOSE_CMD = "c";
+  const std::string GRIPPER_OPEN_CMD = "o";
   
   //arm pose read from the robot arm topic
   
@@ -154,11 +173,8 @@ private:
             case State::startState:
                 startState();
                 break;
-            case State::homeState:
-                homeState();
-                break;
-            case State::stackState:
-                // pickPlaceState(availableIngredients[0].position, currentState);
+            case State::pickPlaceState:
+                pickPlaceState();
                 break;
         }
         loop_rate.sleep();
@@ -179,56 +195,76 @@ private:
 
   /********************STATE FUNCTIONS********************/
   /**
-   * @brief home state only if ingredients are missing
-   * @returns updates x, y position of camera (pos struct)
-   */
-  void homeState()
-  {
-    // TO DO
-    // capture image from camera and process image to find available ingredients and their positions
-    // 
-  }
-  /**
    * @brief Only runs at start, moves arm to home position and determines all available ingredients
    */
   void startState() {
     // move arm to home position
     send_arm_dest(HOME_POS);
-  
-    // get information from perception to determine all available ingredients and their positions
-    // this->set_accept_cv(true);
-    // //wait until perception is complete
-    // RCLCPP_INFO(this->get_logger(), "Waiting for perception data...");
-    // while (rclcpp::ok() && this->get_accept_cv()) {
-    //   std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
-    // }
     
-    // for (const auto & ingredient : this->get_available_ingredients()) {
-    //   RCLCPP_INFO(this->get_logger(), "Available ingredients: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
-    // }
-    // this->currentState = State::homeState;
-  }
-
-  void pickPlaceState()
-  {
-    // TO DO:
-    // pick ingredient at pos
-    // close gripper
-    // move to stack position
-    // open gripper
+    // get information from perception to determine all available ingredients and their positions
+    this->set_accept_cv(true);
+    // //wait until perception is complete
+    RCLCPP_INFO(this->get_logger(), "Waiting for perception data...");
+    while (rclcpp::ok() && this->get_accept_cv()) {
+      std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
+    }
+    
+    for (const auto & ingredient : this->get_available_ingredients()) {
+      RCLCPP_INFO(this->get_logger(), "Available ingredients: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
+    }
+    this->currentState = State::pickPlaceState;
   }
 
   /**
-   * @brief Pick up ingredient and place it in the stack
-   * @param pos x, y position of ingredient (pos struct)
-   * @param currentState (enum class)
-   * @returns updated position of ingredient (pos struct)
+   * @brief moves the arm and picks up the ingredient and moves the ingredient to the stack
    */
-  void stackState()
+  void pickPlaceState()
   {
     // TO DO:
-    // get information from perception to determine all available ingredients and their positions
-    // if not all ingredients are available, send feedback to user input node
+    
+    // check if all ingredients have been picked
+    if (ing_index >= static_cast<int>(order_ingredients.size())) {
+      this->input_feedback("Order complete!");
+      this->currentState = State::startState;
+      return;
+    }
+
+    // get the ingredient position for the current index
+    Ingredients target_ingredient = order_ingredients[ing_index];
+    std::vector<double> target_position;
+    for (const auto & ingredientPos : this->get_available_ingredients()) {
+      if (ingredientPos.ingredient == target_ingredient) {
+        target_position = ingredientPos.position;
+        break;
+      }
+    }
+
+    // move arm only in the XY plane to the ingredient pos based off the current ingredient index
+    send_arm_dest({target_position[0] + x_offset, target_position[1] + y_offset, HOVER_HEIGHT, PI, 0.0, -PI/2.0});
+
+    // lower the arm such that the pick has pressure
+    send_arm_dest({target_position[0] + x_offset, target_position[1] + y_offset, PICK_HEIGHT, PI, 0.0, -PI/2.0});
+
+    // close the gripper
+    send_gripper_command(GRIPPER_CLOSE_CMD);
+
+    // raise the arm to hover height
+    send_arm_dest({target_position[0] + x_offset, target_position[1] + y_offset, HOVER_HEIGHT, PI, 0.0, -PI/2.0});
+
+    // move arm to the home position
+    send_arm_dest(HOME_POS);
+
+    // lower arm to the current stack height
+    double drop_height = get_drop_height();
+    send_arm_dest({HOME_POS[0], HOME_POS[1], drop_height, PI, 0.0, -PI/2.0});
+
+    // open the gripper
+    send_gripper_command(GRIPPER_OPEN_CMD);
+
+    // increment the ingredient index
+    ing_index++;
+    // change to the start state
+    this->currentState = State::startState;
   }
 
   /********************PERCEPTION CALLBACKS ********************************* */
@@ -332,6 +368,7 @@ private:
     if (!goal_handle) {
       RCLCPP_ERROR(this->get_logger(), "Goal was rejected by movit_server");
     } else {
+      this->set_arm_moving(true);
       RCLCPP_INFO(this->get_logger(), "Goal accepted by moveit_server, waiting for result");
     }
   }
@@ -366,7 +403,7 @@ private:
         return;
     }
 
-    RCLCPP_INFO(this->get_logger(), "TERMINATING...");
+    set_arm_moving(false);
   }
 
   /**
@@ -386,6 +423,21 @@ private:
     RCLCPP_INFO(this->get_logger(), "Sending order request to moveit...");
 
     this->moveit_action_client_->async_send_goal(goal_msg, send_goal_options);
+    wait_for_arm();
+  }
+
+  /**************************GRIPPER SERVER HANDLERS ************************** */
+  void gripper_server_response(const rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedFuture future) {
+    auto response = future.get();
+    if (!response) {
+      RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
+      return;
+    } else if (!response->success) {
+      RCLCPP_ERROR(this->get_logger(), "The gripper server reported failure: %s", response->message.c_str());
+      return;
+    } else {
+      RCLCPP_INFO(this->get_logger(), "Gripper command succeeded");
+    }
   }
 
    /************************HELPER FUNCTIONS********************/
@@ -404,9 +456,9 @@ private:
     }
 
     // Check which order ingredients are missing
-    for (const auto & ing : orderIngredients) {
-      if (availableSet.count(ing) == 0) {
-          missingIngredients.push_back(ing);
+    for (int i = ing_index; i < static_cast<int>(orderIngredients.size()); i++) {
+      if (availableSet.count(orderIngredients[i]) == 0) {
+          missingIngredients.push_back(orderIngredients[i]);
       }
     }
 
@@ -531,6 +583,68 @@ private:
     for (const auto & ingredient : goal->ingredients) {
       RCLCPP_INFO(this->get_logger(), "Order ingredient: %s", ingredient.c_str());
       order_ingredients.push_back(string_to_ingredient(ingredient));
+    }
+  }
+
+  /**
+   * @brief sets the arm_moving variable
+   */
+  void set_arm_moving(bool val) {
+    std::lock_guard<std::mutex> lock(mtx);
+    this->arm_moving = val;
+  }
+
+  /**
+   * @brief gets the current state of whether the arm is moving
+   */
+  bool get_arm_moving() {
+    std::lock_guard<std::mutex> lock(mtx);
+    return this->arm_moving;
+  }
+
+  double get_drop_height() {
+    double drop_height = PICK_HEIGHT;
+    for (int i = 0; i <= ing_index; i++) {
+      drop_height += ingredient_drop_height(order_ingredients[i]);
+    }
+    return drop_height;
+  }
+
+  double ingredient_drop_height(Ingredients ingredient) {
+    switch (ingredient) {
+      case Ingredients::bottomBun:
+        return 0.02;
+      case Ingredients::patty:
+        return 0.008;
+      case Ingredients::cheese:
+        return 0.003;
+      case Ingredients::tomato:
+        return 0.005;
+      case Ingredients::lettuce:
+        return 0.005;
+      case Ingredients::pickles:
+        return 0.005;
+      case Ingredients::topBun:
+        return 0.02;
+      default:
+        return 0.0;
+    }
+  }
+
+  void send_gripper_command(std::string command) {
+    auto request = std::make_shared<custom_interfaces::srv::GripperServer::Request>();
+    request->command = command;
+
+    auto future_result = gripper_client_->async_send_request(
+      request,
+      std::bind(&BrainNode::gripper_server_response, this, std::placeholders::_1)
+    );
+    std::this_thread::sleep_for(std::chrono::milliseconds(GRIPPER_WAIT_TIME)); 
+  }
+
+  void wait_for_arm() {
+    while(rclcpp::ok() && this->get_arm_moving()) {
+      std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
     }
   }
 };

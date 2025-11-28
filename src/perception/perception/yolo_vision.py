@@ -124,7 +124,7 @@ class perception_example(Node):
         cv2.putText(rgb_image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
         # self.get_logger().info(f'Detected object at X: {X:.3f} m, Y: {Y:.3f} m, Z: {Z:.3f} m')
-        return X, Y, Z
+        return point_base.point.x, point_base.point.y, point_base.point.z
 
     def cam_info_callback(self, msg):
         self.get_logger().info('Camera info received.')
