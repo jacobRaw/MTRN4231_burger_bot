@@ -78,6 +78,24 @@ already present in the system.)
 - The system should be launched by a single command (e.g. via a launch file, shell script
 or Docker image), without manual sequencing.
 
+Computer vision (perception):
+ros2 launch perception perception.launch.py 
+
+This launch file will also launch the perception_markers package to publish object markers in RVIZ
+
+Brain Node and user input:
+ros2 launch brain input.launch.py
+
+This launches both the brainNode and the inputNode
+
+Moveit (arm control):
+ros2 launch moveit_path_planner arm_server_launch.py
+
+This launches the moveit action server
+
+End Effector controller:
+ros2 run 
+
 ## Results and Demonstration
 - Describe how your system performs against its design goals.
 - Include quantitative results where possible (e.g. accuracy, repeatability).

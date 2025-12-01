@@ -142,7 +142,7 @@ private:
   static constexpr double x_offset = -0.01700;
   static constexpr double y_offset = -0.01425;
   static constexpr double HOVER_HEIGHT = 0.3;
-  const std::vector<double> HOME_POS = {0.08, 0.35, HOVER_HEIGHT, PI, 0.0, -PI/2.0};
+  const std::vector<double> HOME_POS = {0.15, 0.490, HOVER_HEIGHT, PI, 0.0, -PI/2.0};
   static constexpr double PICK_HEIGHT = 0.194;
   static constexpr int GRIPPER_WAIT_TIME = 1000;
   const std::string GRIPPER_CLOSE_CMD = "c";
@@ -229,8 +229,9 @@ private:
     }
 
     // move arm only in the XY plane to the ingredient pos based off the current ingredient index
+    RCLCPP_INFO(this->get_logger(), "moving xy plane before");
     send_arm_dest({target_position[0] + x_offset, target_position[1] + y_offset, HOVER_HEIGHT, PI, 0.0, -PI/2.0});
-
+    RCLCPP_INFO(this->get_logger(), "moving xy plane after");
     // lower the arm such that the pick has pressure
     send_arm_dest({target_position[0] + x_offset, target_position[1] + y_offset, PICK_HEIGHT, PI, 0.0, -PI/2.0});
 

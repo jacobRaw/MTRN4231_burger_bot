@@ -133,11 +133,18 @@ def generate_launch_description():
         ],
     )
 
+    end_effector_server = Node(
+        package="arduino_controller",
+        executable="gripper_serial_node",
+        parameters=[{"serial_port": "/dev/ttyACM0"}],
+    )
+
     return launch.LaunchDescription(
         declared_args +
         [
             ur_startup,
-            planning_server
+            planning_server,
+            end_effector_server
         ]
         
     )

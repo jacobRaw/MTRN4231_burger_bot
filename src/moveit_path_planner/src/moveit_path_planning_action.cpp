@@ -315,7 +315,7 @@ private:
     planning_scene_interface.applyCollisionObject(generateCollisionObject(2.4, 0.04, 1.0, 0.85, -0.25, 0.5, frame_id, "backWall"));
     planning_scene_interface.applyCollisionObject(generateCollisionObject(0.04, 1.2, 1.0, -0.3, 0.25, 0.5, frame_id, "sideWall"));
     //planning_scene_interface.applyCollisionObject(generateCollisionObject(2.4, 2.4, -0.01, 0.85, 0.25, 0.013, frame_id, "table"));
-    //planning_scene_interface.applyCollisionObject(generateCollisionObject(2.4, 2.4, 0.04, 0.85, 0.25, 1.2, frame_id, "ceiling"));
+    planning_scene_interface.applyCollisionObject(generateCollisionObject(1.5, 1.0, 0.04, 0.5, 0.25, 0.9, frame_id, "ceiling"));
   }
  
   moveit_msgs::msg::CollisionObject generateCollisionObject(float sx, float sy, float sz, float x, float y, float z,

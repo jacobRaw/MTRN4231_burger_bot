@@ -53,6 +53,9 @@ class perception_example(Node):
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
+        # cropping parameters
+        self.x_crop = 100
+
     def image_callback(self, msg):
         if not self.cam_setup:
             return
@@ -60,6 +63,7 @@ class perception_example(Node):
         depth_image = np.frombuffer(msg.depth.data, dtype=np.uint16)
         depth_image = depth_image.reshape(msg.depth.height, msg.depth.width)
         cv_image = self.bridge.imgmsg_to_cv2(image_raw, 'bgr8')
+        cv_image = cv_image[0: 480, self.x_crop : 640]
         results = self.model(cv_image, verbose=False)
         annotated_image = results[0].plot()
         # annotated_image = cv_image
@@ -68,15 +72,14 @@ class perception_example(Node):
             boxes = result.boxes
             if boxes is not None:
                 for i, box in enumerate(boxes):
-                    if box.conf[0] > 0.8:
-                        # get class name
-                        class_id = int(box.cls[0])
-                        ingredient = self.model.names[class_id]
-                        X, Y, Z = self.annotate_image(annotated_image, depth_image, box)
-                        ingredient_pos = IngredientPos()
-                        ingredient_pos.ingredient = ingredient
-                        ingredient_pos.pos = [X, Y, Z]
-                        ingredients_msg.ingredients.append(ingredient_pos)
+                    # get class name
+                    class_id = int(box.cls[0])
+                    ingredient = self.model.names[class_id]
+                    X, Y, Z = self.annotate_image(annotated_image, depth_image, box)
+                    ingredient_pos = IngredientPos()
+                    ingredient_pos.ingredient = ingredient
+                    ingredient_pos.pos = [X, Y, Z]
+                    ingredients_msg.ingredients.append(ingredient_pos)
 
         self.ingredient_pub.publish(ingredients_msg)
         cv2.imshow('Segmented Image with Centroid', annotated_image)
@@ -91,9 +94,11 @@ class perception_example(Node):
         cv2.circle(rgb_image, (centroid_x, centroid_y), 5, (255, 0, 0), -1)
         # text = f"({centroid_x}, {centroid_y})"
         # text = f"({centroid_x}, {centroid_y}, {depth_image[centroid_y, centroid_x]:.2f}m)"
-        depth = depth_image[centroid_y, centroid_x] / 1000.0  # Convert mm to meters
-        X = (centroid_x - self.cx) * depth / self.fx
-        Y = (centroid_y - self.cy) * depth / self.fy
+        uncropped_centroid_x = centroid_x + self.x_crop
+        uncropped_centroid_y = centroid_y
+        depth = depth_image[uncropped_centroid_y, uncropped_centroid_x] / 1000.0  # Convert mm to meters
+        X = (uncropped_centroid_x - self.cx) * depth / self.fx
+        Y = (uncropped_centroid_y - self.cy) * depth / self.fy
         Z = depth
 
         # convert from camera_pos to base_pos
