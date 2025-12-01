@@ -97,7 +97,7 @@ public:
     );
 
     // service call the arduino to control the gripper
-    this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_control");
+    this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_server");
     while (rclcpp::ok() && !GRIPPER_DISABLED && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
     {
       RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
@@ -144,10 +144,10 @@ private:
   static constexpr double HOVER_HEIGHT = 0.3;
   const std::vector<double> HOME_POS = {0.08, 0.35, HOVER_HEIGHT, PI, 0.0, -PI/2.0};
   static constexpr double PICK_HEIGHT = 0.194;
-  static constexpr int GRIPPER_WAIT_TIME = 3000;
+  static constexpr int GRIPPER_WAIT_TIME = 1000;
   const std::string GRIPPER_CLOSE_CMD = "c";
   const std::string GRIPPER_OPEN_CMD = "o";
-  static constexpr bool GRIPPER_DISABLED = true;
+  static constexpr bool GRIPPER_DISABLED = false;
   
   //arm pose read from the robot arm topic
   
@@ -596,6 +596,10 @@ private:
 
   double get_drop_height() {
     double drop_height = PICK_HEIGHT;
+    if (ing_index == 0) {
+      return drop_height;
+    }
+
     for (int i = 0; i <= ing_index; i++) {
       drop_height += ingredient_drop_height(order_ingredients[i]);
     }

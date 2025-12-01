@@ -44,8 +44,8 @@ public:
  
     move_group_->setPlannerId("TRRTkConfigDefault");
  
-    move_group_->setMaxVelocityScalingFactor(0.10);
-    move_group_->setMaxAccelerationScalingFactor(0.10);
+    move_group_->setMaxVelocityScalingFactor(0.08);
+    move_group_->setMaxAccelerationScalingFactor(0.08);
  
     setupCollisionObjects();
  
