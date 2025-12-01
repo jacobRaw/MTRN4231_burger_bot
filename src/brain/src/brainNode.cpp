@@ -98,7 +98,7 @@ public:
 
     // service call the arduino to control the gripper
     this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_control");
-    while (!gripper_client_->wait_for_service(std::chrono::seconds(1)))
+    while (rclcpp::ok() && !GRIPPER_DISABLED && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
     {
       RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
     }
@@ -127,6 +127,7 @@ private:
   State currentState;
   std::vector<Ingredients> order_ingredients;
   int ing_index = 0;
+  bool terminate = false;
 
   // shared variables
   bool accept_cv = false;
@@ -146,6 +147,7 @@ private:
   static constexpr int GRIPPER_WAIT_TIME = 3000;
   const std::string GRIPPER_CLOSE_CMD = "c";
   const std::string GRIPPER_OPEN_CMD = "o";
+  static constexpr bool GRIPPER_DISABLED = true;
   
   //arm pose read from the robot arm topic
   
@@ -168,7 +170,7 @@ private:
     rclcpp::Rate loop_rate(5);
     this->input_feedback("Starting order...");
     // Main loop to handle state transitions
-    while (rclcpp::ok()) {
+    while (rclcpp::ok() && !this->terminate) {
         switch (this->currentState) {
             case State::startState:
                 startState();
@@ -180,17 +182,7 @@ private:
         loop_rate.sleep();
     }
 
-    // loop_rate.sleep();
-
-    // feedback->status = "Halfway complete...";
-    // goal_handle->publish_feedback(feedback);
-
-    // loop_rate.sleep();
-    // feedback->status = "Order complete!";
-    // goal_handle->publish_feedback(feedback);
-
-    // result->success = true;
-    // goal_handle->succeed(result);
+    this->report_success();
   }
 
   /********************STATE FUNCTIONS********************/
@@ -201,17 +193,23 @@ private:
     // move arm to home position
     send_arm_dest(HOME_POS);
     
+    // check if the burger is complete
+    if (ing_index >= static_cast<int>(order_ingredients.size())){
+      this->input_feedback("Order Complete!");
+      this->terminate = true;
+      return;
+    }
     // get information from perception to determine all available ingredients and their positions
     this->set_accept_cv(true);
-    // //wait until perception is complete
+    //wait until perception is complete
     RCLCPP_INFO(this->get_logger(), "Waiting for perception data...");
     while (rclcpp::ok() && this->get_accept_cv()) {
       std::this_thread::sleep_for(std::chrono::milliseconds(100)); // small sleep
     }
     
-    for (const auto & ingredient : this->get_available_ingredients()) {
-      RCLCPP_INFO(this->get_logger(), "Available ingredients: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
-    }
+    // for (const auto & ingredient : this->get_available_ingredients()) {
+    //   RCLCPP_INFO(this->get_logger(), "Available ingredients: %s, X:, %f Y: %f , Z: %f", ingredient_to_string(ingredient.ingredient).c_str(), ingredient.position[0], ingredient.position[1], ingredient.position[2]);
+    // }
     this->currentState = State::pickPlaceState;
   }
 
@@ -220,15 +218,6 @@ private:
    */
   void pickPlaceState()
   {
-    // TO DO:
-    
-    // check if all ingredients have been picked
-    if (ing_index >= static_cast<int>(order_ingredients.size())) {
-      this->input_feedback("Order complete!");
-      this->currentState = State::startState;
-      return;
-    }
-
     // get the ingredient position for the current index
     Ingredients target_ingredient = order_ingredients[ing_index];
     std::vector<double> target_position;
@@ -275,7 +264,7 @@ private:
   void perception_callback(const custom_interfaces::msg::Ingredients::SharedPtr msg)
   {
     if (!this->get_accept_cv()) {
-      RCLCPP_INFO(this->get_logger(), "Perception callback ignored because accept_cv is false");
+      // RCLCPP_INFO(this->get_logger(), "Perception callback ignored because accept_cv is false");
       return;
     }
 
@@ -295,15 +284,11 @@ private:
       this->add_available_ingredient(ingredientPos);
     }
 
-    std::vector<Ingredients> missingIngredients = this->compareIngredients(order_ingredients, this->get_available_ingredients());
-    if (missingIngredients.empty()) {
+    bool found = this->findIngredient(order_ingredients[ing_index], this->get_available_ingredients());
+    if (found) {
       this->set_accept_cv(false);
     } else {
-      std::string missing_ingredients_str;
-      for (const auto & ingredient : missingIngredients) {
-        missing_ingredients_str += ingredient_to_string(ingredient) + " ";
-      }
-      this->input_feedback("Missing ingredients: " + missing_ingredients_str);
+      this->input_feedback("Missing ingredient: " + this->ingredient_to_string(order_ingredients[ing_index]));
     }
   }
 
@@ -358,6 +343,17 @@ private:
     goal_handle->publish_feedback(feedback);
   }
 
+  /**
+   * @brief sends result to the user upon successfully completing burger
+   */
+  void report_success() {
+    std::lock_guard<std::mutex> lock(mtx);
+    auto goal_handle = this->active_goal_;
+    auto result = std::make_shared<action_interface::Result>();
+    result->success = true;
+    goal_handle->succeed(result);
+  }
+
   /******************************* MoveIt Action Client Callbacks *************************** */
   
   /**
@@ -367,8 +363,8 @@ private:
   {
     if (!goal_handle) {
       RCLCPP_ERROR(this->get_logger(), "Goal was rejected by movit_server");
+      this->set_arm_moving(false);
     } else {
-      this->set_arm_moving(true);
       RCLCPP_INFO(this->get_logger(), "Goal accepted by moveit_server, waiting for result");
     }
   }
@@ -380,7 +376,7 @@ private:
     GoalHandleMoveIt::SharedPtr,
     const std::shared_ptr<const custom_interfaces::action::Movement::Feedback> feedback)
   {
-    RCLCPP_INFO(this->get_logger(), feedback->status.c_str());
+    RCLCPP_INFO(this->get_logger(), "Feedback: %s", feedback->status.c_str());
   }
 
   /**
@@ -391,19 +387,19 @@ private:
   {
     switch (result.code) {
       case rclcpp_action::ResultCode::SUCCEEDED:
+        RCLCPP_INFO(this->get_logger(), "Goal succeeded");
         break;
       case rclcpp_action::ResultCode::ABORTED:
         RCLCPP_ERROR(this->get_logger(), "Goal was aborted");
-        return;
+        break;
       case rclcpp_action::ResultCode::CANCELED:
         RCLCPP_ERROR(this->get_logger(), "Goal was canceled");
-        return;
+        break;
       default:
         RCLCPP_ERROR(this->get_logger(), "Unknown result code");
-        return;
+        break;
     }
-
-    set_arm_moving(false);
+    this->set_arm_moving(false);
   }
 
   /**
@@ -420,15 +416,17 @@ private:
     goal_msg.constraints_identifier = "FULL";
     goal_msg.positions = pose;
 
-    RCLCPP_INFO(this->get_logger(), "Sending order request to moveit...");
-
     this->moveit_action_client_->async_send_goal(goal_msg, send_goal_options);
+    this->set_arm_moving(true);
     wait_for_arm();
   }
 
   /**************************GRIPPER SERVER HANDLERS ************************** */
   void gripper_server_response(const rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedFuture future) {
     auto response = future.get();
+    if (GRIPPER_DISABLED) {
+      return;
+    }
     if (!response) {
       RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
       return;
@@ -447,22 +445,16 @@ private:
    * @param availableIngredients (std::vector<itemPos>)
    * @returns list of missing ingredients
    */
-  std::vector<Ingredients> compareIngredients(std::vector<Ingredients> orderIngredients, std::vector<IngredientPos> availableIngredients)
+  bool findIngredient(Ingredients targetIngredient, std::vector<IngredientPos> availableIngredients)
   {
-    std::vector<Ingredients> missingIngredients;
-    std::unordered_set<Ingredients> availableSet;
-    for (const auto & a : availableIngredients) {
-      availableSet.insert(a.ingredient);
-    }
-
-    // Check which order ingredients are missing
-    for (int i = ing_index; i < static_cast<int>(orderIngredients.size()); i++) {
-      if (availableSet.count(orderIngredients[i]) == 0) {
-          missingIngredients.push_back(orderIngredients[i]);
+    bool found = false;
+    for (IngredientPos ingredient : availableIngredients) {
+      if (targetIngredient == ingredient.ingredient) {
+        found = true;
       }
     }
 
-    return missingIngredients;
+    return found;
   }
 
   /**

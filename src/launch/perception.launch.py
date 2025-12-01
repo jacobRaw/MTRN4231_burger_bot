@@ -26,10 +26,26 @@ def generate_launch_description():
             'pointcloud.ordered_pc': 'true',
         }.items()
     )
+
+    delayed_transform = TimerAction(
+        period=2.0,
+        actions=[
+            Node(
+                package='tf2_ros',
+                executable='static_transform_publisher',
+                name='static_tf_pub',
+                arguments=[
+                    '--x', '0.61', '--y', '0.2305', '--z', '0.915',
+                    '--yaw', '0', '--pitch', '0', '--roll', #roll = axis, pitch = y, yaw = z
+                    '3.14', '--frame-id', 'base_link', '--child-frame-id', 'camera_link'
+                ]
+            )
+        ]
+    )
     
 
     delayed_perception = TimerAction(
-        period=1.0,
+        period=2.0,
         actions=[
             Node(
                 package='perception',
@@ -45,15 +61,7 @@ def generate_launch_description():
         # DeclareLaunchArgument('static_broadcaster', default_value='shape1', description='Namespace for shape1 marker node'),
         # DeclareLaunchArgument('dynamic_broadcaster', default_value='shape2', description='Namespace for shape2 marker node'),
         realsense_activate,
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='static_tf_pub',
-            arguments=[
-                '--x', '0.61', '--y', '0.2305', '--z', '0.915',
-                '--yaw', '0', '--pitch', '0', '--roll', #roll = axis, pitch = y, yaw = z
-                '3.14', '--frame-id', 'base_link', '--child-frame-id', 'camera_link']
-        ),
+        delayed_transform,
         delayed_perception
     ])
 
