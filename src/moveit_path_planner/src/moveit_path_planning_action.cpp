@@ -12,6 +12,8 @@
 #include "moveit_msgs/msg/orientation_constraint.h"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 #include "custom_interfaces/action/movement.hpp"
+#include "custom_interfaces/msg/ingredients.hpp"
+#include "custom_interfaces/msg/ingredient_pos.hpp"
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_eigen/tf2_eigen.hpp>
 #include <moveit/trajectory_processing/iterative_time_parameterization.h>
@@ -57,11 +59,19 @@ public:
       std::bind(&MoveitPathPlanningServer::handle_cancel, this, std::placeholders::_1),
       std::bind(&MoveitPathPlanningServer::handle_accepted, this, std::placeholders::_1)
     );
+
+    // subscribe to collision object topic
+    collision_object_subscriber_ = node_->create_subscription<custom_interfaces::msg::Ingredients>(
+      "/collision_objects",
+      10,
+      std::bind(&MoveitPathPlanningServer::collision_object_callback, this, std::placeholders::_1)
+    );
   }
  
 private:
   rclcpp::Node::SharedPtr node_;
   rclcpp_action::Server<Movement>::SharedPtr action_server_;
+  rclcpp::Subscription<custom_interfaces::msg::Ingredients>::SharedPtr collision_object_subscriber_;
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
   geometry_msgs::msg::Pose target_pose_;
   double speed_scale_ = 0.1;
@@ -73,6 +83,27 @@ private:
   const std::string ORIEN = "ORIEN";
   const std::string WRIST_1 = "WRIST1";
   const std::string FULL = "FULL";
+
+  // ========= Collision Object Callback =========
+  void collision_object_callback(const custom_interfaces::msg::Ingredients::SharedPtr msg)
+  {
+    std::string frame_id = "base_link";
+    moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
+    // remove existing ingredient collision objects
+    auto all_object_ids = planning_scene_interface.getKnownObjectNames();
+    std::vector<std::string> object_ids;
+    for (const auto & id : all_object_ids) {
+      if (id != "backWall" && id != "sideWall" && id != "frontWall" && id != "ceiling") {
+        object_ids.push_back(id);
+      }
+    }
+    planning_scene_interface.removeCollisionObjects(object_ids);
+
+    // add new collision objects received from topic
+    for (const auto & ingredient_msg : msg->ingredients) {
+      planning_scene_interface.applyCollisionObject(generateIngredientObject(ingredient_msg.ingredient, ingredient_msg.pos));
+    }
+  }
  
   // ======== Action Server Callbacks ========
  
@@ -258,11 +289,6 @@ private:
       return false;
     }
  
-    // for (auto &point : trajectory.joint_trajectory.points) {
-    //   for (auto &v : point.velocities) v *= speed_scale_;
-    //   for (auto &a : point.accelerations) a *= speed_scale_;
-    // }
- 
     moveit_msgs::msg::RobotTrajectory trajectory_slow;
     // add timing Note: you have to convert it to a RobotTrajectory Object (not message) and back
     trajectory_processing::IterativeParabolicTimeParameterization iptp(100, 0.05);
@@ -311,10 +337,9 @@ private:
   {
     std::string frame_id = "world";
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
- 
     planning_scene_interface.applyCollisionObject(generateCollisionObject(2.4, 0.04, 1.0, 0.85, -0.25, 0.5, frame_id, "backWall"));
     planning_scene_interface.applyCollisionObject(generateCollisionObject(0.04, 1.2, 1.0, -0.3, 0.25, 0.5, frame_id, "sideWall"));
-    //planning_scene_interface.applyCollisionObject(generateCollisionObject(2.4, 2.4, -0.01, 0.85, 0.25, 0.013, frame_id, "table"));
+    planning_scene_interface.applyCollisionObject(generateCollisionObject(1.5, 0.04, 1.0, 0.48, 0.70, 0.36, frame_id, "frontWall"));
     planning_scene_interface.applyCollisionObject(generateCollisionObject(1.5, 1.0, 0.04, 0.5, 0.25, 0.9, frame_id, "ceiling"));
   }
  
@@ -337,6 +362,27 @@ private:
     obj.primitives.push_back(prim);
     obj.primitive_poses.push_back(pose);
     obj.operation = obj.ADD;
+    return obj;
+  }
+
+  moveit_msgs::msg::CollisionObject generateIngredientObject(const std::string& ingredient, const std::vector<double>& position)
+  {
+    moveit_msgs::msg::CollisionObject obj;
+    obj.header.frame_id = "base_link";
+    obj.id = ingredient;
+    shape_msgs::msg::SolidPrimitive prim;
+    prim.type = prim.CYLINDER;
+    prim.dimensions = {0.1, 0.05}; // height, diameter
+ 
+    geometry_msgs::msg::Pose pose;
+    pose.orientation.w = 1.0;
+    pose.position.x = position[0];
+    pose.position.y = position[1];
+    pose.position.z = 0.01; // half the height to sit on the table
+ 
+    obj.primitives.push_back(prim);
+    obj.primitive_poses.push_back(pose);
+    obj.operation = obj.APPEND;
     return obj;
   }
  
@@ -369,4 +415,4 @@ int main(int argc, char** argv)
 // ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.4, 0.1, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
 
 // this command will send arm with end effector attached to the bolt "3"
-// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.23, 0.519, 0.194, 3.1415926536, 0.0, -1.7507963268], constraints_identifier: 'FULL'}"
+// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"

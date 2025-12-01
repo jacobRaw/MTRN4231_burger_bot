@@ -18,13 +18,13 @@ public:
     {
         
         ingredient_color_map_ = {
-            {"topBun",     {0.82f, 0.65f, 0.35f, 1.0f}}, 
-            {"bottomBun",  {0.72f, 0.52f, 0.28f, 1.0f}}, 
-            {"lettuce",    {0.20f, 0.75f, 0.20f, 1.0f}}, 
-            {"tomato",     {0.90f, 0.15f, 0.20f, 1.0f}},
-            {"cheese",     {0.98f, 0.80f, 0.15f, 1.0f}}, 
-            {"patty",      {0.40f, 0.20f, 0.10f, 1.0f}}, 
-            {"pickles",    {0.55f, 0.70f, 0.25f, 1.0f}}  
+            {"bun_top",     {1.0f, 1.0f, 1.0f, 1.0f}}, // white
+            {"bun_bottom",  {0.72f, 0.52f, 0.28f, 1.0f}}, // light brown
+            {"lettuce",    {0.20f, 0.75f, 0.20f, 1.0f}}, //green
+            {"tomato",     {0.90f, 0.15f, 0.20f, 1.0f}}, //red
+            {"cheese",     {0.98f, 0.80f, 0.15f, 1.0f}}, //yellow
+            {"patty",      {0.40f, 0.20f, 0.10f, 1.0f}}, //brown (meat colour)
+            {"pickles",     {0.40f, 0.60f, 1.00f, 1.0f}} //blue
         };
 
         subscription_ = this->create_subscription<custom_interfaces::msg::Ingredients>(
@@ -69,7 +69,7 @@ private:
             if (ingredient.pos.size() >= 3) {
                 marker.pose.position.x = ingredient.pos[0];
                 marker.pose.position.y = ingredient.pos[1];
-                marker.pose.position.z = 0;;
+                marker.pose.position.z = 0;
             }
 
             // Orientation (upright)
@@ -79,12 +79,12 @@ private:
             marker.pose.orientation.w = 1.0;
 
             // Cylinder size
-            marker.scale.x = 0.05;   // diameter
-            marker.scale.y = 0.05;
+            marker.scale.x = 0.075;   // diameter
+            marker.scale.y = 0.075;
             marker.scale.z = 0.02;   // height
 
             // Look up color
-            Color c = {1.0f, 1.0f, 1.0f, 1.0f};  // default white
+            Color c = {0.0f, 0.0f, 0.0f, 1.0f};  // default black
             auto it = ingredient_color_map_.find(ingredient.ingredient);
             if (it != ingredient_color_map_.end()) {
                 c = it->second;
@@ -96,7 +96,7 @@ private:
             marker.color.a = c.a;
 
             // Keep markers visible
-            marker.lifetime = rclcpp::Duration::from_nanoseconds(1000000000); // 1 second
+            marker.lifetime = rclcpp::Duration::from_nanoseconds(2000000000); // 2 second
 
             marker_pub_->publish(marker);
         }

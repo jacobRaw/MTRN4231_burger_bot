@@ -56,6 +56,10 @@ class perception_example(Node):
         # cropping parameters
         self.x_crop = 100
 
+        # offsets 
+        self.x_offset = -0.01700
+        self.y_offset = -0.01425
+
     def image_callback(self, msg):
         if not self.cam_setup:
             return
@@ -120,7 +124,8 @@ class perception_example(Node):
             self.get_logger().error(f"TF transform failed: {e}")
 
 
-        # text = f"(X:{X* 1000:.2f}, Y:{Y * 1000:.2f}, Z:{Z * 1000:.2f})"
+        point_base.point.x += self.x_offset
+        point_base.point.y += self.y_offset
         text = f"(X:{point_base.point.x * 1000:.1f}, Y:{point_base.point.y * 1000:.1f}, Z:{point_base.point.z * 1000:.1f})"
         text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
         text_x = centroid_x - text_size[0] // 2
@@ -128,7 +133,6 @@ class perception_example(Node):
         cv2.rectangle(rgb_image, (text_x, text_y - text_size[1] - 2), (text_x + text_size[0], text_y + 2), (0, 0, 0), -1)
         cv2.putText(rgb_image, text, (text_x, text_y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
 
-        # self.get_logger().info(f'Detected object at X: {X:.3f} m, Y: {Y:.3f} m, Z: {Z:.3f} m')
         return point_base.point.x, point_base.point.y, point_base.point.z
 
     def cam_info_callback(self, msg):

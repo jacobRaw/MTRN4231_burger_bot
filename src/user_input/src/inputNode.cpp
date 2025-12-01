@@ -99,6 +99,14 @@ private:
     RCLCPP_INFO(this->get_logger(), "Order: '%s'", request->order.c_str());
     // generate the ingredient list based on the order
 
+    if (!request->take_orders) {
+      this->take_orders_ = false;
+      response->success = true;
+      response->message = "No longer taking orders.";
+      RCLCPP_INFO(this->get_logger(), "No longer taking orders, TERMINATING...");
+      return;
+    }
+
     std::string order = std::string(request->order);
     //convert to lowercase
     std::transform(order.begin(), order.end(), order.begin(), ::tolower);
@@ -154,7 +162,7 @@ private:
    */
   void result_callback(const rclcpp_action::ClientGoalHandle<custom_interfaces::action::OrderRequest>::WrappedResult & result)
   {
-    this->take_orders_ = false;
+    // this->take_orders_ = false;
     switch (result.code) {
       case rclcpp_action::ResultCode::SUCCEEDED:
         break;
@@ -169,7 +177,7 @@ private:
         return;
     }
 
-    RCLCPP_INFO(this->get_logger(), "TERMINATING...");
+    RCLCPP_INFO(this->get_logger(), "Waiting for next order...");
   }
 
   /********************HELPER FUNCTIONS ********************/
