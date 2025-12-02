@@ -29,8 +29,9 @@ class perception_example(Node):
         #CV setup
         self.bridge = CvBridge()
         
-        # self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/burger_model.pt')
+        # Load YOLO model
         share_dir = get_package_share_directory('perception')
+        # self.model = YOLO(os.path.join(share_dir, 'burger_model.pt'))
         self.model = YOLO(os.path.join(share_dir, 'black_seed.pt'))
         #self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
 
@@ -57,7 +58,7 @@ class perception_example(Node):
         self.x_crop = 100
 
         # offsets 
-        self.x_offset = -0.01700
+        self.x_offset = -0.01700 + 0.015
         self.y_offset = -0.01425
 
     def image_callback(self, msg):
@@ -96,8 +97,6 @@ class perception_example(Node):
         w = int(w)
         h = int(h)
         cv2.circle(rgb_image, (centroid_x, centroid_y), 5, (255, 0, 0), -1)
-        # text = f"({centroid_x}, {centroid_y})"
-        # text = f"({centroid_x}, {centroid_y}, {depth_image[centroid_y, centroid_x]:.2f}m)"
         uncropped_centroid_x = centroid_x + self.x_crop
         uncropped_centroid_y = centroid_y
         depth = depth_image[uncropped_centroid_y, uncropped_centroid_x] / 1000.0  # Convert mm to meters
@@ -127,6 +126,7 @@ class perception_example(Node):
         point_base.point.x += self.x_offset
         point_base.point.y += self.y_offset
         text = f"(X:{point_base.point.x * 1000:.1f}, Y:{point_base.point.y * 1000:.1f}, Z:{point_base.point.z * 1000:.1f})"
+        # text = f"(X:{centroid_x:.3f}, Y:{centroid_y:.3f})"
         text_size = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
         text_x = centroid_x - text_size[0] // 2
         text_y = centroid_y + 20

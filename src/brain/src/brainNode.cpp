@@ -152,8 +152,6 @@ private:
 
 	// constants
 	static constexpr double PI = 3.14159265358979323846;
-	// static constexpr double x_offset = -0.01700;
-	// static constexpr double y_offset = -0.01425;
 	static constexpr double HOVER_HEIGHT = 0.3;
 	const std::vector<double> HOME_POS = {0.15, 0.490, HOVER_HEIGHT, PI, 0.0, -PI/2.0};
 	static constexpr double PICK_HEIGHT = 0.194;
@@ -664,9 +662,9 @@ private:
 		case Ingredients::tomato:
 			return 0.005;
 		case Ingredients::lettuce:
-			return 0.005;
+			return 0.001;
 		case Ingredients::pickles:
-			return 0.005;
+			return 0.003;
 		case Ingredients::topBun:
 			return 0.02;
 		default:
@@ -692,7 +690,7 @@ private:
 	}
 
 	double calc_distance(double x, double y) {
-		return std::sqrt(x*x + y*y);
+		return std::sqrt(pow(x - HOME_POS[0], 2) + pow(y - HOME_POS[1], 2));
 	}
 
 	custom_interfaces::msg::IngredientPos create_ingredient_msg(Ingredients ingredient, std::vector<double> position) {

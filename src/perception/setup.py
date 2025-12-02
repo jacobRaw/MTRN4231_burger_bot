@@ -17,6 +17,9 @@ setup(
         
         (os.path.join('share', package_name), 
             [os.path.join('perception', 'black_seed.pt')]),
+
+        (os.path.join('share', package_name), 
+            [os.path.join('perception', 'burger_model.pt')]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

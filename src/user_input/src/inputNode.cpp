@@ -194,16 +194,16 @@ private:
         ingredients = {"bun_bottom", "patty", "cheese", "bun_top"};
         break;
       case BurgerType::ClassicBurger:
-        ingredients = {"bun_bottom", "lettuce", "tomato", "cheese", "patty", "bun_top"};
+        ingredients = {"bun_bottom", "patty", "lettuce", "tomato", "cheese", "bun_top"};
         break;
       case BurgerType::VeggieBurger:
         ingredients = {"bun_bottom", "lettuce", "tomato", "pickles", "bun_top"};
         break;
       case BurgerType::DoublePattyBurger:
-        ingredients = {"bun_bottom", "lettuce", "tomato", "patty", "patty", "cheese", "bun_top"};
+        ingredients = {"bun_bottom", "patty", "patty", "lettuce", "tomato","cheese", "bun_top"};
         break;
       case BurgerType::LoadedBurger:
-        ingredients = {"bun_bottom", "lettuce", "lettuce", "tomato", "patty", "patty", "cheese", "pickles", "bun_top"};
+        ingredients = {"bun_bottom", "patty", "patty", "lettuce", "lettuce", "tomato", "cheese", "pickles", "bun_top"};
         break;
       case BurgerType::LettuceBurger:
         ingredients = {"lettuce", "patty", "cheese", "lettuce"};
