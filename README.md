@@ -121,7 +121,9 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 ## Technical Components
-- Computer Vision: describe your vision pipeline and how it contributes to the task.
+
+### Computer Vision 
+- describe your vision pipeline and how it contributes to the task.
   
 ### Custom End-Effector
 **Photos, Renders and Engineering Drawings**
@@ -213,19 +215,19 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 
-
-      
-  
-
-      
-  
       
 - Exploded Render:
 <img width="1529" height="1116" alt="ExplodedRender" src="https://github.com/user-attachments/assets/144b7d39-be0a-4d3e-87c2-f121c1c3149f" />
 
 
 **Control Overview and ROS Integration Details**
+- Control Overview:
+  - The end effector is controlled by rotating the timing belt with a NEMA17 stepper motor. The gripper jaws are attached to opposite sides of the timing belt and guided by guide rails so that they can open and close by changing the direction of the stepper motor. The stepper motor is controlled by a teensy 4.1 microcontroller along with a DRV8825 stepper motor driver which handles heat dissipation and current limiting. The circuitry for this interaction can be seen below. The teensy is programmed to receive commands over a serial port with "o" referring to open and "c" referring to close. An open command will step the stepper motor 1 and 1/3rd rotations clockwise while a close command will do the opposite. This step value correlates to the amount of travel needed for the jaws to fully open and close. There is also functionality for handling unknown commands in which case nothing will occur. Importantly, when not receiving commands the stepper motor will hold its current state.
+  
+- ROS Integration:
+  - The brain node sends service requests for opening and closing, the arduino_controller package is then used to handle these requests with service responses to the brain and sends the string "o" or "c" over the serial port /dev/ttyACM0 which represents the teensy serial port. The teensy then handles the serial input.
 
+      
 - Breadboard Circuit Diagram:
 <img width="1217" height="924" alt="image" src="https://github.com/user-attachments/assets/07222e7e-da9f-46ed-8312-8f5fafd0dfda" />
 
@@ -235,17 +237,15 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 
+### System Visualisation 
+- explain how your system is visualised (e.g. RViz) and what it demonstrates.
+
+- Table render for visualisation
+<img width="1161" height="1015" alt="UR5e Table" src="https://github.com/user-attachments/assets/a4ca3fb6-6cdc-4276-8b8a-c7ffc7c1075e" />
 
 
-
-
-
-
-
-- System Visualisation: explain how your system is visualised (e.g. RViz) and what it
-demonstrates.
-
-- Closed-Loop Operation: describe the feedback method and how it adapts system behaviour in real time.
+### Closed-Loop Operation 
+- describe the feedback method and how it adapts system behaviour in real time.
 
 ## Installation and Setup
 - Step-by-step installation instructions for dependencies and workspace setup.
