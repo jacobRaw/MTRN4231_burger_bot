@@ -194,12 +194,22 @@ ros2 run
 Overview, above.)
 
 **End Effector Test**
-https://github.com/user-attachments/assets/4ab47f5e-cb79-452e-b864-183d7ed48e3e
 
-**First Integration Test**
-https://github.com/user-attachments/assets/ffffe84e-1f98-432f-91d3-1507e55a7920
+
+Uploading End Effector Test.mp4…
+
+
+
+
+
+**Computer Vision & Closed Loop Test**
+
+https://github.com/user-attachments/assets/b7faf2af-cc07-46cc-b2a6-16608f5ee4d2
+
+
 
 **Ingredient Collision Robustness Test**
+
 https://github.com/user-attachments/assets/91ec3f1d-9c66-40fd-848c-cbe880f5644a
 
 
