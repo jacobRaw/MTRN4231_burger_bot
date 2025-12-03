@@ -70,18 +70,20 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 **2. Brain Package**
 &rarr; brainNode: 
 
-- The central node for the system coordinating everything. It:
-    - Receives user input and converts it into burger stack orders
+- Central node for the entire system coordinating everything. It:
+    - Receives user input as a list of ingredients in the correct stack order
     - Reads perception outputs for available ingredient positions
-    - Chooses UR5e motions based on vision outputs
-    - Requests moveit to generate path planning
+    - Commands the UR5e arm to various positions to a follow strict trajectory
     - Sends open/close commands to the gripper
-    - Handles edge-cases and overall closed loop operation
+    - Handles edge-cases and overall closed loop operation with a state machine
+    - Publishes location of collision objects to RVIZ for dynamic collision detection
 
 **3. moveit_path_planner Package**
 &rarr; moveit_path_planning_action: 
 
-- Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose.
+- Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose
+- Creates collision objects recieved from the brain node
+- Interfaces with moveIt to generate collision free path planning
 
 **4. perception Package**
 &rarr; yolo_vision: 
@@ -96,7 +98,8 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 **6. user_input Package**
 &rarr; inputNode: 
 
-- Captures user inputs for menu items and sends them to the brain node
+- Captures user inputs for menu items and identifies the correct recipe.
+- Sends the recipe as an ingredient list to the brain node.
 
 
 ### Custom message types and interfaces:
@@ -198,9 +201,17 @@ Overview, above.)
 - Summarise what makes your approach novel, creative, or particularly effective
 
 ## Contributors and Roles
-Jacob Rawung (zID) - Jacobs primary areas of responsibility include computer vision using YOLO and developing overarching closed loop system control, with slight contribution to system visualisation.
-Reynold Chu (zID) - Reynold is responsible for developing the moveit path planner as well as being the primary developer for system visualisation.
-Riley Hackett (z5417561) - Riley is responsible for CAD + hardware development as well as developing the software to control hardware with ROS, with slight contribution to system visualisation.
+**Jacob Rawung (z5406297) - Software/Control Engineer**
+- Trained the YOLO model across two iterations
+- Developed the brain node, user input and perception, key highlights:
+    - Dynamic collision object generation
+    - State machine with control feedback from perception
+- Assisted in the development and integration with wider system for visualisation markers, arduino controller node and moveit path planner
+- Maintained meeting minutes and managed task deadlines
+
+**Reynold Chu (zID) - Mechatronics Engineer** - Reynold is responsible for developing the moveit path planner as well as being the primary developer for system visualisation.
+
+**Riley Hackett (z5417561) - Mechanical/Electrical Engineer** - Riley is responsible for CAD + hardware development as well as developing the software to control hardware with ROS, with slight contribution to system visualisation.
 
 - Briefly list team members and describe their primary areas of responsibility (e.g. vision,
 planning, hardware).
@@ -298,7 +309,7 @@ arduino_controller
 └── src
 └── gripper_serial_node.cpp
 ```
-This package is reponsible for communicating to the Arduino microcontroller over the serial port. It also contains the program that is run on the arduino to control the end effector. The node is interacted with by the brain via a service call which sends either 'o' or 'c' corresponding to either open or close.
+This package is reponsible for communicating to the teensy microcontroller over the serial port. It also contains the program that is run on the teensy to control the end effector. The node is interacted with by the brain via a service call which sends either 'o' or 'c' corresponding to either open or close.
 
 ### Brain
 Contains the brain node source code that is responsible for interacting with the entire system, coordinating different componets.
