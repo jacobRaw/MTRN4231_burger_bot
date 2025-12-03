@@ -213,9 +213,18 @@ Overview, above.)
 
 **Reynold Chu (zID) - Mechatronics Engineer** - Reynold is responsible for developing the moveit path planner as well as being the primary developer for system visualisation.
 
-**Riley Hackett (z5417561) - Mechanical/Electrical Engineer** - Riley is responsible for CAD + hardware development as well as developing the software to control hardware with ROS, with slight contribution to system visualisation.
+**Riley Hackett (z5417561) - Mechanical/Electrical Engineer & Investor** 
+- Responsible for all CAD and end-effector development/assembly, Key areas:
+    - Developed timing belt solution, belt tensioning mechanism and gripper suspension.
+    - Fully modelled UR5e table for visualisation.
+    - Produced a work-space centred RGB-D camera mount.
+- Developed the arduino software for end-effector control as well as breadboard wiring.
+- Sourced and funded all components and manufacturing for final end-effector solution and prototypes.
+- Produced the pre-integration versions of the perception_markers and arduino_controller packages.
 
-- Briefly list team members and describe their primary areas of responsibility (e.g. vision,
+
+
+Briefly list team members and describe their primary areas of responsibility (e.g. vision,
 planning, hardware).
 
 ## Repository Structure
