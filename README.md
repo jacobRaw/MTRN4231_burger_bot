@@ -188,6 +188,7 @@ Riley Hackett (z5417561) - Riley is responsible for CAD + hardware development a
 planning, hardware).
 
 ## Repository Structure
+All the source code is kept inside the src directory whilst the readme and requirements file is left at the root to for initial setup. Inside the src directory each directory is a ROS package that contains at most one ROS node. Some directories are unique such as custom_interfaces, launch and robot_description directories which do not contain a ROS node but contain crucial components that ROS nodes depend on.
 ```
 MTRN4231_burger_bot/
 ├── README.md
@@ -222,9 +223,6 @@ MTRN4231_burger_bot/
     │   ├── arm_server_launch.py
     │   ├── input.launch.py
     │   ├── perception.launch.py
-    │   ├── __pycache__
-    │   │   ├── ur_launch.cpython-310.pyc
-    │   │   └── ur_startup.launch.cpython-310.pyc
     │   ├── system.launch.py
     │   └── ur_startup.launch.py
     ├── moveit_path_planner
@@ -233,8 +231,7 @@ MTRN4231_burger_bot/
     │   │   └── planning_server.launch.py
     │   ├── package.xml
     │   └── src
-    │       ├── moveit_path_planning_action.cpp
-    │       └── moveit_path_planning_server.cpp
+    │       └── moveit_path_planning_action.cpp
     ├── perception
     │   ├── package.xml
     │   ├── perception
@@ -245,11 +242,8 @@ MTRN4231_burger_bot/
     │   ├── resource
     │   │   └── perception
     │   ├── setup.cfg
-    │   ├── setup.py
-    │   └── test
-    │       ├── test_copyright.py
-    │       ├── test_flake8.py
-    │       └── test_pep257.py
+    │   └── setup.py
+    │   
     ├── perception_markers
     │   ├── CMakeLists.txt
     │   ├── launch
@@ -276,9 +270,121 @@ MTRN4231_burger_bot/
             └── inputNode.cpp
 ```
 
-- A short section outlining the folder structure of your repository.
-- Explain briefly what each main directory contains.
+### Arduino Controller
+```
+arduino_controller
+├── CMakeLists.txt
+├── NemaCont2
+│   └── NemaCont2.ino
+├── package.xml
+└── src
+└── gripper_serial_node.cpp
+```
+This package is reponsible for communicating to the Arduino microcontroller over the serial port. It also contains the program that is run on the arduino to control the end effector. The node is interacted with by the brain via a service call which sends either 'o' or 'c' corresponding to either open or close.
+
+### Brain
+Contains the brain node source code that is responsible for interacting with the entire system, coordinating different componets.
+
+### Custom Interfaces
+```
+custom_interfaces
+├── action
+│   ├── Movement.action
+│   └── OrderRequest.action
+├── CMakeLists.txt
+├── msg
+│   ├── IngredientPos.msg
+│   └── Ingredients.msg
+├── package.xml
+└── srv
+    ├── GripperServer.srv
+    ├── InputServer.srv
+    └── MovementRequest.srv
+```
+Custom interfaces contains all of the custom service, action and message types to allow for internode communication in ROS2.
+
+### Launch
+```
+launch
+├── arm_server_launch.py
+├── input.launch.py
+├── perception.launch.py
+├── system.launch.py
+└── ur_startup.launch.py
+```
+Launch directory contains all the necesssary launch files that are required to run the system.
+
+### Moveit Path Planner
+```
+moveit_path_planner
+├── CMakeLists.txt
+├── launch
+│   └── planning_server.launch.py
+├── package.xml
+└── src
+    └── moveit_path_planning_action.cpp
+```
+Contains the source code for interacting with moveit and establishing an action server for the brain node to communicate with.
+
+### Perception
+```
+perception
+├── package.xml
+├── perception
+│   ├── black_seed.pt
+│   ├── burger_model.pt
+│   ├── __init__.py
+│   └── yolo_vision.py
+├── resource
+│   └── perception
+├── setup.cfg
+└── setup.py
+```
+Contains the ROS node that implements YOLO and the two models that were trained. The most up to date model is black_seed.pt and whilst the other is the first iteration trained model.
+
+### Perception Markers
+```
+perception_markers
+├── CMakeLists.txt
+├── launch
+│   └── display_markers.launch.py
+├── package.xml
+└── src
+    └── ingredient_markers_node.cpp
+```
+Contains the source code to publish the ingredients as RVIZ markers so that they are visible in the scene with the robot.
+
+### Robot Description
+```
+robot_description
+├── CMakeLists.txt
+├── meshes
+│   ├── EndEffector.mtl
+│   ├── EndEffector.obj
+│   ├── Table.mtl
+│   └── Table.obj
+├── package.xml
+└── urdf
+    ├── burger_bot.xacro
+    ├── end_effector.urdf
+    └── table.urdf
+```
+Contains all the meshes, URDF and XACRO files for the table and end effector for visualisation in RVIZ. The meshes were generated from the CAD models.
+
+### User Input
+```
+user_input
+├── CMakeLists.txt
+├── package.xml
+└── src
+    └── inputNode.cpp
+```
+Contains source code for the user input node responsible for interacting with the user.
 
 ## References and Acknowledgements
 - Credit any external libraries, tutorials, or prior codebases.
 - Acknowledge external assistance (e.g. demonstrators, other groups).
+
+We would like to acknowledge the other teams that undertook the course and was able to assist us
+with the issues experienced when programming the arm with MoveIt.
+Demonstrators (Alex Cronin and David Nie) and the lecturer (Dr Will Midgley) have all provided their personal experience, tips and and technical knowledge for debugging and learning how to use ROS2. 

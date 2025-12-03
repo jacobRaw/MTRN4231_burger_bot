@@ -69,7 +69,7 @@ public:
 
     // service call the arduino to control the gripper
     this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_server");
-    while (rclcpp::ok() && !GRIPPER_DISABLED && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
+    while (rclcpp::ok() && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
     {
       RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
     }
@@ -158,7 +158,6 @@ private:
 	static constexpr int GRIPPER_WAIT_TIME = 1000;
 	const std::string GRIPPER_CLOSE_CMD = "c";
 	const std::string GRIPPER_OPEN_CMD = "o";
-	static constexpr bool GRIPPER_DISABLED = true;
 	
 	/********************MAIN STATE LOOP********************/
 	/**
@@ -470,17 +469,14 @@ private:
 	/**************************GRIPPER SERVER HANDLERS ************************** */
 	void gripper_server_response(const rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedFuture future) {
 		auto response = future.get();
-		if (GRIPPER_DISABLED) {
-		return;
-		}
 		if (!response) {
-		RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
-		return;
+			RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
+			return;
 		} else if (!response->success) {
-		RCLCPP_ERROR(this->get_logger(), "The gripper server reported failure: %s", response->message.c_str());
-		return;
+			RCLCPP_ERROR(this->get_logger(), "The gripper server reported failure: %s", response->message.c_str());
+			return;
 		} else {
-		RCLCPP_INFO(this->get_logger(), "Gripper command succeeded");
+			RCLCPP_INFO(this->get_logger(), "Gripper command succeeded");
 		}
 	}
 
@@ -678,8 +674,8 @@ private:
 		request->command = command;
 
 		auto future_result = gripper_client_->async_send_request(
-		request,
-		std::bind(&BrainNode::gripper_server_response, this, std::placeholders::_1)
+			request,
+			std::bind(&BrainNode::gripper_server_response, this, std::placeholders::_1)
 		);
 		std::this_thread::sleep_for(std::chrono::milliseconds(GRIPPER_WAIT_TIME)); 
 	}
