@@ -196,9 +196,6 @@ Overview, above.)
 **End Effector Test**
 
 
-Uploading End Effector Test.mp4…
-
-
 
 
 
