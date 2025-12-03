@@ -190,28 +190,43 @@ ros2 run
     - confidence of the YOLO
     - Record total number of attempts for a full cycle against successful attempts for repeatability
     - record of the speed to complete task
-- Provide photos, figures, or videos showing the system in operation. (See Project
-Overview, above.)
 
-**End Effector Test**
+### Video Documentation
+> Please see below a few video's of the system being tested for robustness in particular areas. The video in the project overview shows the fully working solution.
 
+End Effector Test: https://youtu.be/JZK5y5WVghE
 
+Computer Vision & Closed Loop Test: https://youtu.be/MXHHu9Mg7A8
 
+Ingredient Collision Robustness Test: https://youtu.be/D7P5NxirLQY
 
+### Evaluation of System Robustness, Adaptability, and Innovation
 
-**Computer Vision & Closed Loop Test**
+**Robustness**
+- The solution exhibits many areas of robust operation. Namely, the ability for the moveit implementation to repeatedly move the UR5e to accurate coordinates and pose without unexpected behaviours is a major requirement and something that this solution does extremely well. 
+Upon implementing the cartestian path planning method for moveit, any innacuracies or failures were completely mitigated. This greatly benefits robot safety with the safety planes now acting as backup precautions instead of the main constraint upon path planning. The current moveit
+ implementation could very easily integrate into the desired fast-food industry and support accurate and safe path planning.
 
-https://github.com/user-attachments/assets/b7faf2af-cc07-46cc-b2a6-16608f5ee4d2
+- Another strong area for this solution is the end effector itself, it provides significant repeatability, although it has been observed to fail on particularly rough parts of the UR5e table due to the spatula-grippers sliding along the table and getting caught on uneven surfaces or bolt holes. 
+However, this is a relatively rare occurance and could be mitigated through further development and better manufacturing processes. The end effector is capable of manipulating any of the proposed ingredients, including extremly thin ingredient (~1mm thick) which was one of the major design requirements.
 
+- The computer vision solution using YOLO works very well, by training the model on both the desired ingredients and false objects, it can now accurately identify ingredient types and positions as well as eliminate any non-ingredient from the selection. It updates extremely fast and exhibits high confidence levels. 
+An area in which this solution can struggle is when the UR5e table is not made from darker wooden panels as this was the environment on which the YOLO model was trained. This yields lower confidence levels and some flickering behaviours, especially for smaller ingredients. The closed loop solution is capable of handling
+this to an adequate extent, however, and will wait until the ingredient becomes available upon which the production will continue.
 
+**Adaptability**
+- The end effector is extremely adapatable and offers an easily scalable solution towards larger ingredients and a more food safe material selection (simply swap out the spatula grippers by unscrewing them). It also has the capability to adapt to errors within the solution through its suspension system which protects it from
+crushing if it were to be forced into the UR5e table.
 
-**Ingredient Collision Robustness Test**
+- The closed loop implementation offers a high level of adaptability to environmental changes, however, it can be slow to do so due to solution constraints involving the camera feed being blocked by the UR5e during the pick and place state. This means that updates to ingredient positions can only occur at the home state which
+has been specifically chosen to provide an unobstructed view for the camera. Overall though, the major drawback is speed and the closed loop solution works for many foreseeable circumstances. This issue would likely need to be addressed and improved upon for industry integration. The closed loop implementation addresses a large number of edge cases which would otherwise cause failures or breaks to the system, some of which are clearly outlined in the demonstration video.
 
-https://github.com/user-attachments/assets/91ec3f1d-9c66-40fd-848c-cbe880f5644a
+**Innovation**
+- There are currently very few industry solutions for sandwich building robots due to the complexities of manipulating these sorts of objects. Burger ingredients have a high level of variability and so current methods often employ multi-stage, assembly-line type solutions with end-effectors only suitable to one or two ingredient
+types per-robot on the line. This is an inneffective solution for fast food chains which often do not have a large amount of space to install such a system at high cost. The proposed end effector is designed to handle any forseeable burger ingredient, with scalability and ingredient care in mind. The end effector solution has proven to successfully contribute to this design area by fully assembling burgers with ingredients of varying diameter, thickness, rigidity and softness. However, wet ingredients are still yet to be tested even though its designed for it.
 
+- Another area of innovation was the dynamically updating ingredient collision box implementation. This successfully solved a unique problem with the end effector design, in which, the spatulas can drop onto other ingredients during pick operation, thereby jamming the system or causing unpredictability. By applying tall collision boxes to all ingredients except for the target, the moveit path planning package can be used to return failed path plans if the end effector would crush an ingredient. The TCP can be rotated until a valid path plan is found (the end effector is clear below) and operation can continue. The solution to utilise innate path planning methods in moveit to solve an otherwise complex mathematical task adds to the innovation of this project.
 
-
-- Highlight robustness, adaptability, and innovation.
 
 ## Discussion and Future Work
 - Briefly discuss major engineering challenges faced and how they were addressed.
