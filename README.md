@@ -122,18 +122,31 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 ## Technical Components
 - Computer Vision: describe your vision pipeline and how it contributes to the task.
-- Custom End-Effector: provide photos/renders, assembly details, engineering drawings,
-control overview and integration details.
+  
+### Custom End-Effector
+**Photos, Renders and Engineering Drawings** 
+<img width="1317" height="761" alt="image" src="https://github.com/user-attachments/assets/d00f4ed7-9ddd-49fa-b6d7-1e94fd16da4d" />
+<img width="1123" height="815" alt="image" src="https://github.com/user-attachments/assets/9abb99a5-1c40-49eb-b46d-8253dd56e5e4" />
+<img width="1578" height="1017" alt="EF Render" src="https://github.com/user-attachments/assets/e2d6a0d9-fc88-4493-a6f4-96c419c2b4c3" />
+<img width="1574" height="1111" alt="EngDrawingVisible" src="https://github.com/user-attachments/assets/0b79e5d0-7679-4ff9-8ef9-bf5df09cbe85" />
+<img width="1574" height="1107" alt="EngDrawingInvi" src="https://github.com/user-attachments/assets/f2b7b74f-2503-45e7-8336-60093db950dc" />
 
-List of technical images and drawings for end effector:
+
+**Assembly Details** 
+
+- Explanation:
+- Diagram:
+
+**Control Overview and ROS Integration Details**
+
+
 
 CAD:
 <img width="1229" height="959" alt="image" src="https://github.com/user-attachments/assets/3d45d045-4e3d-4c83-b05e-1836b60c4578" />
 
 Renders:
 <img width="1191" height="839" alt="image" src="https://github.com/user-attachments/assets/76359ad7-43cc-491c-8dfb-574db24e3302" />
-<img width="1317" height="761" alt="image" src="https://github.com/user-attachments/assets/d00f4ed7-9ddd-49fa-b6d7-1e94fd16da4d" />
-<img width="1123" height="815" alt="image" src="https://github.com/user-attachments/assets/9abb99a5-1c40-49eb-b46d-8253dd56e5e4" />
+
 <img width="1061" height="1018" alt="image" src="https://github.com/user-attachments/assets/c7eae45d-c591-483d-873c-556fe3ee5537" />
 
 
