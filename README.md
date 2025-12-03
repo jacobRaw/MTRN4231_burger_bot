@@ -14,23 +14,89 @@
 
 ## Project Overview
 
-A short description of the task or problem your system solves, including the intended
-“customer” or end-user
+The burger bot project aims to address the task of automating the fast-food industry by providing a burger assembly robotic manipulator which is more cost effective than current industry solutions. Employees are expensive, unreliable and take time to train. These are costs that can be mitigated through automation because a robotic solution to burger assembly is mostly a onetime cost bar electricity and periodic maintenance. These recurring expenses, however, are much lower than a team of employees’ wages. A robotic solution is consistent, accurate, efficient and can work 24/7. These benefits aim to aid fast food restaurants such as McDonalds, Hungry Jack’s, Wendy’s and any other burger restaurant which would like to enter business negotiations.
 
-A summary of the robot’s functionality.
+Burger and sandwich assembly is a significant technical issue faced by industry with minimal solutions currently available. Many require assembly lines with multiple robotic manipulators with end effectors specialised to one or two ingredients at a time. This inflates cost for restaurants who are fed up with their unreliable employees and looking for a robotic solution. This project proposes an end effector which can manipulate any foreseeable burger ingredient, reducing the assembly line to a singular robot per burger.
 
-A short video (e.g. 10-30s) of the robot completing one full cycle/operation
-demonstrating closed-loop behaviour and visualisation. (This could be embedded or an
-external link to a YouTube/OneDrive/Google Drive video.)
+The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality the below operation pipeline explains the solution.
+
+- The functionality starts from the end-user who inputs their desired menu item. This has information about the correct ingredients and the order for stacking and is fed into the brain. 
+- Within the restaurant, ingredients can either be fed into the robot’s range via conveyor belt in any configuration but in this simplified case they are situated randomly on a table within range of an RGB-D camera. 
+- The solution uses a YOLO model for its computer vision trained on all possible ingredients + false ingredients to improve robustness in detection. By running the YOLO model on the camera feed the pixel locations of each ingredient’s centroid can be found as well as what ingredient is being detected. This is then transformed into coordinates relative to the UR5e’s base-link by comparing the locations of the camera and the UR5e base.
+- The brain uses this information to determine the location of the first item in the stack for the end-users desired menu item and calls moveit utilising cartesian path planning to go to that location.
+- Once the gripper is lowered over the ingredient, the brain calls the Arduino control node to send a close command over serial to the Teensy 4.1 which controls the end-effector.
+- Moveit is then called again to send the TCP back to the defined home location and releases the gripper to add the ingredient to the stack.
+- This is repeated for every ingredient in the menu item, with the locations of food items being dynamically updated during operation.
+- During the entire operation every movement is visualised within Rviz, along with safety planes, environment objects and collision boxes.
+The solution includes extensive error checking, but this is covered more in-depth within the system architecture and technical components sections.
+
+### Solution Video:
+
+Please see below a video of the manipulator completing a full control loop. This video includes a representation of many of the possible edge cases and displays how this solutions brain node is robust enough to handle them.
+
+- 0:00:04 - Functionality for ensuring the end effector grippers do not crush other “non-target” ingredients on the table as it lowers by rotating the TCP.
+- 0:00:18 - Safety plane integration with path planning to ensure ingredients are in a pickup able location without colliding with safety planes (Front).
+- 0:00:23 - Singularity prevention for when ingredients are out of reach, integrated into closed loop control to update target location when ingredient is moved within suitable range.
+- 0:00:31 - Recipe adherence, the robot will only pick up the necessary ingredients on the table to follow an inputted recipe.
+
+**High quality video (YouTube):** https://youtu.be/2kIR_RqGSEc
+
+https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 ## System Architecture
- - A diagram of your ROS2 nodes, topics, services and actions (e.g. from rqt_graph or a
-custom schematic).
-- A package-level architecture diagram showing node interactions and topics.
-- A behaviour-tree or state-machine diagram showing closed-loop system behaviour.
-- A brief description of the function of each node.
-- Any custom message types or interfaces should be listed and explained.
+
+### Diagram of ROS2 nodes, topics, services and actions:
+
+### Package-level architecture diagram showing node interactions and topics:
+
+
+### State-machine diagram which portrays the closed loop operation of the system:
+
+<img width="1573" height="664" alt="State Diagram" src="https://github.com/user-attachments/assets/4d32728c-f26e-4c2d-9887-24d53b5c5966" />
+
+
+### Description of the function of each node:
+
+**1. Arduino_controller Package**
+&rarr; gripper_serial_node: 
+
+- Communicates with the teensy 4.1 over a serial port to control the end effector using open and close commands.
+
+**2. Brain Package**
+&rarr; brainNode: 
+
+- The central node for the system coordinating everything. It:
+    - Receives user input and converts it into burger stack orders
+    - Reads perception outputs for available ingredient positions
+    - Chooses UR5e motions based on vision outputs
+    - Requests moveit to generate path planning
+    - Sends open/close commands to the gripper
+    - Handles edge-cases and overall closed loop operation
+
+**3. moveit_path_planner Package**
+&rarr; moveit_path_planning_action: 
+
+- Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose.
+
+**4. perception Package**
+&rarr; yolo_vision: 
+
+- Runs object detection using YOLO and publishes the detected ingredient names and positions.
+
+**5. perception_markers Package**
+&rarr; ingredient_markers_node: 
+
+- Subscribes to vision outputs and publishes the ingredients as markers for visualisation in Rviz.
+
+**6. user_input Package**
+&rarr; inputNode: 
+
+- Captures user inputs for menu items and sends them to the brain node
+
+
+### Custom message types and interfaces:
+
 
 ## Technical Components
 - Computer Vision: describe your vision pipeline and how it contributes to the task.
@@ -122,6 +188,94 @@ Riley Hackett (z5417561) - Riley is responsible for CAD + hardware development a
 planning, hardware).
 
 ## Repository Structure
+```
+MTRN4231_burger_bot/
+├── README.md
+├── requirements.txt
+└── src
+    ├── arduino_controller
+    │   ├── CMakeLists.txt
+    │   ├── NemaCont2
+    │   │   └── NemaCont2.ino
+    │   ├── package.xml
+    │   └── src
+    │       └── gripper_serial_node.cpp
+    ├── brain
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   └── src
+    │       └── brainNode.cpp
+    ├── custom_interfaces
+    │   ├── action
+    │   │   ├── Movement.action
+    │   │   └── OrderRequest.action
+    │   ├── CMakeLists.txt
+    │   ├── msg
+    │   │   ├── IngredientPos.msg
+    │   │   └── Ingredients.msg
+    │   ├── package.xml
+    │   └── srv
+    │       ├── GripperServer.srv
+    │       ├── InputServer.srv
+    │       └── MovementRequest.srv
+    ├── launch
+    │   ├── arm_server_launch.py
+    │   ├── input.launch.py
+    │   ├── perception.launch.py
+    │   ├── __pycache__
+    │   │   ├── ur_launch.cpython-310.pyc
+    │   │   └── ur_startup.launch.cpython-310.pyc
+    │   ├── system.launch.py
+    │   └── ur_startup.launch.py
+    ├── moveit_path_planner
+    │   ├── CMakeLists.txt
+    │   ├── launch
+    │   │   └── planning_server.launch.py
+    │   ├── package.xml
+    │   └── src
+    │       ├── moveit_path_planning_action.cpp
+    │       └── moveit_path_planning_server.cpp
+    ├── perception
+    │   ├── package.xml
+    │   ├── perception
+    │   │   ├── black_seed.pt
+    │   │   ├── burger_model.pt
+    │   │   ├── __init__.py
+    │   │   └── yolo_vision.py
+    │   ├── resource
+    │   │   └── perception
+    │   ├── setup.cfg
+    │   ├── setup.py
+    │   └── test
+    │       ├── test_copyright.py
+    │       ├── test_flake8.py
+    │       └── test_pep257.py
+    ├── perception_markers
+    │   ├── CMakeLists.txt
+    │   ├── launch
+    │   │   └── display_markers.launch.py
+    │   ├── package.xml
+    │   └── src
+    │       └── ingredient_markers_node.cpp
+    ├── robot_description
+    │   ├── CMakeLists.txt
+    │   ├── meshes
+    │   │   ├── EndEffector.mtl
+    │   │   ├── EndEffector.obj
+    │   │   ├── Table.mtl
+    │   │   └── Table.obj
+    │   ├── package.xml
+    │   └── urdf
+    │       ├── burger_bot.xacro
+    │       ├── end_effector.urdf
+    │       └── table.urdf
+    └── user_input
+        ├── CMakeLists.txt
+        ├── package.xml
+        └── src
+            └── inputNode.cpp
+```
+
 - A short section outlining the folder structure of your repository.
 - Explain briefly what each main directory contains.
 
