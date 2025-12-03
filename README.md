@@ -18,7 +18,7 @@ The burger bot project aims to address the task of automating the fast-food indu
 
 Burger and sandwich assembly is a significant technical issue faced by industry with minimal solutions currently available. Many require assembly lines with multiple robotic manipulators with end effectors specialised to one or two ingredients at a time. This inflates cost for restaurants who are fed up with their unreliable employees and looking for a robotic solution. This project proposes an end effector which can manipulate any foreseeable burger ingredient, reducing the assembly line to a singular robot per burger.
 
-The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality the below operation pipeline explains how the solution operates.
+The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality the below operation pipeline explains the solution.
 
 - The functionality starts from the end-user who inputs their desired menu item. This has information about the correct ingredients and the order for stacking and is fed into the brain. 
 - Within the restaurant, ingredients can either be fed into the robot’s range via conveyor belt in any configuration but in this simplified case they are situated randomly on a table within range of an RGB-D camera. 
@@ -39,7 +39,7 @@ Please see below a video of the manipulator completing a full control loop. This
 - 0:00:23 - Singularity prevention for when ingredients are out of reach, integrated into closed loop control to update target location when ingredient is moved within suitable range.
 - 0:00:31 - Recipe adherence, the robot will only pick up the necessary ingredients on the table to follow an inputted recipe.
 
-High quality Video (YouTube): https://youtu.be/2kIR_RqGSEc
+High quality video (YouTube): https://youtu.be/2kIR_RqGSEc
 
 https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
