@@ -46,7 +46,11 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 ## System Architecture
 
-### Diagram of ROS2 nodes, topics, services and actions:
+### Diagram of ROS2 nodes, topics, services and actions (RQT Graph):
+> These RQT graphs were taken at different points of operation for the solution and show the interaction between nodes as the solution runs.
+<img width="1787" height="895" alt="RQT graph1" src="https://github.com/user-attachments/assets/290e8d6d-d17d-406d-88f6-189461412992" />
+<img width="2078" height="501" alt="RQT graph2" src="https://github.com/user-attachments/assets/4a918ee2-831c-42b0-a4e1-b621dc801931" />
+
 
 ### Package-level architecture diagram showing node interactions and topics:
 
@@ -96,6 +100,20 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 ### Custom message types and interfaces:
+
+**1. Custom Messages:**
+
+- IngredientPos.msg: Contains a particular ingredients ID (i.e. lettuce, tomato etc.) and its position in space (x, y, z).
+
+- Ingredients.msg: An array of IngredientPos messages for all ingredients on the table.
+
+**2. Custom Interfaces:**
+
+- GripperServer.srv: Is used for communication with the end effector. Requests a command for the end effector “o”=open or “c”=close and responds with success state and a message.
+
+- Movement.action: Is used for sending move commands to moveit. Requests a command, an array for the pose and a constraints identifier “0” = unconstrained, “1” = orientation constrained. Responds with a success state and has status feedback periodically.
+
+- OrderRequest.action: Is used for inputting a desired menu item. Requests a string array of ingredient names and responds with a success state and has status feedback periodically.
 
 
 ## Technical Components
