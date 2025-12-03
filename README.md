@@ -192,6 +192,18 @@ ros2 run
     - record of the speed to complete task
 - Provide photos, figures, or videos showing the system in operation. (See Project
 Overview, above.)
+
+**End Effector Test**
+https://github.com/user-attachments/assets/4ab47f5e-cb79-452e-b864-183d7ed48e3e
+
+**First Integration Test**
+https://github.com/user-attachments/assets/ffffe84e-1f98-432f-91d3-1507e55a7920
+
+**Ingredient Collision Robustness Test**
+https://github.com/user-attachments/assets/91ec3f1d-9c66-40fd-848c-cbe880f5644a
+
+
+
 - Highlight robustness, adaptability, and innovation.
 
 ## Discussion and Future Work
