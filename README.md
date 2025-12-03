@@ -39,7 +39,7 @@ Please see below a video of the manipulator completing a full control loop. This
 - 0:00:23 - Singularity prevention for when ingredients are out of reach, integrated into closed loop control to update target location when ingredient is moved within suitable range.
 - 0:00:31 - Recipe adherence, the robot will only pick up the necessary ingredients on the table to follow an inputted recipe.
 
-High quality video (YouTube): https://youtu.be/2kIR_RqGSEc
+**High quality video (YouTube):** https://youtu.be/2kIR_RqGSEc
 
 https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
