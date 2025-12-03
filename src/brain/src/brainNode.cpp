@@ -249,7 +249,8 @@ private:
 			double num_step = 10;
 			double orien = 0.0;
 			bool found_solution = false;
-			for (double i = z_rot; i <= PI/2.0; i += (PI/num_step)) {
+			double max_rot = (170 * PI) / 180.0;
+			for (double i = z_rot; i <= max_rot + z_rot; i += (max_rot/num_step)) {
 				// rotate first
 				send_arm_dest({target_position[0], target_position[1], HOVER_HEIGHT, PI, 0.0, i});
 				// then try moving down

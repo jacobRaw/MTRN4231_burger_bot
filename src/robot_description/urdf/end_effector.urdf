@@ -8,15 +8,15 @@
         </visual>
         <collision>
             <geometry>
-                <box size="0.342 0.087 0.130" />
+                <box size="0.268 0.087 0.097" />
             </geometry>
-            <origin xyz="0.011 0 0.1" rpy="0 3.141 0" />
+            <origin xyz="0.011 0 0.1145" rpy="0 3.141 0" />
         </collision>
         <collision>
             <geometry>
-                <box size="0.30 0.087 0.130" />
+                <box size="0.342 0.087 0.033" />
             </geometry>
-            <origin xyz="0.011 0 0.1" rpy="0 3.141 0" />
+            <origin xyz="0.011 0 0.0515" rpy="0 3.141 0" />
         </collision>
     </link>
 </robot>
