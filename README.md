@@ -53,8 +53,7 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 ### Package-level architecture diagram showing node interactions and topics:
-<img width="5789" height="6339" alt="Package Graph" src="https://github.com/user-attachments/assets/e79b14e1-06c6-4128-aedf-906c211ee4fb" />
-
+<img width="5789" height="6339" alt="Package Graph" src="https://github.com/user-attachments/assets/e112b9c2-bb3f-441b-a8db-46b1761d1cf8" />
 
 
 ### State-machine diagram which portrays the closed loop operation of the system:
