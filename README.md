@@ -326,11 +326,18 @@ types per-robot on the line. This is an inneffective solution for fast food chai
 
 
 ## Discussion and Future Work
+**Major Engineering Challenges** 
 - Briefly discuss major engineering challenges faced and how they were addressed.
-- Outline opportunities for improvement or extensions – what would you do better for
-“Version 2.0”.
-    - Can talk about adding the mould to the fake food
-- Summarise what makes your approach novel, creative, or particularly effective
+
+**Future Improvements**
+- Adding mold detection to YOLO and the ability to drop bad ingredients into a bin location. 
+- The ability to change the stack location using aruco markers. 
+- Adding a graphical user interface instead of just using the CLI. 
+- Better smoothing of end effector spatulas to reduce the chance of them getting stuck.
+- More efficient stacking by stacking from top to bottom and keeping the stack in the end effector. This removes having to go back to the stack location each time and instead the gripper can just jump between ingredients.
+
+**Solution Novelty**
+- The solutions novelty is mainly covered in the innovation section, however as an overview, the ability to delicately pick up soft objects is an interesting problem in robotics which is often solved through using pneumatic gripper solutions. A more classic take on gripper design with 2 jaws, integrated with the functionality to lift soft ingredients allows for an innovative approach to this design problem. The necessary collision planning that is needed to support this solution is not often faced by other pick and place systems and these unique qualities make the relatively aggressive Burger Master a novel and effective solution within the delicate robotics space.
 
 ## Contributors and Roles
 **Jacob Rawung (z5406297) - Software/Control Engineer**
