@@ -14,14 +14,37 @@
 
 ## Project Overview
 
-A short description of the task or problem your system solves, including the intended
-“customer” or end-user
+The burger bot project aims to address the task of automating the fast-food industry by providing a burger assembly robotic manipulator which is more cost effective than current industry solutions. Employees are expensive, unreliable and take time to train. These are costs that can be mitigated through automation because a robotic solution to burger assembly is mostly a onetime cost bar electricity and periodic maintenance. These recurring expenses, however, are much lower than a team of employees’ wages. A robotic solution is consistent, accurate, efficient and can work 24/7. These benefits aim to aid fast food restaurants such as McDonalds, Hungry Jack’s, Wendy’s and any other burger restaurant which would like to enter business negotiations.
 
-A summary of the robot’s functionality.
+Burger and sandwich assembly is a significant technical issue faced by industry with minimal solutions currently available. Many require assembly lines with multiple robotic manipulators with end effectors specialised to one or two ingredients at a time. This inflates cost for restaurants who are fed up with their unreliable employees and looking for a robotic solution. This project proposes an end effector which can manipulate any foreseeable burger ingredient, reducing the assembly line to a singular robot per burger.
 
-A short video (e.g. 10-30s) of the robot completing one full cycle/operation
-demonstrating closed-loop behaviour and visualisation. (This could be embedded or an
-external link to a YouTube/OneDrive/Google Drive video.)
+The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality the below operation pipeline explains how the solution operates.
+
+- The functionality starts from the end-user who inputs their desired menu item. This has information about the correct ingredients and the order for stacking and is fed into the brain. 
+- Within the restaurant, ingredients can either be fed into the robot’s range via conveyor belt in any configuration but in this simplified case they are situated randomly on a table within range of an RGB-D camera. 
+- The solution uses a YOLO model for its computer vision trained on all possible ingredients + false ingredients to improve robustness in detection. By running the YOLO model on the camera feed the pixel locations of each ingredient’s centroid can be found as well as what ingredient is being detected. This is then transformed into coordinates relative to the UR5e’s base-link by comparing the locations of the camera and the UR5e base.
+- The brain uses this information to determine the location of the first item in the stack for the end-users desired menu item and calls moveit utilising cartesian path planning to go to that location.
+- Once the gripper is lowered over the ingredient, the brain calls the Arduino control node to send a close command over serial to the Teensy 4.1 which controls the end-effector.
+- Moveit is then called again to send the TCP back to the defined home location and releases the gripper to add the ingredient to the stack.
+- This is repeated for every ingredient in the menu item, with the locations of food items being dynamically updated during operation.
+- During the entire operation every movement is visualised within Rviz, along with safety planes, environment objects and collision boxes.
+The solution includes extensive error checking, but this is covered more in-depth within the system architecture and technical components sections.
+
+Solution Video:
+
+Please see below a video of the manipulator completing a full control loop. This video includes a representation of many of the possible edge cases and displays how this solutions brain node is robust enough to handle them.
+
+- 0:00:04 - Functionality for ensuring the end effector grippers do not crush other “non-target” ingredients on the table as it lowers.
+- 0:00:18 - Safety plane integration with path planning to ensure ingredients are in a pickup able location without colliding with safety planes (Front).
+- 0:00:23 - Singularity prevention for when ingredients are out of reach, integrated into closed loop control to update target location when ingredient is moved within suitable range.
+- 0:00:31 - Recipe adherence, the robot will only pick up the necessary ingredients on the table to follow an inputted recipe.
+
+High quality Video (YouTube): https://youtu.be/2kIR_RqGSEc
+
+https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
+
+
+
 
 
 ## System Architecture
