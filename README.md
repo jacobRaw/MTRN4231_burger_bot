@@ -142,8 +142,87 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 **Assembly Details** 
 
-- Explanation:
-- Diagram:
+- Instructions:
+  
+      1. Before assembly you will need:
+          - 5 M3x20, 6 M3x10, 4 M3x4, 1 M3x50 screws.
+          - 1 M3 Wingnut.
+          - 3 Bearings w/ 19OD & 6ID.
+          - 2-part epoxy resin.
+          - 600mm x 6.3mm solid aluminium or titanium round bar.
+          - 5mm width timing belt replacement for 3D printer.
+          - 0.6mm thick stainless steel sheet.
+          - 4 9mm x 40mm low stiffness springs
+          - 1 NEMA17 0.56Nm holding torque 1.7A 12V Stepper Motor
+          - 1 DRV8825 or A4988 stepper motor driver
+          - 1 100uF electrolytic capacitor
+          - 1 Teensy 4.1 Microcontroller
+  
+      2. 3D print all parts which are not listed above.
+  
+      3. Cut aluminium rods into 2 293mm lengths and slide them into the two slots on the belt tensioner bracket.
+  
+      4. Slot the head of the M3x50 screw into the mount point on the coupling for the tensioner mechanism and slide onto the two rods from the unobstructed end.
+  
+      5. Slip the screw side of the M3x50 screw through the central hole on the belt tensioner bracket and fasten loosely with the M3 wingnut.
+  
+      6. Look for circular slots which fit the bearings on the 3D printed components and press fit them in place.
+  
+      7. With the bearings in place grab the timing belt drive gear with two male shafts and slot into the bearing within the tensioner coupling.
+  
+      8. Slide the large NEMA17 drive bracket onto the unobstructed side of the 2 guiderails, this should include a bearing.
+  
+      9. Slot the timing belt drive gear with one male shaft and one female d-profile into the bearing hole.
+  
+      10. Use the 4 M3x4 screws to fix the faceplate of the NEMA17 to its mounting bracket part.
+  
+      11. Measure a length of timing belt such that it loops around the two drive gears on opposite ends of the guiderails and meets itself without overlap or gap.
+  
+      12. Fix the mounting bracket holding the NEMA17 onto the drive bracket and slot the drive shaft through the d-profile in the belt drive gear. Fix this down with 2 M3x20 screws
+  
+      13. Similarly, slot the lid for the tensioner coupling in place and fasten with 2 M3x10 screws.
+  
+      14. Flip the entire structure upside-down and grab one of the top parts for the gripper jaws which should have a jagged profile matching the timing belt.
+  
+      15. Slot the free ends of the timing belt into this jagged profile and fix in place with a suspension sheath and 2 M3x10 screws.
+  
+      16. Slide this along the guide-rails until its flush with the NEMA drive bracket and tighten the wing nut to tension the timing belt.
+  
+      17. With the other suspension sheath and head, fix it in place such that it is flush with the tensioner coupling instead. Ensure the jagged profile is on the opposite side of the timing belt.
+  
+      18. Place the central UR5e connector on the guiderails and using both of the gripper heads, slide them into the center of the guiderails.
+  
+      19. Mix the 2 part epoxy resin and apply to the guiderails & inner surface of the central column, do not apply glue to the sliding gripper jaw heads.
+
+      20. Press the suspension sheath for the holding pick into the epoxied central UR5e connector to fasten this column perfectly in the center of the guiderails.
+
+      21. Once dry, place 2 springs into the central sheath and 1 spring into each of the jaw sheaths.
+
+      22. Slide the holding pick in place and screw through the hole with 1 M3x20 screw to provide a blocker for the spring.
+
+      23. Do a similar process for the two side jaws ensuring that the gripper cages face with the mouths inwards.
+
+      24. Cut the stainless steel sheet with tin snips into 2 spatula shapes using a paper template to ensure consistency.
+
+      25. Mix some more epoxy and apply to both the gripper cages and the spatulas and fix together while aligning the profiles.
+
+      26. Once dry your end effector is complete.
+
+      Next Steps:
+      Follow the breadboard circuit diagram below and documentation for the particular motor driver you own to connect the NEMA17 to the Teensy 4.1.
+
+
+
+
+      
+  
+
+      
+  
+      
+- Exploded Render:
+<img width="1529" height="1116" alt="ExplodedRender" src="https://github.com/user-attachments/assets/144b7d39-be0a-4d3e-87c2-f121c1c3149f" />
+
 
 **Control Overview and ROS Integration Details**
 
