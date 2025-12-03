@@ -46,7 +46,11 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 ## System Architecture
 
-### Diagram of ROS2 nodes, topics, services and actions:
+### Diagram of ROS2 nodes, topics, services and actions (RQT Graph):
+> These RQT graphs were taken at different points of operation for the solution and show the interaction between nodes as the solution runs.
+<img width="1787" height="895" alt="RQT graph1" src="https://github.com/user-attachments/assets/290e8d6d-d17d-406d-88f6-189461412992" />
+<img width="2078" height="501" alt="RQT graph2" src="https://github.com/user-attachments/assets/4a918ee2-831c-42b0-a4e1-b621dc801931" />
+
 
 ### Package-level architecture diagram showing node interactions and topics:
 
