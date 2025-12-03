@@ -61,38 +61,38 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 **1. Arduino_controller Package**
 &rarr; gripper_serial_node: 
 
-Communicates with the teensy 4.1 over a serial port to control the end effector using open and close commands.
+- Communicates with the teensy 4.1 over a serial port to control the end effector using open and close commands.
 
 **2. Brain Package**
 &rarr; brainNode: 
 
-The central node for the system coordinating everything. It:
-- Receives user input and converts it into burger stack orders
-- Reads perception outputs for available ingredient positions
-- Chooses UR5e motions based on vision outputs
-- Requests moveit to generate path planning
-- Sends open/close commands to the gripper
-- Handles edge-cases and overall closed loop operation
+- The central node for the system coordinating everything. It:
+    - Receives user input and converts it into burger stack orders
+    - Reads perception outputs for available ingredient positions
+    - Chooses UR5e motions based on vision outputs
+    - Requests moveit to generate path planning
+    - Sends open/close commands to the gripper
+    - Handles edge-cases and overall closed loop operation
 
 **3. moveit_path_planner Package**
 &rarr; moveit_path_planning_action: 
 
-Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose.
+- Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose.
 
 **4. perception Package**
 &rarr; yolo_vision: 
 
-Runs object detection using YOLO and publishes the detected ingredient names and positions.
+- Runs object detection using YOLO and publishes the detected ingredient names and positions.
 
 **5. perception_markers Package**
 &rarr; ingredient_markers_node: 
 
-Subscribes to vision outputs and publishes the ingredients as markers for visualisation in Rviz.
+- Subscribes to vision outputs and publishes the ingredients as markers for visualisation in Rviz.
 
 **6. user_input Package**
 &rarr; inputNode: 
 
-Captures user inputs for menu items and sends them to the brain node
+- Captures user inputs for menu items and sends them to the brain node
 
 
 ### Custom message types and interfaces:
