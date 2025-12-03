@@ -115,9 +115,11 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 &rarr; Movement.action:
 
-- Is used for sending move commands to moveit. Requests a command, an array for the pose and a constraints identifier “0” = unconstrained, “1” = orientation constrained. Responds with a success state and has status feedback.
+- Is used for sending move commands to moveit. Requests a command, an array for the pose and a constraints identifier “0” = unconstrained, “1” = orientation constrained. Responds with a success state and has status feedback periodically.
 
+&rarr; OrderRequest.action:
 
+- Is used for inputting a desired menu item. Requests a string array of ingredient names and responds with a success state and has status feedback periodically.
 
 
 ## Technical Components
