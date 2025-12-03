@@ -30,7 +30,7 @@ The solution integrates computer vision, path planning, a custom-built end effec
 - During the entire operation every movement is visualised within Rviz, along with safety planes, environment objects and collision boxes.
 The solution includes extensive error checking, but this is covered more in-depth within the system architecture and technical components sections.
 
-Solution Video:
+### Solution Video:
 
 Please see below a video of the manipulator completing a full control loop. This video includes a representation of many of the possible edge cases and displays how this solutions brain node is robust enough to handle them.
 
@@ -44,16 +44,59 @@ High quality video (YouTube): https://youtu.be/2kIR_RqGSEc
 https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
-
-
-
 ## System Architecture
- - A diagram of your ROS2 nodes, topics, services and actions (e.g. from rqt_graph or a
-custom schematic).
-- A package-level architecture diagram showing node interactions and topics.
-- A behaviour-tree or state-machine diagram showing closed-loop system behaviour.
-- A brief description of the function of each node.
-- Any custom message types or interfaces should be listed and explained.
+
+### Diagram of ROS2 nodes, topics, services and actions:
+
+### Package-level architecture diagram showing node interactions and topics:
+
+
+### State-machine diagram which portrays the closed loop operation of the system:
+
+<img width="1573" height="664" alt="State Diagram" src="https://github.com/user-attachments/assets/4d32728c-f26e-4c2d-9887-24d53b5c5966" />
+
+
+### Description of the function of each node:
+
+**1. Arduino_controller Package**
+&rarr; gripper_serial_node: 
+
+Communicates with the teensy 4.1 over a serial port to control the end effector using open and close commands.
+
+**2. Brain Package**
+&rarr; brainNode: 
+
+The central node for the system coordinating everything. It:
+- Receives user input and converts it into burger stack orders
+- Reads perception outputs for available ingredient positions
+- Chooses UR5e motions based on vision outputs
+- Requests moveit to generate path planning
+- Sends open/close commands to the gripper
+- Handles edge-cases and overall closed loop operation
+
+**3. moveit_path_planner Package**
+&rarr; moveit_path_planning_action: 
+
+Implements a ROS action server that provides asynchronous motion-planning to handle when the brain node requests a motion plan to a target pose.
+
+**4. perception Package**
+&rarr; yolo_vision: 
+
+Runs object detection using YOLO and publishes the detected ingredient names and positions.
+
+**5. perception_markers Package**
+&rarr; ingredient_markers_node: 
+
+Subscribes to vision outputs and publishes the ingredients as markers for visualisation in Rviz.
+
+**6. user_input Package**
+&rarr; inputNode: 
+
+Captures user inputs for menu items and sends them to the brain node
+
+
+### Custom message types and interfaces:
+
 
 ## Technical Components
 - Computer Vision: describe your vision pipeline and how it contributes to the task.
