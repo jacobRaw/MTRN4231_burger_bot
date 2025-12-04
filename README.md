@@ -326,8 +326,14 @@ types per-robot on the line. This is an inneffective solution for fast food chai
 
 
 ## Discussion and Future Work
-**Major Engineering Challenges** 
-- Briefly discuss major engineering challenges faced and how they were addressed.
+**Major Engineering Challenges and Solutions** 
+- One of the largest challenges with the design of the end effector was ensuring that ingredients could be reliably released by the jaws at a repeatable location. Because the spatulas slide under the ingredients, when they re-open slight differences of friction and stickiness causes the ingredient to remain stuck on one side of the two gripper spatulas. This prevents reliable drop operation. To mitigate this, a centralised spring loaded holding pick featuring a studded base can be used to apply pressure from above while preventing lateral ingredient movement upon opening. This also applies force onto the burger stack to ensure ingredients are placed accurately and reliably. In addition, this implementation allows the end effector to be posed at any orientation, including fully upside down without ingredients slipping out.
+
+- Moveit integration into the ROS solution posed a significant challenge with unrelaible path planning and unpredictable behaviours. The solution requires extremely accurate UR5e arm positioning to reliably stack burgers. The moveit issues were completely mitigated through using cartesian path planning which provides a reliable solution to this engineering problem.
+
+- As discussed in the innovation section, there was an issue of ingredients being below the end effector as it lowered, if the jaws collided with these ingredients unintentionally it would cause significant failures to the solution. This was mitigated through adding collision boxes to all ingredients except the target to generate an accurate ingredient avoidance path planning solution.
+
+- The resolution of the RGB-D camera was too minimal to allow for the side mounted computer vision implmentation. Because some ingredients are exceedingly small (pickles) the YOLO model could not accurately identify these ingredients from a far distance. To remedy this issue the camera was placed from above, giving a clearer view of the UR5e table. The camera mount was developed such that the camera was aligned with the centroid of the work area defined by the 10 table bolt holes.
 
 **Future Improvements**
 - Adding mold detection to YOLO and the ability to drop bad ingredients into a bin location. 
