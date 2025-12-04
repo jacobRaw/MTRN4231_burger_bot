@@ -123,8 +123,65 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 ## Technical Components
 
 ### Computer Vision 
-- describe your vision pipeline and how it contributes to the task.
-  
+Computer vision is critical to the functionality of our system. It is used to:
+- Identify ingredients
+- Obtain the 3D position of the ingredients
+- Generate collision objects
+- Visualise the ingredients in RVIZ
+
+#### Object Detection
+To assemble a burger the system needs to identify the correct ingredients corresponding to the recipe for the requested burger. We considered colour masking and using the shape to identify the ingredients. However, due to past experience of each of the team members this was not used due to its unreliablity and is not robust against changes in environment such as lighting conditions. 
+
+In search of a more robust computer vision strategy we adopted Ultralytics YOLO modelled to perform transfer training for a custom model that is trained on the fake food ingredients. This invovled using taking over 200 images that each needed annotation. Two seperate YOLO models were trained.
+
+**YOLO model 1**
+
+This model was trained on over 100 images and worked very well for out first time ever using YOLO. It correctly identified ingredients with over 95% confidence at close range. This can be seen here from the validation data given to the model after training. 
+
+<img width="500" height="500" alt="YOLO model 1 validation" src="readme_imgs/model1_val.jpg" />
+
+This confidence dropped to around 50%-80% when connected to the realsense camera and was misidentifying items. For example a computer mouse was being picked up as a patty and could not differentiate between top and bottom buns. The image below shows the model misidentifying ingredients from real camera footage.
+
+<img width="500" height="500" alt="YOLO model 1 camera footage" src="readme_imgs/yolo_model1_camera.png" />
+
+Even though we were experiencing issues with the model, we were satisfied with the performance due to where the camera would be mounted on the robot arm so that close up iamges could be used for verification. Since the model performed well close up, we were confident this solution was viable. However, upon further inspection the control loop was redesigned to keep efficiency a priority due to the target customer. A camera on the robotic arm would have forced the arm to return to a high overseering position to view the entire workspace before acting. This would have reduced the efficiency by at least 30%. Thus, the camera mounting position was moved to a fixed birds-eye view position over the robot. This meant close up verification was no longer and retraining of the model was required to address the issues.
+
+**YOLO model 2 (black seeds)**
+It was suggested by Mitch Torok (A tutor for the course) to train with at least 50% of the data with little to no ingredients so that the model knew not to identify random objects as ingredients. Additionally, drawing "black seeds" on the top buns to help differentiate between top and bottom. This significantly helped the identification of the ingredients in practice. The confidence was still lower than we would have liked (we were aiming for >95%) but random objects in the scene were no longer identified and a strong differentiation between top and bottom bun was achieved.
+
+<img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/model2_camera.png" />
+
+### 3D Positions
+The YOLO model was trained to generate bounding boxes around identified ingredients. These bounding boxes could be used to identify the centroid of the ingredient in pixel position. Using these pixel coordinates we could also obtain the depth (straight line distance) from the camera to the ingredient using the /camera/camera/rgbd topic.
+
+Then using the camera intrinsics published my the realsense package, a pinhome formula using the focal length and centre line position to create a mapping from pixel position and depth to real 3D coordinates in the camera frame. The image below displays this calculation.
+
+<img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/camera_frame_position.png" />
+
+However, these positions could not yet be used by the MoveIt node since the goal positions were from the base_link frame. A static transformation from the camera_link to the base_link was required to successfully send goal positions. The image below shows the conversion of ingredient positions from the base_link frame of the UR5e.
+
+<img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/base_frame_position.png" />
+
+In practice when moving the robot to pick up ingredients it did experience offset errors. We could not identify whether it was due to skew of the camera or inaccuracies in the static transformation for the camera position. Thus, we manually tuned the ingredient positions using manual offsets calculated by comparing the computer vision position against the moveIt arm position and applying an average.
+
+### Collision Objects
+Dynamic collision objects are required so that the end effector does not squish other ingredients and also ensures reliable picking. To dynamically create the collision objects the positions of the ingredients are published so that the moveIt node can subscribe to the topic and publish the collision objects appropriately. All collision objects are fixed cylinder sizes and had to be tall enough to collide with the end effector collision box. All ingredients are considered collision objects except for the target so that the end effector can interact with it without triggering a collision.
+
+Below is an image of the collision objects in the scene in RVIZ (the green cylinders are the collision objects)
+
+<img width="800" height="450" alt="YOLO model 2 camera footage" src="readme_imgs/collision_objects.png" />
+
+### Visualising Ingredients in RVIZ
+
+The perception marker node is responsible for taking the published ingredient positions from the perception node and creating markers at those positions. RVIZ reads these markers and displays it in the scene. This is shown in the image below. 
+
+- red = tomato
+- green = lettuce
+- light brown = bun top
+- dark brown = bun bottom
+
+<img width="400" height="400" alt="YOLO model 2 camera footage" src="readme_imgs/ingredient_markers.png" />
+
 ### Custom End-Effector
 **Photos, Renders and Engineering Drawings**
 
@@ -245,7 +302,7 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 
 
 ### Closed-Loop Operation 
-- describe the feedback method and how it adapts system behaviour in real time.
+- TODO: describe the feedback method and how it adapts system behaviour in real time.
 
 ## Installation and Setup
 ### OS and ROS2
@@ -297,7 +354,9 @@ At this stage everything will run but to obtain accurate positioning from the ca
 ### Hardware Setup
 This section will outline how to setup the camera, teensy, end effector and connecting to UR5e.
 ### Camera
-The computer vision has been designed to look down on the workbench as a birds eye view. This meant we had to create our own bracket mounting system that can be seen in the models and demonstrations. The offset of camera from the base of the UR5e for our setup is x=0.61m, y=0.2305, z=0.915, yaw=0, pitch=0, roll=3.14 but these values will need to be modified if attempting to recreate our solution.
+The computer vision has been designed to look down on the workbench as a birds eye view. This meant we had to create our own bracket mounting system that can be seen in the models and demonstrations. The offset of camera from the base of the UR5e for our setup is x=0.61m, y=0.2305, z=0.915, yaw=0, pitch=0, roll=3.14 but these values will need to be modified if attempting to recreate our solution. An model of this camera mount can be seen below.
+
+<img width="400" height="350" alt="camera mount image" src="readme_imgs/camera_mount.png">
 
 A realsense D435 camera is required, this camera measures both RGB, pixel coordinates and depth. The realsense package downloaded during software installation uses an official ROS package by realsense to read data from the camera. It is as simple as plugging in the camera into a USB port on your machine and running the perception launch file as such.
 
@@ -355,7 +414,7 @@ This will run the perception node, perception markers node and the realsense pac
 ```
 ros2 launch perception perception.launch.py 
 ```
-<img alt="Computer Vision Output Window" src="readme_imgs/Segmented Image with Centroid_screenshot_02.12.2025.png" />
+<img alt="Computer Vision Output Window" src="readme_imgs/base_frame_centroids.png" />
 
 ### Arm Action Server
 This will launch the moveit action server and similarly to the system.launch.py file can be launched as a fake robot or real robot.
@@ -671,9 +730,9 @@ user_input
 Contains source code for the user input node responsible for interacting with the user.
 
 ## References and Acknowledgements
-- Credit any external libraries, tutorials, or prior codebases.
-- Acknowledge external assistance (e.g. demonstrators, other groups).
+- The ultralytics guide was also another great reference for knowing how to train YOLO by providing a diverse dataset and how to understand the performance of the custom model. Further details of this reference can be explored [here](https://docs.ultralytics.com/guides/)
 
-We would like to acknowledge the other teams that undertook the course and was able to assist us
+- We would like to acknowledge the other teams that undertook the course and was able to assist us
 with the issues experienced when programming the arm with MoveIt.
-Demonstrators (Alex Cronin and David Nie) and the lecturer (Dr Will Midgley) have all provided their personal experience, tips and and technical knowledge for debugging and learning how to use ROS2. 
+
+- Demonstrators (Alex Cronin and David Nie) and the lecturer (Dr Will Midgley) have played a crucial role in developing this solution by providing their personal experience, tips and and technical knowledge for debugging and learning how to use ROS2.

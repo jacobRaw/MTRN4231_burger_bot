@@ -33,7 +33,6 @@ class perception_example(Node):
         share_dir = get_package_share_directory('perception')
         # self.model = YOLO(os.path.join(share_dir, 'burger_model.pt'))
         self.model = YOLO(os.path.join(share_dir, 'black_seed.pt'))
-        #self.model = YOLO('/home/jacob/MTRN4231_sandwich_assembler/src/perception/perception/black_seed.pt')
 
         self.model.verbose = False
 
