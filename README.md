@@ -305,7 +305,7 @@ The perception marker node is responsible for taking the published ingredient po
 ### Closed-Loop Operation 
 - TODO: describe the feedback method and how it adapts system behaviour in real time.
 
-At runtime the system can adapt to changes in the ingredient position which updates the collision objects. This update can only occur once the robot is out of view of the camera (which is in the startState). This is to ensure that the camera has a full field of view of the workspace and does not falsely request an ingredient that is on the table due to the arm hiding it from view.
+At runtime the system can adapt to changes in the ingredient position which updates the collision objects. This update can only occur once the robot is out of view of the camera (which is in the startState). This is to ensure that the camera has a full field of view of the workspace and does not falsely request an ingredient that is not on the table due to the arm hiding it from view.
 
 The collision objects are then used to ensure ingredients are not being squished. The arm moves to the position of the target ingredient but at a hover height above the table. It will plan a path to lower itself and pick up the ingredient but if this plan fails due to surrounding collision objects the TCP orientation rotates in the z-axis by 17 degrees. This continues up to just under 180 degrees (170) and if no valid path could be found the arm moves back to the home position and reads a new set of positions from the perception to reattempt the target. This can be seen in action in the embedded video at the top of this report [here](#solution-video).
 
