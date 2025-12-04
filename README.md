@@ -366,10 +366,6 @@ types per-robot on the line. This is an inneffective solution for fast food chai
 - Produced the pre-integration versions of the perception_markers and arduino_controller packages.
 
 
-
-Briefly list team members and describe their primary areas of responsibility (e.g. vision,
-planning, hardware).
-
 ## Repository Structure
 All the source code is kept inside the src directory whilst the readme and requirements file is left at the root to for initial setup. Inside the src directory each directory is a ROS package that contains at most one ROS node. Some directories are unique such as custom_interfaces, launch and robot_description directories which do not contain a ROS node but contain crucial components that ROS nodes depend on.
 ```
