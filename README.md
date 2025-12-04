@@ -132,7 +132,7 @@ Computer vision is critical to the functionality of our system. It is used to:
 #### Object Detection
 To assemble a burger the system needs to identify the correct ingredients corresponding to the recipe for the requested burger. We considered colour masking and using the shape to identify the ingredients. However, due to past experience of each of the team members this was not used due to its unreliablity and is not robust against changes in environment such as lighting conditions. 
 
-In search of a more robust computer vision strategy we adopted Ultralytics YOLO modelled to perform transfer training for a custom model that is trained on the fake food ingredients. This invovled using taking over 200 images that each needed annotation. Two seperate YOLO models were trained.
+In search of a more robust computer vision strategy we adopted the Ultralytics YOLO model to perform transfer training for a custom model that is trained on fake food ingredients. This invovled taking over 200 images that each needed annotation. Two seperate YOLO models were trained.
 
 **YOLO model 1**
 
@@ -140,13 +140,14 @@ This model was trained on over 100 images and worked very well for out first tim
 
 <img width="500" height="500" alt="YOLO model 1 validation" src="readme_imgs/model1_val.jpg" />
 
-This confidence dropped to around 50%-80% when connected to the realsense camera and was misidentifying items. For example a computer mouse was being picked up as a patty and could not differentiate between top and bottom buns. The image below shows the model misidentifying ingredients from real camera footage.
+This confidence dropped to around 50%-80% when connected to the realsense camera and was misidentifying items. For example a computer mouse was being picked up as a patty and could not differentiate between top and bottom buns. The image below shows the model misidentifying ingredients using the realsense camera.
 
 <img width="500" height="500" alt="YOLO model 1 camera footage" src="readme_imgs/yolo_model1_camera.png" />
 
-Even though we were experiencing issues with the model, we were satisfied with the performance due to where the camera would be mounted on the robot arm so that close up iamges could be used for verification. Since the model performed well close up, we were confident this solution was viable. However, upon further inspection the control loop was redesigned to keep efficiency a priority due to the target customer. A camera on the robotic arm would have forced the arm to return to a high overseering position to view the entire workspace before acting. This would have reduced the efficiency by at least 30%. Thus, the camera mounting position was moved to a fixed birds-eye view position over the robot. This meant close up verification was no longer and retraining of the model was required to address the issues.
+Even though we were experiencing issues with the model, we were satisfied with the performance due to where the camera would be mounted on the robot arm so that close up images could be used for verification. Since the model performed well close up, we were confident this solution was viable. However, upon further inspection the control loop was redesigned to keep efficiency a priority due to the target customer. A camera on the robotic arm would have forced the arm to return to a high overseering position to view the entire workspace before acting. This would have reduced the efficiency by at least 30%. Thus, the camera mounting position was moved to a fixed birds-eye view position over the robot. This meant close up verification was no longer needed and retraining of the model was required to address the issues.
 
 **YOLO model 2 (black seeds)**
+
 It was suggested by Mitch Torok (A tutor for the course) to train with at least 50% of the data with little to no ingredients so that the model knew not to identify random objects as ingredients. Additionally, drawing "black seeds" on the top buns to help differentiate between top and bottom. This significantly helped the identification of the ingredients in practice. The confidence was still lower than we would have liked (we were aiming for >95%) but random objects in the scene were no longer identified and a strong differentiation between top and bottom bun was achieved.
 
 <img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/model2_camera.png" />
@@ -154,11 +155,11 @@ It was suggested by Mitch Torok (A tutor for the course) to train with at least 
 ### 3D Positions
 The YOLO model was trained to generate bounding boxes around identified ingredients. These bounding boxes could be used to identify the centroid of the ingredient in pixel position. Using these pixel coordinates we could also obtain the depth (straight line distance) from the camera to the ingredient using the /camera/camera/rgbd topic.
 
-Then using the camera intrinsics published my the realsense package, a pinhome formula using the focal length and centre line position to create a mapping from pixel position and depth to real 3D coordinates in the camera frame. The image below displays this calculation.
+Then using the camera intrinsics published by the realsense package. A pinhome formula could be used from the focal length and centre line position to create a mapping from pixel position and depth to real 3D coordinates in the camera frame. The image below displays the result of this calculation.
 
 <img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/camera_frame_position.png" />
 
-However, these positions could not yet be used by the MoveIt node since the goal positions were from the base_link frame. A static transformation from the camera_link to the base_link was required to successfully send goal positions. The image below shows the conversion of ingredient positions from the base_link frame of the UR5e.
+However, these positions could not yet be used by the MoveIt node since the goal positions required the ingredient positions to be in the base_link frame. A static transformation from the camera_link to the base_link was required to successfully send goal positions. The image below shows the conversion of ingredient positions from the base_link frame of the UR5e.
 
 <img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/base_frame_position.png" />
 
@@ -451,6 +452,7 @@ ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{comm
 
 
 ## Results and Demonstration
+TODO:
 - Describe how your system performs against its design goals.
 - Include quantitative results where possible (e.g. accuracy, repeatability).
     - confidence of the YOLO
