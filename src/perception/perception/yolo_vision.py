@@ -58,7 +58,7 @@ class perception_example(Node):
         self.x_crop = 100
 
         # offsets 
-        self.x_offset = -0.01700 + 0.015
+        self.x_offset = -0.01700
         self.y_offset = -0.01425
 
     def image_callback(self, msg):

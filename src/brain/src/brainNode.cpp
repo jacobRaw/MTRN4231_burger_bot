@@ -64,12 +64,15 @@ public:
   : Node("brainNode", options)
   {
     RCLCPP_INFO(this->get_logger(), "BrainNode has started.");
+	this->declare_parameter<bool>("use_fake_hardware", true);
+    this->get_parameter("use_fake_hardware", use_fake_hardware_);
 
     using namespace std::placeholders;
 
+	RCLCPP_INFO(this->get_logger(), "Use fake hardware: %s", use_fake_hardware_ ? "true" : "false");
     // service call the arduino to control the gripper
     this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_server");
-    while (rclcpp::ok() && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
+    while (rclcpp::ok() && !use_fake_hardware_ && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
     {
       RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
     }
@@ -118,6 +121,8 @@ public:
 
 private:
 	// ROS communication objects
+	// ROS paramter to set whether fakehardware is used so we can skip gripper commands
+	bool use_fake_hardware_;
 	// action server for the input node
 	rclcpp_action::Server<action_interface>::SharedPtr action_server_;
 	std::shared_ptr<GoalHandleOrderRequest> active_goal_;
@@ -468,6 +473,7 @@ private:
 
 	/**************************GRIPPER SERVER HANDLERS ************************** */
 	void gripper_server_response(const rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedFuture future) {
+		return;
 		auto response = future.get();
 		if (!response) {
 			RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");

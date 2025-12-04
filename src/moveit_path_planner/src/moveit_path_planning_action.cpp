@@ -405,14 +405,5 @@ int main(int argc, char** argv)
   rclcpp::shutdown();
   return 0;
 }
- 
- 
- 
-// (this move to home first)
-// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'joint', positions: [-1.57079633, 0.767945, -0.767945, -1.57079633, 0.0, 0.0], constraints_identifier: 'NONE'}"
- 
-// (to pickup pose down)
-// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.4, 0.1, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
 
-// this command will send arm with end effector attached to the bolt "3"
-// ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
+ 

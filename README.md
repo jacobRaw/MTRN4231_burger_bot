@@ -248,38 +248,144 @@ https://github.com/user-attachments/assets/b9df1b45-9737-490c-970d-db6d626eccda
 - describe the feedback method and how it adapts system behaviour in real time.
 
 ## Installation and Setup
-- Step-by-step installation instructions for dependencies and workspace setup.
-- Hardware setup information (UR5e connection, camera, Teensy, etc.).
-- Any environment variables, configuration files, or calibration procedures required to run
-the system. (You can take as assumed that there is some sort of hand-eye calibration
-already present in the system.)
-- Troubleshooting (common errors/mistakes)
+### OS and ROS2
+The system runs best on native linux machines specifially development for this project was conducted in Ubuntu 22.04.5 LTS. Regardless of operating system, the ROS2 Humble distro is required for operation. Please follow the official installation guide for further details [here](https://docs.ros.org/en/humble/Installation.html).
+
+### Software Installation
+All of the following installation instructions will assume that you are using a linux (debian) based machine so please modify instructions according to your specific machine.
+
+Clone the repository using either HTTPS or SSH
+
+HTTPS
+```
+git clone https://github.com/jacobRaw/MTRN4231_burger_bot.git
+```
+
+SSH
+```
+git clone git@github.com:jacobRaw/MTRN4231_burger_bot.git
+```
+
+Install python dependencies from the requirements.txt at the root.
+```
+pip install -r requirements.txt
+```
+
+Install the following ROS packages
+```
+sudo apt-get install ros-humble-ur
+sudo apt install ros-humble-moveit
+sudo apt install ros-humble-realsense2-*
+sudo apt-get install librealsense2-dkms librealsense2-udev-rules librealsense2-utils
+```
+
+Source the ros distro by choosing the correct setup file that corresponds to the shell that is running on your machine (most UNIX systems will be using bash so you should be able to follow the instructions below), change directories into the src directory and only build the custom_interfaces package. This is necessary because other packages depend on custom_interfaces to build.
+```
+source /opt/ros/humble/setup.bash
+cd src
+colcon build --packages-select customer_interfaces
+```
+
+After building custom_interfaces, source the newly created install/setup.bash file and build the entire software stack.
+```
+source install/setup.bash
+colcon build
+```
+
+At this stage everything will run but to obtain accurate positioning from the camera frame the static transform broadcaster will need to be modified in src/launch/perception.launch.py. Please refer to the hardware setup ([here](#camera)) to understand how your camera should be mounted before modifying the transformation values.
+
+### Hardware Setup
+This section will outline how to setup the camera, teensy, end effector and connecting to UR5e.
+### Camera
+The computer vision has been designed to look down on the workbench as a birds eye view. This meant we had to create our own bracket mounting system that can be seen in the models and demonstrations. The offset of camera from the base of the UR5e for our setup is x=0.61m, y=0.2305, z=0.915, yaw=0, pitch=0, roll=3.14 but these values will need to be modified if attempting to recreate our solution.
+
+A realsense D435 camera is required, this camera measures both RGB, pixel coordinates and depth. The realsense package downloaded during software installation uses an official ROS package by realsense to read data from the camera. It is as simple as plugging in the camera into a USB port on your machine and running the perception launch file as such.
+
+```
+ros2 launch perception perception.launch.py
+```
+
+### Teensy 4.1 & End Effector
+Setting up the teensy is simple, if you successfully followed the wiring diagrams shown [here](#custom-end-effector). Then connect the arduino 12v plugs into the workbench power supply and the logic control inputs to send the serial commands through to the UR5e. The Teensy must also must be plugged into your machine throughout operation so that commands can be sent over serial to the teensy.
+
+Once successfully assembling the end effector as described [here](#custom-end-effector). Then the end effector just needs to be plugged into the socket at the end of the arm and mounted simply in the mounting clamp in-built to the arm.
+
+### Connecting to UR5e
+An ethernet cable is required to connect to the UR5e but since the machine we used for demonstration did not use an ethernet port an ethernet to USB-A adapter may also be required depending on machine specifics. Once connecting to the UR5e via ethernet network settings must be configured. For the robots at UNSW teaching labs the following networking settings must be set on your machine to connect.
+
+```
+IP: 192.168.0.100, subnet mask: 255.255.255.0
+```
+
+Finally, on the teaching pendant the robot must be set to "manual" mode and the program must be set to run over the configured IP address above.
+
+### Common Issues/Troubleshooting
+More often than not when installing, building or trying to run the system, the terminal has not been sourced. Always run one or both of the following commands before trying anything else since this a common culprit.
+
+```
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+```
+
+If choosing to extend our solution and would like to modify any of the existing code sometimes it may be necessary to do a fresh rebuild if there is legacy install or build files that are conflicting. It is safe to delete the build, install and log directories generated by colcon build since they are files only used at run time and will not delete any source code.
+```
+rm -r build log install
+colcon build --packages-select custom_interfaces
+colcon build
+```
 
 ## Running the System
-- Clear instructions for launching and running the complete system.
-- Example commands (e.g. ros2 launch project_name bringup.launch.py).
-- Expected behaviour and example outputs.
-- Optional troubleshooting notes.
-- The system should be launched by a single command (e.g. via a launch file, shell script
-or Docker image), without manual sequencing.
+To run the entire system you simply have to run the single system.launch.py file in src/launch directory. There is two ways to launch the system, one for the real robot and the other simulated.
+Run the below commands in the src directory.
 
-Computer vision (perception):
+Simulated/fake robot
+```
+ros2 launch launch/system.launch.py
+```
+
+Real robot: The robot_ip may need to be modified depending on the IP address set for your UR5e.
+```
+ros2 launch launch/system.launch.py use_fake_hardware:=false robot_ip:=192.168.0.100
+```
+
+For debugging or testing perception and moveit nodes in isolation please follow the instructions below.
+
+### Computer vision (perception)
+This will run the perception node, perception markers node and the realsense package. There is no observable output from these nodes on the terminal but if the node is running correctly a window will appear with the live camera footage running the YOLO model and will annotate the image at run time. Please refer to the image below.
+```
 ros2 launch perception perception.launch.py 
+```
+<img alt="Computer Vision Output Window" src="readme_imgs/Segmented Image with Centroid_screenshot_02.12.2025.png" />
 
-This launch file will also launch the perception_markers package to publish object markers in RVIZ
+### Arm Action Server
+This will launch the moveit action server and similarly to the system.launch.py file can be launched as a fake robot or real robot.
+Fake Robot: Only launches the moveit action server and opens RVIZ.
+```
+ros2 launch launch/arm_server_launch.py
+```
 
-Brain Node and user input:
-ros2 launch brain input.launch.py
+Real Robot: Launches both moveit action server, arduino controller and opens RVIZ
+```
+ros2 launch launch/arm_server_launch.py use_fake_hardware:=false robot_ip:=192.168.0.100
+```
 
-This launches both the brainNode and the inputNode
+Since this node can be run independtly from the rest of the system, it can also receives CLI commands. This was very useful for debugging and testing moveit in isolation without the brain node. An example action server goal request using cartesian planning is given below for the home position we use for our demonstration.
+```
+ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
+```
 
-Moveit (arm control):
-ros2 launch moveit_path_planner arm_server_launch.py
+The following command is also useful to send the robot to the home position without any constraints using joint planning. This is useful for debugging moveit as well to relax constraints since moveit can be difficult to work with.
+```
+ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'joint', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'NONE'}"
+```
 
-This launches the moveit action server
+### Troubleshooting
+- When working with the real robot it was a common issue to forget to reset/play the program on the robot to allow your machine to communicate with the UR5e. This simply requires intervention with the teach pendant.
 
-End Effector controller:
-ros2 run 
+- Another issue when working with the real robot is forgetting to set the use_fake_hardware and robot_ip arguments for the launch files. A quick way to check if this was the issue check the robot pose in RVIZ. If the simulated program is running, all links would be pointing vertically up.
+
+- If no window appears for the perception node it could be due to the camera not being plugged in, if this is not the issue try running the realsense package in isolation and verify the camera feed is being published in rqt. 
+
 
 ## Results and Demonstration
 - Describe how your system performs against its design goals.
@@ -397,7 +503,9 @@ MTRN4231_burger_bot/
     │       ├── InputServer.srv
     │       └── MovementRequest.srv
     ├── launch
+    │   ├── arduino.launch.py
     │   ├── arm_server_launch.py
+    │   ├── brain.launch.py
     │   ├── input.launch.py
     │   ├── perception.launch.py
     │   ├── system.launch.py
@@ -483,13 +591,15 @@ Custom interfaces contains all of the custom service, action and message types t
 ### Launch
 ```
 launch
+├── arduino.launch.py
 ├── arm_server_launch.py
+├── brain.launch.py
 ├── input.launch.py
 ├── perception.launch.py
 ├── system.launch.py
 └── ur_startup.launch.py
 ```
-Launch directory contains all the necesssary launch files that are required to run the system.
+Launch directory contains all the launch files to run each of the nodes. The main launch file being the system.launch.py which runs all launch files so that it can be run off a single terminal.
 
 ### Moveit Path Planner
 ```
