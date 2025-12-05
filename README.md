@@ -523,6 +523,8 @@ Computer Vision & Closed Loop Test: https://youtu.be/MXHHu9Mg7A8
 
 Ingredient Collision Robustness Test: https://youtu.be/D7P5NxirLQY
 
+Final Demonstration: https://youtu.be/Xg3uP0N5T-g
+
 ### Evaluation of System Robustness, Adaptability, and Innovation
 
 **Robustness**
@@ -798,7 +800,7 @@ Contains source code for the user input node responsible for interacting with th
 ## References and Acknowledgements
 - The ultralytics guide was also another great reference for knowing how to train YOLO by providing a diverse dataset and how to understand the performance of the custom model. Further details of this reference can be explored [here](https://docs.ultralytics.com/guides/)
 
-- We would like to acknowledge the other teams that undertook the course and was able to assist us
+- We would like to acknowledge the other teams that undertook the course and were able to assist us
 with the issues experienced when programming the arm with MoveIt.
 
 - Demonstrators (Alex Cronin and David Nie), head demo (Mitchell Torok) and the course convenor (Dr Will Midgley) have played a crucial role in developing this solution by providing their personal experience, tips and technical knowledge for debugging and learning how to use ROS2.
