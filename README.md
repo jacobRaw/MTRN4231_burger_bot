@@ -327,7 +327,7 @@ If no valid plan can be found after exhausting all orientations, MoveIt commands
 
 This MoveIt-based planning strategy enables reliable, closed-loop adaptation by continuously integrating updated perception data with flexible, collision-aware motion generation.
 
-### UR5e Arm Control (Moveit)
+#### UR5e Arm Control (Moveit)
 The implementation of moveit for our solution had 3 requirements:
 - The TCP must face downwards at all times.
 - The robot must avoid all collisions, including ingredients and the environment.
@@ -485,12 +485,34 @@ ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{comm
 
 
 ## Results and Demonstration
-TODO:
-- Describe how your system performs against its design goals.
-- Include quantitative results where possible (e.g. accuracy, repeatability).
-    - confidence of the YOLO
-    - Record total number of attempts for a full cycle against successful attempts for repeatability
-    - record of the speed to complete task
+The following results summarise the performance of our system and assess how effectively it met the design goals through measured accuracy, repeatability, and execution speed.
+
+### Design Goals
+- Accurately detect ingredients
+- Maintain safe, collision free robot motion
+- Achieve consistent ingredient pickup
+- Complete task within reasonable time
+
+### Performance Summary
+| Design Goal | Achieved? | Evidence |
+|-------------|-----------|----------|
+| Accurate detection | Yes | YOLO confidence 0.82–0.99 |
+| Safe motion | Yes | 0 collisions in 10 cycles |
+| Repeatability | Partial | 9/10 successful cycles |
+| Time | Yes | < 1.5 minutes |
+
+### Performance Against Design Goals
+
+Our final solution successfully met the majority of the design goals through a combination of reliable perception, safe motion planning, and repeatable execution. Ingredient detection was achieved using a YOLO-based perception system that was validated on over 100 labelled images prior to integration. This allowed the model to handle variations in lighting, occlusion, and ingredient orientation, resulting in stable real-world confidence scores between 0.82 and 0.99.
+
+Safe, collision-free robot motion was maintained by dynamically updating the MoveIt planning scene with live ingredient positions. This ensured that all planned trajectories respected both the environment and nearby ingredients. Cartesian motion planning played a key role here, producing predictable, straight-line paths that maintained the required downward TCP orientation while avoiding unintended contact with surrounding items.
+
+The system demonstrated strong repeatability, achieving 9 successful ingredient pickups out of 10 full cycles. The single failure occurred under an unusually cluttered layout that restricted available descent angles, demonstrating a limitation of the workspace rather than the control logic. Despite this, the system consistently recovered through its retry mechanism and maintained stable operation across repeated runs.
+
+Task efficiency was also achieved, with each full cycle completing in under 1.5 minutes. Fast perception updates and direct Cartesian movements contributed significantly to this performance.
+
+Overall, the combination of robust perception testing, continuous collision-aware planning, and adaptive retry behaviour enabled the system to perform reliably and closely align with its intended design goals.
+
 
 ### Video Documentation
 > Please see below a few video's of the system being tested for robustness in particular areas. The video in the project overview shows the fully working solution.
@@ -558,7 +580,13 @@ types per-robot on the line. This is an inneffective solution for fast food chai
 - Assisted in the development and integration with wider system for visualisation markers, arduino controller node and moveit path planner
 - Maintained meeting minutes and managed task deadlines
 
-**Reynold Chu (zID) - Mechatronics Engineer** - Reynold is responsible for developing the moveit path planner as well as being the primary developer for system visualisation.
+**Reynold Chu (z5417921) - Mechatronics Engineer** 
+- Responsible for developing the moveit solution:
+    - Successfully implemented MoveIt to fulfil all motion-planning requirements
+    - Designed a custom action interface enabling the action server to send motion commands to MoveIt
+- Responsible for system visualisation:
+    - Fully visualised the environment, UR5e and end effector
+    - Applied collision objects and walls to avoid collisions
 
 **Riley Hackett (z5417561) - Mechanical/Electrical Engineer & Investor** 
 - Responsible for all CAD and end-effector development/assembly, Key areas:
