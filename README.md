@@ -292,31 +292,55 @@ The perception marker node is responsible for taking the published ingredient po
 
 
 
-
-
-
 ### System Visualisation 
-System visualisation for the UR5e platform was achieved through RViz2, which acted as the main interface for observing the robot, its end effector, and the workspace in real time. RViz2 displayed joint states, link poses, and planned trajectories, providing a human-readable representation of the system that allowed safe remote supervision before and during execution.
-A detailed URDF/Xacro model was constructed to accurately represent the physical robot and environment. The end effector was imported as an OBJ mesh, preserving its full colour and geometry to make its orientation and contact surfaces easy to interpret visually. The table and surrounding workspace were also modelled in URDF. These components were combined in a master Xacro file, where the end effector was rigidly attached to the UR5e by a fixed joint to tool0.
+System visualisation for the UR5e system was performed using RViz2, which provided a real-time representation of the robot, the end effector, and the surrounding workspace. RViz2 displayed continuous joint state updates from the robot driver, allowing us to remotely monitor the robot’s physical configuration and verify that the UR5e matched the expected kinematic state during motion execution.
 
-To support safe and realistic motion planning, collision geometry was added throughout the scene. A collision box was placed around the table to prevent unsafe trajectories, and an additional collision box was placed around the end effector. Importantly, this collision box was not a full envelope—it was intentionally shaped to allow the lower contact surfaces of the end effector to reach the table. This ensured the robot could physically pick up ingredients while still preventing collisions with other parts of the tool.
+A detailed URDF/Xacro model was constructed to accurately represent the physical setup. The end effector was imported as a colour OBJ mesh, giving a realistic and easily interpretable visual model that made orientation, approach direction, and contact surfaces clear. A separate URDF was created for the table and workspace environment, and both components were combined in a master Xacro file. The end effector was rigidly attached to the robot by defining a fixed joint between tool0 and the end-effector link, ensuring correct alignment within the TF tree.
 
-Overall, the system visualisation demonstrated the combined robot model, its environment, collision geometry, and live state feedback, providing an accurate and robust representation that supported both motion planning and execution.
+RViz was also used to visualise the MoveIt planning scene, including planned trajectories, goal states, and collision geometry. Collision boxes were added around the table and the environment, ensuring that MoveIt respected workspace constraints during path planning. A partial collision box was also placed around the end effector, intentionally leaving the underside clear so that the tool could safely make contact with the table when picking up ingredients while still preventing unwanted collisions elsewhere.
+
+The visualisation additionally allowed us to validate the TF frame structure, ensuring correct transforms between the UR5e links, the tool frame, and the environment frames. RViz also displayed the “ghost robot” showing planned trajectories before execution, providing an essential safety check to confirm that paths were valid and collision-free before being sent to the real hardware.
+
+Overall, the visualisation system demonstrated the robot’s kinematic configuration, collision-aware planning environment, object interactions, and trajectory execution, giving a complete and accurate representation of the system and significantly improving safety and reliability during development.
 
 
-- Table render for visualisation
+#### Rendered Table for Visualisation
 <img width="1161" height="1015" alt="UR5e Table" src="https://github.com/user-attachments/assets/a4ca3fb6-6cdc-4276-8b8a-c7ffc7c1075e" />
 
-- Robot State in RViz
-<img width="1161" height="1015" alt="Robot State Rviz" src="" />
+#### Robot and Environment Visualisation
 
+<p align="center">
+  <img src="readme_imgs/robot-rviz.jpg" width="300">
+  <img src="readme_imgs/robot_real.jpg" width="300">
+</p>
 
 ### Closed-Loop Operation 
-- TODO: describe the feedback method and how it adapts system behaviour in real time.
+The system operates in a closed-loop structure where perception, planning, and execution continuously update each other to ensure robust behaviour in a dynamic environment. At runtime, the ingredient positions on the table may shift, and the robot must adapt to these changes. This is achieved by allowing the perception system to update ingredient poses and their corresponding collision objects whenever the robot returns to the startState. This constraint ensures the camera maintains a full and unobstructed field of view; otherwise, the arm could occlude ingredients and cause incorrect or incomplete scene updates.
 
-At runtime the system can adapt to changes in the ingredient position which updates the collision objects. This update can only occur once the robot is out of view of the camera (which is in the startState). This is to ensure that the camera has a full field of view of the workspace and does not falsely request an ingredient that is not on the table due to the arm hiding it from view.
+Once a new set of ingredient positions is available, the system regenerates the corresponding collision objects. These collision objects represent both the physical ingredients and safe separation zones to prevent crushing or collisions. The robot can then respond to any changes in ingredient layout without requiring manual resets or reconfiguration.
 
-The collision objects are then used to ensure ingredients are not being squished. The arm moves to the position of the target ingredient but at a hover height above the table. It will plan a path to lower itself and pick up the ingredient but if this plan fails due to surrounding collision objects the TCP orientation rotates in the z-axis by 17 degrees. This continues up to just under 180 degrees (170) and if no valid path could be found the arm moves back to the home position and reads a new set of positions from the perception to reattempt the target. This can be seen in action in the embedded video at the top of this report [here](#solution-video).
+MoveIt is responsible for generating collision-aware trajectories based on the updated scene provided by perception. After the planning scene has been refreshed, MoveIt selects a target ingredient and computes a path to a predefined hover pose directly above it. This staging pose allows the robot to safely approach ingredients even in cluttered environments.
+
+From this hover position, the robot attempts a secondary plan to lower the end effector and perform the pickup. If this descent trajectory is invalid due to nearby collision objects, the system triggers an adaptive re-planning process. The TCP orientation is rotated around the z-axis in 17° increments, and for each new orientation MoveIt attempts to compute a feasible descent path. This continues up to approximately 170°, providing a wide range of alternative approach angles. This can be seen in action in the embedded video at the top of this report [here](#solution-video).
+
+If no valid plan can be found after exhausting all orientations, MoveIt commands the robot back to the home position. The perception system then performs another scene update, and a new attempt is made based on the refreshed workspace information. This procedure ensures robustness in dense or dynamic ingredient layouts and prevents the robot from committing to unsafe motions.
+
+This MoveIt-based planning strategy enables reliable, closed-loop adaptation by continuously integrating updated perception data with flexible, collision-aware motion generation.
+
+### UR5e Arm Control (Moveit)
+The implementation of moveit for our solution had 3 requirements:
+- The TCP must face downwards at all times.
+- The robot must avoid all collisions, including ingredients and the environment.
+- The motion must be efficient.
+
+To fulfil these requirements a combination of joint constraints and Cartesian path planning was implemented.
+
+Cartesian planning is ideal for ingredient pickup because it naturally creates predictable and direct motions. When MoveIt interpolates a Cartesian path, it maintains the robot’s orientation throughout the motion, which allows us to keep the TCP pointing straight down toward the table. This makes ingredient pickup reliable and prevents the robot from sweeping sideways into nearby objects.
+
+MoveIt also continuously checks every small step of the planned Cartesian path for collisions. This includes the table, walls, the end effector’s collision box, and the dynamically updated ingredient positions. If any part of the descending motion would intersect with a collision object, MoveIt rejects that path. The system then attempts the same motion again with a slightly rotated wrist orientation, giving the robot multiple possible approach angles to safely reach the ingredient.
+
+By using only Cartesian planning, the robot’s movements remain intuitive, consistent, and efficient. Every motion is either a straight-line approach, retreat, or reposition, which makes the behaviour easy to predict and reduces unnecessary robot movement. This approach, combined with continuous collision checking and live perception updates, allows the robot to safely and reliably operate in a cluttered and changing workspace.
+
 
 ## Installation and Setup
 ### OS and ROS2
