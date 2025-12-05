@@ -18,12 +18,12 @@ The burger bot project aims to address the task of automating the fast-food indu
 
 Burger and sandwich assembly is a significant technical issue faced by industry with minimal solutions currently available. Many require assembly lines with multiple robotic manipulators with end effectors specialised to one or two ingredients at a time. This inflates cost for restaurants who are fed up with their unreliable employees and looking for a robotic solution. This project proposes an end effector which can manipulate any foreseeable burger ingredient, reducing the assembly line to a singular robot per burger.
 
-The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality the below operation pipeline explains the solution.
+The solution integrates computer vision, path planning, a custom-built end effector and closed-loop control to solve this problem. As a general overview of functionality, the below operation pipeline explains the solution.
 
 - The functionality starts from the end-user who inputs their desired menu item. This has information about the correct ingredients and the order for stacking and is fed into the brain. 
 - Within the restaurant, ingredients can either be fed into the robot’s range via conveyor belt in any configuration but in this simplified case they are situated randomly on a table within range of an RGB-D camera. 
 - The solution uses a YOLO model for its computer vision trained on all possible ingredients + false ingredients to improve robustness in detection. By running the YOLO model on the camera feed the pixel locations of each ingredient’s centroid can be found as well as what ingredient is being detected. This is then transformed into coordinates relative to the UR5e’s base-link by comparing the locations of the camera and the UR5e base.
-- The brain uses this information to determine the location of the first item in the stack for the end-users desired menu item and calls moveit utilising cartesian path planning to go to that location.
+- The brain uses this information to determine the location of the first item in the stack for the end-users desired menu item and calls MoveIt utilising cartesian path planning to go to that location.
 - Once the gripper is lowered over the ingredient, the brain calls the Arduino control node to send a close command over serial to the Teensy 4.1 which controls the end-effector.
 - Moveit is then called again to send the TCP back to the defined home location and releases the gripper to add the ingredient to the stack.
 - This is repeated for every ingredient in the menu item, with the locations of food items being dynamically updated during operation.
@@ -130,9 +130,9 @@ Computer vision is critical to the functionality of our system. It is used to:
 - Visualise the ingredients in RVIZ
 
 #### Object Detection
-To assemble a burger the system needs to identify the correct ingredients corresponding to the recipe for the requested burger. We considered colour masking and using the shape to identify the ingredients. However, due to past experience of each of the team members this was not used due to its unreliablity and is not robust against changes in environment such as lighting conditions. 
+To assemble a burger the system needs to identify the correct ingredients corresponding to the recipe for the requested burger. We considered colour masking and using the shape to identify the ingredients. However, due to past experience of each of the team members this was not used due to its unreliability and is not robust against changes in environment such as lighting conditions. 
 
-In search of a more robust computer vision strategy we adopted the Ultralytics YOLO model to perform transfer training for a custom model that is trained on fake food ingredients. This invovled taking over 200 images that each needed annotation. Two seperate YOLO models were trained.
+In search of a more robust computer vision strategy, we adopted the Ultralytics YOLO model to perform transfer training for a custom model that is trained on fake food ingredients. This involved taking over 200 images that each needed annotation. Two separate YOLO models were trained.
 
 **YOLO model 1**
 
@@ -144,7 +144,7 @@ This confidence dropped to around 50%-80% when connected to the realsense camera
 
 <img width="500" height="500" alt="YOLO model 1 camera footage" src="readme_imgs/yolo_model1_camera.png" />
 
-Even though we were experiencing issues with the model, we were satisfied with the performance due to where the camera would be mounted on the robot arm so that close up images could be used for verification. Since the model performed well close up, we were confident this solution was viable. However, upon further inspection the control loop was redesigned to keep efficiency a priority due to the target customer. A camera on the robotic arm would have forced the arm to return to a high overseering position to view the entire workspace before acting. This would have reduced the efficiency by at least 30%. Thus, the camera mounting position was moved to a fixed birds-eye view position over the robot. This meant close up verification was no longer needed and retraining of the model was required to address the issues.
+Even though we were experiencing issues with the model, we were satisfied with the performance due to where the camera would be mounted on the robot arm so that close up images could be used for verification. Since the model performed well close up, we were confident this solution was viable. However, upon further inspection the control loop was redesigned to keep efficiency a priority due to the target customer. A camera on the robotic arm would have forced the arm to return to a high overseeing position to view the entire workspace before acting. This would have reduced the efficiency by at least 30%. Thus, the camera mounting position was moved to a fixed birds-eye view position over the robot. This meant close up verification was no longer needed and retraining of the model was required to address the issues.
 
 **YOLO model 2 (black seeds)**
 
@@ -155,7 +155,7 @@ It was suggested by Mitch Torok (A tutor for the course) to train with at least 
 ### 3D Positions
 The YOLO model was trained to generate bounding boxes around identified ingredients. These bounding boxes could be used to identify the centroid of the ingredient in pixel position. Using these pixel coordinates we could also obtain the depth (straight line distance) from the camera to the ingredient using the /camera/camera/rgbd topic.
 
-Then using the camera intrinsics published by the realsense package. A pinhome formula could be used from the focal length and centre line position to create a mapping from pixel position and depth to real 3D coordinates in the camera frame. The image below displays the result of this calculation.
+Then using the camera intrinsics published by the realsense package. A pinhole formula could be used from the focal length and centre line position to create a mapping from pixel position and depth to real 3D coordinates in the camera frame. The image below displays the result of this calculation.
 
 <img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/camera_frame_position.png" />
 
@@ -163,10 +163,10 @@ However, these positions could not yet be used by the MoveIt node since the goal
 
 <img width="500" height="500" alt="YOLO model 2 camera footage" src="readme_imgs/base_frame_position.png" />
 
-In practice when moving the robot to pick up ingredients it did experience offset errors. We could not identify whether it was due to skew of the camera or inaccuracies in the static transformation for the camera position. Thus, we manually tuned the ingredient positions using manual offsets calculated by comparing the computer vision position against the moveIt arm position and applying an average.
+In practice when moving the robot to pick up ingredients it did experience offset errors. We could not identify whether it was due to skew of the camera or inaccuracies in the static transformation for the camera position. Thus, we manually tuned the ingredient positions using manual offsets calculated by comparing the computer vision position against the MoveIt arm position and applying an average.
 
 ### Collision Objects
-Dynamic collision objects are required so that the end effector does not squish other ingredients and also ensures reliable picking. To dynamically create the collision objects the positions of the ingredients are published so that the moveIt node can subscribe to the topic and publish the collision objects appropriately. All collision objects are fixed cylinder sizes and had to be tall enough to collide with the end effector collision box. All ingredients are considered collision objects except for the target so that the end effector can interact with it without triggering a collision.
+Dynamic collision objects are required so that the end effector does not squish other ingredients and also ensures reliable picking. To dynamically create the collision objects the positions of the ingredients are published so that the MoveIt node can subscribe to the topic and publish the collision objects appropriately. All collision objects are fixed cylinder sizes and had to be tall enough to collide with the end effector collision box. All ingredients are considered collision objects except for the target so that the end effector can interact with it without triggering a collision.
 
 Below is an image of the collision objects in the scene in RVIZ (the green cylinders are the collision objects)
 
@@ -328,7 +328,7 @@ If no valid plan can be found after exhausting all orientations, MoveIt commands
 This MoveIt-based planning strategy enables reliable, closed-loop adaptation by continuously integrating updated perception data with flexible, collision-aware motion generation.
 
 #### UR5e Arm Control (Moveit)
-The implementation of moveit for our solution had 3 requirements:
+The implementation of MoveIt for our solution had 3 requirements:
 - The TCP must face downwards at all times.
 - The robot must avoid all collisions, including ingredients and the environment.
 - The motion must be efficient.
@@ -344,7 +344,7 @@ By using only Cartesian planning, the robot’s movements remain intuitive, cons
 
 ## Installation and Setup
 ### OS and ROS2
-The system runs best on native linux machines specifially development for this project was conducted in Ubuntu 22.04.5 LTS. Regardless of operating system, the ROS2 Humble distro is required for operation. Please follow the official installation guide for further details [here](https://docs.ros.org/en/humble/Installation.html).
+The system runs best on native Linux machines specifically development for this project was conducted in Ubuntu 22.04.5 LTS. Regardless of operating system, the ROS2 Humble distro is required for operation. Please follow the official installation guide for further details [here](https://docs.ros.org/en/humble/Installation.html).
 
 ### Software Installation
 All of the following installation instructions will assume that you are using a linux (debian) based machine so please modify instructions according to your specific machine.
@@ -392,7 +392,7 @@ At this stage everything will run but to obtain accurate positioning from the ca
 ### Hardware Setup
 This section will outline how to setup the camera, teensy, end effector and connecting to UR5e.
 ### Camera
-The computer vision has been designed to look down on the workbench as a birds eye view. This meant we had to create our own bracket mounting system that can be seen in the models and demonstrations. The offset of camera from the base of the UR5e for our setup is x=0.61m, y=0.2305, z=0.915, yaw=0, pitch=0, roll=3.14 but these values will need to be modified if attempting to recreate our solution. An model of this camera mount can be seen below.
+The computer vision has been designed to look down on the workbench as a birds eye view. This meant we had to create our own bracket mounting system that can be seen in the models and demonstrations. The offset of camera from the base of the UR5e for our setup is x=0.61m, y=0.2305, z=0.915, yaw=0, pitch=0, roll=3.14 but these values will need to be modified if attempting to recreate our solution. A model of this camera mount can be seen below.
 
 <img width="400" height="350" alt="camera mount image" src="readme_imgs/camera_mount.png">
 
@@ -471,7 +471,7 @@ Since this node can be run independtly from the rest of the system, it can also 
 ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'cartesian', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'FULL'}"
 ```
 
-The following command is also useful to send the robot to the home position without any constraints using joint planning. This is useful for debugging moveit as well to relax constraints since moveit can be difficult to work with.
+The following command is also useful to send the robot to the home position without any constraints using joint planning. This is useful for debugging MoveIt as well to relax constraints since MoveIt can be difficult to work with.
 ```
 ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'joint', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'NONE'}"
 ```
@@ -526,19 +526,18 @@ Ingredient Collision Robustness Test: https://youtu.be/D7P5NxirLQY
 ### Evaluation of System Robustness, Adaptability, and Innovation
 
 **Robustness**
-- The solution exhibits many areas of robust operation. Namely, the ability for the moveit implementation to repeatedly move the UR5e to accurate coordinates and pose without unexpected behaviours is a major requirement and something that this solution does extremely well. 
-Upon implementing the cartestian path planning method for moveit, any innacuracies or failures were completely mitigated. This greatly benefits robot safety with the safety planes now acting as backup precautions instead of the main constraint upon path planning. The current moveit
- implementation could very easily integrate into the desired fast-food industry and support accurate and safe path planning.
+- The solution exhibits many areas of robust operation. Namely, the ability for the MoveIt implementation to repeatedly move the UR5e to accurate coordinates and pose without unexpected behaviours is a major requirement and something that this solution does extremely well. 
+Upon implementing the cartesian path planning method for MoveIt, any inaccuracies or failures were completely mitigated. This greatly benefits robot safety with the safety planes now acting as backup precautions instead of the main constraint upon path planning. The current MoveIt implementation could very easily integrate into the desired fast-food industry and support accurate and safe path planning.
 
 - Another strong area for this solution is the end effector itself, it provides significant repeatability, although it has been observed to fail on particularly rough parts of the UR5e table due to the spatula-grippers sliding along the table and getting caught on uneven surfaces or bolt holes. 
-However, this is a relatively rare occurance and could be mitigated through further development and better manufacturing processes. The end effector is capable of manipulating any of the proposed ingredients, including extremly thin ingredient (~1mm thick) which was one of the major design requirements.
+However, this is a relatively rare occurrence  and could be mitigated through further development and better manufacturing processes. The end effector is capable of manipulating any of the proposed ingredients, including extremely thin ingredient (~1mm thick) which was one of the major design requirements.
 
 - The computer vision solution using YOLO works very well, by training the model on both the desired ingredients and false objects, it can now accurately identify ingredient types and positions as well as eliminate any non-ingredient from the selection. It updates extremely fast and exhibits high confidence levels. 
 An area in which this solution can struggle is when the UR5e table is not made from darker wooden panels as this was the environment on which the YOLO model was trained. This yields lower confidence levels and some flickering behaviours, especially for smaller ingredients. The closed loop solution is capable of handling
 this to an adequate extent, however, and will wait until the ingredient becomes available upon which the production will continue.
 
 **Adaptability**
-- The end effector is extremely adapatable and offers an easily scalable solution towards larger ingredients and a more food safe material selection (simply swap out the spatula grippers by unscrewing them). It also has the capability to adapt to errors within the solution through its suspension system which protects it from
+- The end effector is extremely adaptable and offers an easily scalable solution towards larger ingredients and a more food safe material selection (simply swap out the spatula grippers by unscrewing them). It also has the capability to adapt to errors within the solution through its suspension system which protects it from
 crushing if it were to be forced into the UR5e table.
 
 - The closed loop implementation offers a high level of adaptability to environmental changes, however, it can be slow to do so due to solution constraints involving the camera feed being blocked by the UR5e during the pick and place state. This means that updates to ingredient positions can only occur at the home state which
@@ -546,20 +545,20 @@ has been specifically chosen to provide an unobstructed view for the camera. Ove
 
 **Innovation**
 - There are currently very few industry solutions for sandwich building robots due to the complexities of manipulating these sorts of objects. Burger ingredients have a high level of variability and so current methods often employ multi-stage, assembly-line type solutions with end-effectors only suitable to one or two ingredient
-types per-robot on the line. This is an inneffective solution for fast food chains which often do not have a large amount of space to install such a system at high cost. The proposed end effector is designed to handle any forseeable burger ingredient, with scalability and ingredient care in mind. The end effector solution has proven to successfully contribute to this design area by fully assembling burgers with ingredients of varying diameter, thickness, rigidity and softness. However, wet ingredients are still yet to be tested even though its designed for it.
+types per-robot on the line. This is an ineffective solution for fast food chains which often do not have a large amount of space to install such a system at high cost. The proposed end effector is designed to handle any foreseeable burger ingredient, with scalability and ingredient care in mind. The end effector solution has proven to successfully contribute to this design area by fully assembling burgers with ingredients of varying diameter, thickness, rigidity and softness. However, wet ingredients are still yet to be tested even though its designed for it.
 
-- Another area of innovation was the dynamically updating ingredient collision box implementation. This successfully solved a unique problem with the end effector design, in which, the spatulas can drop onto other ingredients during pick operation, thereby jamming the system or causing unpredictability. By applying tall collision boxes to all ingredients except for the target, the moveit path planning package can be used to return failed path plans if the end effector would crush an ingredient. The TCP can be rotated until a valid path plan is found (the end effector is clear below) and operation can continue. The solution to utilise innate path planning methods in moveit to solve an otherwise complex mathematical task adds to the innovation of this project.
+- Another area of innovation was the dynamically updating ingredient collision box implementation. This successfully solved a unique problem with the end effector design, in which, the spatulas can drop onto other ingredients during pick operation, thereby jamming the system or causing unpredictability. By applying tall collision boxes to all ingredients except for the target, the MoveIt path planning package can be used to return failed path plans if the end effector would crush an ingredient. The TCP can be rotated until a valid path plan is found (the end effector is clear below) and operation can continue. The solution to utilise innate path planning methods in MoveIt to solve an otherwise complex mathematical task adds to the innovation of this project.
 
 
 ## Discussion and Future Work
 **Major Engineering Challenges and Solutions** 
 - One of the largest challenges with the design of the end effector was ensuring that ingredients could be reliably released by the jaws at a repeatable location. Because the spatulas slide under the ingredients, when they re-open slight differences of friction and stickiness causes the ingredient to remain stuck on one side of the two gripper spatulas. This prevents reliable drop operation. To mitigate this, a centralised spring loaded holding pick featuring a studded base can be used to apply pressure from above while preventing lateral ingredient movement upon opening. This also applies force onto the burger stack to ensure ingredients are placed accurately and reliably. In addition, this implementation allows the end effector to be posed at any orientation, including fully upside down without ingredients slipping out.
 
-- Moveit integration into the ROS solution posed a significant challenge with unrelaible path planning and unpredictable behaviours. The solution requires extremely accurate UR5e arm positioning to reliably stack burgers. The moveit issues were completely mitigated through using cartesian path planning which provides a reliable solution to this engineering problem.
+- MoveIt integration into the ROS solution posed a significant challenge with unreliable path planning and unpredictable behaviours. The solution requires extremely accurate UR5e arm positioning to reliably stack burgers. The MoveIt issues were completely mitigated through using cartesian path planning which provides a reliable solution to this engineering problem.
 
 - As discussed in the innovation section, there was an issue of ingredients being below the end effector as it lowered, if the jaws collided with these ingredients unintentionally it would cause significant failures to the solution. This was mitigated through adding collision boxes to all ingredients except the target to generate an accurate ingredient avoidance path planning solution.
 
-- The resolution of the RGB-D camera was too minimal to allow for the side mounted computer vision implmentation. Because some ingredients are exceedingly small (pickles) the YOLO model could not accurately identify these ingredients from a far distance. To remedy this issue the camera was placed from above, giving a clearer view of the UR5e table. The camera mount was developed such that the camera was aligned with the centroid of the work area defined by the 10 table bolt holes.
+- The resolution of the RGB-D camera was too minimal to allow for the side mounted computer vision implementation. Because some ingredients are exceedingly small (pickles) the YOLO model could not accurately identify these ingredients from a far distance. To remedy this issue the camera was placed from above, giving a clearer view of the UR5e table. The camera mount was developed such that the camera was aligned with the centroid of the work area defined by the 10 table bolt holes.
 
 **Future Improvements**
 - Adding mold detection to YOLO and the ability to drop bad ingredients into a bin location. 
@@ -581,7 +580,7 @@ types per-robot on the line. This is an inneffective solution for fast food chai
 - Maintained meeting minutes and managed task deadlines
 
 **Reynold Chu (z5417921) - Mechatronics Engineer** 
-- Responsible for developing the moveit solution:
+- Responsible for developing the MoveIt solution:
     - Successfully implemented MoveIt to fulfil all motion-planning requirements
     - Designed a custom action interface enabling the action server to send motion commands to MoveIt
 - Responsible for system visualisation:
@@ -693,7 +692,7 @@ arduino_controller
 └── src
 └── gripper_serial_node.cpp
 ```
-This package is reponsible for communicating to the teensy microcontroller over the serial port. It also contains the program that is run on the teensy to control the end effector. The node is interacted with by the brain via a service call which sends either 'o' or 'c' corresponding to either open or close.
+This package is responsible for communicating to the teensy microcontroller over the serial port. It also contains the program that is run on the teensy to control the end effector. The node is interacted with by the brain via a service call which sends either 'o' or 'c' corresponding to either open or close.
 
 ### Brain
 Contains the brain node source code that is responsible for interacting with the entire system, coordinating different componets.
@@ -802,4 +801,4 @@ Contains source code for the user input node responsible for interacting with th
 - We would like to acknowledge the other teams that undertook the course and was able to assist us
 with the issues experienced when programming the arm with MoveIt.
 
-- Demonstrators (Alex Cronin and David Nie) and the lecturer (Dr Will Midgley) have played a crucial role in developing this solution by providing their personal experience, tips and and technical knowledge for debugging and learning how to use ROS2.
+- Demonstrators (Alex Cronin and David Nie), head demo (Mitchell Torok) and the course convenor (Dr Will Midgley) have played a crucial role in developing this solution by providing their personal experience, tips and technical knowledge for debugging and learning how to use ROS2.
