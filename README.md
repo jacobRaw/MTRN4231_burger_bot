@@ -473,7 +473,7 @@ ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{comm
 
 The following command is also useful to send the robot to the home position without any constraints using joint planning. This is useful for debugging MoveIt as well to relax constraints since MoveIt can be difficult to work with.
 ```
-ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'joint', positions: [0.15, 0.490, 0.3, 3.1415926536, 0.0, -1.5707963268], constraints_identifier: 'NONE'}"
+ros2 action send_goal /moveit_path_plan custom_interfaces/action/Movement "{command: 'joint', positions: [-1.3, 1.57, -1.83, -1.57, 0.0, 0.0], constraints_identifier: 'NONE'}"
 ```
 
 ### Troubleshooting
