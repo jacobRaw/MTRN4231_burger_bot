@@ -1,6 +1,5 @@
 """
 usage ros2 launch moveit_path_planner arm_server_launch.py robot_ip:=192.168.0.100 use_fake_hardware:='false' 
-
 """
 
 import launch
@@ -12,6 +11,7 @@ from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.conditions import IfCondition
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
@@ -119,6 +119,14 @@ def generate_launch_description():
         }.items()
     )
 
+    # include the arduino gripper launch file only if running on real hardware
+    arduino_launch_path = os.path.join(this_dir, "arduino.launch.py")
+
+    arduino_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(arduino_launch_path),
+        condition=IfCondition(use_fake),
+    )
+
 
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
@@ -133,18 +141,12 @@ def generate_launch_description():
         ],
     )
 
-    end_effector_server = Node(
-        package="arduino_controller",
-        executable="gripper_serial_node",
-        parameters=[{"serial_port": "/dev/ttyACM0"}],
-    )
-
     return launch.LaunchDescription(
         declared_args +
         [
             ur_startup,
+            arduino_launch,
             planning_server,
-            end_effector_server
         ]
         
     )

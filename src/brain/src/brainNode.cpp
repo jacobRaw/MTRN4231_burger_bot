@@ -64,12 +64,15 @@ public:
   : Node("brainNode", options)
   {
     RCLCPP_INFO(this->get_logger(), "BrainNode has started.");
+	this->declare_parameter<bool>("use_fake_hardware", true);
+    this->get_parameter("use_fake_hardware", use_fake_hardware_);
 
     using namespace std::placeholders;
 
+	RCLCPP_INFO(this->get_logger(), "Use fake hardware: %s", use_fake_hardware_ ? "true" : "false");
     // service call the arduino to control the gripper
     this->gripper_client_ = this->create_client<custom_interfaces::srv::GripperServer>("gripper_server");
-    while (rclcpp::ok() && !GRIPPER_DISABLED && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
+    while (rclcpp::ok() && !use_fake_hardware_ && !gripper_client_->wait_for_service(std::chrono::seconds(1)))
     {
       RCLCPP_INFO(get_logger(), "Waiting on Arduino Server to become available...");
     }
@@ -118,6 +121,8 @@ public:
 
 private:
 	// ROS communication objects
+	// ROS paramter to set whether fakehardware is used so we can skip gripper commands
+	bool use_fake_hardware_;
 	// action server for the input node
 	rclcpp_action::Server<action_interface>::SharedPtr action_server_;
 	std::shared_ptr<GoalHandleOrderRequest> active_goal_;
@@ -158,7 +163,6 @@ private:
 	static constexpr int GRIPPER_WAIT_TIME = 1000;
 	const std::string GRIPPER_CLOSE_CMD = "c";
 	const std::string GRIPPER_OPEN_CMD = "o";
-	static constexpr bool GRIPPER_DISABLED = true;
 	
 	/********************MAIN STATE LOOP********************/
 	/**
@@ -249,7 +253,8 @@ private:
 			double num_step = 10;
 			double orien = 0.0;
 			bool found_solution = false;
-			for (double i = z_rot; i <= PI/2.0; i += (PI/num_step)) {
+			double max_rot = (170 * PI) / 180.0;
+			for (double i = z_rot; i <= max_rot + z_rot; i += (max_rot/num_step)) {
 				// rotate first
 				send_arm_dest({target_position[0], target_position[1], HOVER_HEIGHT, PI, 0.0, i});
 				// then try moving down
@@ -468,18 +473,16 @@ private:
 
 	/**************************GRIPPER SERVER HANDLERS ************************** */
 	void gripper_server_response(const rclcpp::Client<custom_interfaces::srv::GripperServer>::SharedFuture future) {
+		return;
 		auto response = future.get();
-		if (GRIPPER_DISABLED) {
-		return;
-		}
 		if (!response) {
-		RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
-		return;
+			RCLCPP_ERROR(this->get_logger(), "Failed to call gripper server");
+			return;
 		} else if (!response->success) {
-		RCLCPP_ERROR(this->get_logger(), "The gripper server reported failure: %s", response->message.c_str());
-		return;
+			RCLCPP_ERROR(this->get_logger(), "The gripper server reported failure: %s", response->message.c_str());
+			return;
 		} else {
-		RCLCPP_INFO(this->get_logger(), "Gripper command succeeded");
+			RCLCPP_INFO(this->get_logger(), "Gripper command succeeded");
 		}
 	}
 
@@ -677,8 +680,8 @@ private:
 		request->command = command;
 
 		auto future_result = gripper_client_->async_send_request(
-		request,
-		std::bind(&BrainNode::gripper_server_response, this, std::placeholders::_1)
+			request,
+			std::bind(&BrainNode::gripper_server_response, this, std::placeholders::_1)
 		);
 		std::this_thread::sleep_for(std::chrono::milliseconds(GRIPPER_WAIT_TIME)); 
 	}

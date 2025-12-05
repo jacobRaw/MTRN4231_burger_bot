@@ -1,12 +1,8 @@
-import launch
 from launch.substitutions import PathJoinSubstitution
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription, TimerAction
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     realsense_pkg = FindPackageShare('realsense2_camera').find('realsense2_camera')
@@ -67,12 +63,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # DeclareLaunchArgument('static_broadcaster', default_value='shape1', description='Namespace for shape1 marker node'),
-        # DeclareLaunchArgument('dynamic_broadcaster', default_value='shape2', description='Namespace for shape2 marker node'),
         realsense_activate,
         delayed_transform,
         delayed_perception,
         perception_marker_activate
     ])
-
-## Installing Package https://github.com/realsenseai/librealsense/blob/master/doc/distribution_linux.md
