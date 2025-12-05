@@ -273,9 +273,9 @@ The perception marker node is responsible for taking the published ingredient po
 
 
 
-      
 - Exploded Render:
 <img width="1529" height="1116" alt="ExplodedRender" src="https://github.com/user-attachments/assets/144b7d39-be0a-4d3e-87c2-f121c1c3149f" />
+
 
 
 **Control Overview and ROS Integration Details**
@@ -296,10 +296,19 @@ The perception marker node is responsible for taking the published ingredient po
 
 
 ### System Visualisation 
-- explain how your system is visualised (e.g. RViz) and what it demonstrates.
+System visualisation for the UR5e platform was achieved through RViz2, which acted as the main interface for observing the robot, its end effector, and the workspace in real time. RViz2 displayed joint states, link poses, and planned trajectories, providing a human-readable representation of the system that allowed safe remote supervision before and during execution.
+A detailed URDF/Xacro model was constructed to accurately represent the physical robot and environment. The end effector was imported as an OBJ mesh, preserving its full colour and geometry to make its orientation and contact surfaces easy to interpret visually. The table and surrounding workspace were also modelled in URDF. These components were combined in a master Xacro file, where the end effector was rigidly attached to the UR5e by a fixed joint to tool0.
+
+To support safe and realistic motion planning, collision geometry was added throughout the scene. A collision box was placed around the table to prevent unsafe trajectories, and an additional collision box was placed around the end effector. Importantly, this collision box was not a full envelope—it was intentionally shaped to allow the lower contact surfaces of the end effector to reach the table. This ensured the robot could physically pick up ingredients while still preventing collisions with other parts of the tool.
+
+Overall, the system visualisation demonstrated the combined robot model, its environment, collision geometry, and live state feedback, providing an accurate and robust representation that supported both motion planning and execution.
+
 
 - Table render for visualisation
 <img width="1161" height="1015" alt="UR5e Table" src="https://github.com/user-attachments/assets/a4ca3fb6-6cdc-4276-8b8a-c7ffc7c1075e" />
+
+- Robot State in RViz
+<img width="1161" height="1015" alt="Robot State Rviz" src="" />
 
 
 ### Closed-Loop Operation 
